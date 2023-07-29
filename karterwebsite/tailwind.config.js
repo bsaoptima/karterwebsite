@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'alliance': ["Alliance", "sans-serif"],
+        'sfprodisplay': ["SFProDisplay", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 }
