@@ -108,14 +108,14 @@ function SolutionsSection({ solutionsRef }) {
           </p>
         </div>
         <div className="flex flex-col gap-y-8 md:flex-row md:gap-x-5 justify-center">
-          <div className="flex flex-col gap-y-8 bg-white p-10 w-full md:w-1/3">
+          <div id="mainDiv" className="flex boxItem flex-col gap-y-8 bg-white p-10 w-full md:w-1/3">
             {/* TEAM */}
             <div className="flex items-center justify-center">
               <img src={team} height={60} width={60} />
             </div>
-            <p className="text-lg text-center font-alliance">Build your teams remotely</p>
+            <p className="text-lg text-center font-alliance hoveredText">Build your teams remotely</p>
             <div className="h-[1.5px] bg-gray-300"></div>
-            <p className="font-alliance">
+            <p className="font-alliance ">
               Hire developers part-time to work in your company with a fixed
               day-rate.
             </p>
@@ -129,12 +129,12 @@ function SolutionsSection({ solutionsRef }) {
             </p>
           </div>
   
-          <div className="flex flex-col gap-y-8 bg-white p-10 w-full md:w-1/3">
+          <div id="mainDiv" className="flex flex-col rounded boxItem gap-y-8 bg-white p-10 w-full md:w-1/3">
             {/* PRODUCT */}
             <div className="flex items-center justify-center">
               <img src={product} height={60} width={60} />
             </div>
-            <p className="text-lg text-center font-alliance">Product Development</p>
+            <p className="text-lg text-center font-alliance hoveredText">Product Development</p>
             <div className="h-[1.5px] bg-gray-300"></div>
             <p className="font-alliance">
               Build your products with our developers led by our project managers.
@@ -153,12 +153,12 @@ function SolutionsSection({ solutionsRef }) {
             </div>
           </div>
   
-          <div className="flex flex-col gap-y-8 bg-white p-10 w-full md:w-1/3">
+          <div id="mainDiv" className="flex flex-col rounded boxItem gap-y-8 bg-white p-10 w-full md:w-1/3">
             {/* GRADUATE */}
             <div className="flex items-center justify-center">
               <img src={graduate} height={60} width={60} />
             </div>
-            <p className="text-lg text-center font-alliance">Hire top graduate talent</p>
+            <p className="text-lg text-center font-alliance hoveredText">Hire top graduate talent</p>
             <div className="h-[1.5px] bg-gray-300"></div>
             <p className="font-alliance">
               We are gathering and vetting the brightest students throughout the
@@ -185,7 +185,7 @@ function SolutionsSection({ solutionsRef }) {
   function QuoteSection() {
     return (
       <div className="flex flex-col">
-        <figure className="bg-[#E7E7E7] mx-auto text-center px-10 md:px-40 pb-10 md:pb-28">
+        <figure className="bg-[#F6F9FC] mx-auto text-center px-10 md:px-40 pb-10 md:pb-28">
           <svg
             className="w-10 h-10 mx-auto mb-3 text-gray-400 dark:text-gray-600"
             aria-hidden="true"
@@ -215,7 +215,7 @@ function SolutionsSection({ solutionsRef }) {
             </div>
           </figcaption>
         </figure>
-        <figure className="bg-[#E7E7E7] mx-auto text-center px-10 md:px-40 pb-20 md:pb-40">
+        <figure className="bg-[#F6F9FC] mx-auto text-center px-10 md:px-40 pb-20 md:pb-40">
           <svg
             className="w-10 h-10 mx-auto mb-3 text-gray-400 dark:text-gray-600"
             aria-hidden="true"
