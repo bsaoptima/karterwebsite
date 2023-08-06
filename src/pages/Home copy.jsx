@@ -7,7 +7,6 @@ import { useInView } from 'react-intersection-observer';
 import product from '../assets/technology.png'
 import team from '../assets/cpu.png'
 import graduate from '../assets/touch.png'
-import rocket from '../assets/rocket.png'
 
 
 export default function HomePage() {
@@ -93,7 +92,7 @@ function MapSection() {
             </p>
             <button>
               <div className="bg-[#DE4321] w-60 py-3 px-6 md:py-5 md:px-10 text-white font-alliance">
-                <p className="text-white">Access our Network</p>
+                <p className="text-white">Contact us</p>
               </div>
             </button>
           </div>
@@ -116,6 +115,7 @@ function StatsSection() {
         <div className="flex flex-col gap-y-2 justify-start p-8 bg-white">
           <p className="font-alliance text-2xl">8+</p>
           <p className="font-alliance">Projects completed in <br/> under one year</p>
+          <p className="font-alliance">Projects completed in <br/> under one year</p>
         </div>
         <div className="flex flex-col gap-y-2 justify-start p-8 bg-white">
           <p className="font-alliance text-2xl">Started in</p>
@@ -135,39 +135,70 @@ function SolutionsSection({ solutionsRef }) {
           </p>
         </div>
         <div className="flex flex-col gap-y-8 md:flex-row md:gap-x-5 justify-center">
-          <div id="mainDiv" className="flex boxItem flex-col gap-y-5 bg-white w-full md:w-1/3">
+          <div id="mainDiv" className="flex boxItem flex-col gap-y-8 bg-white p-10 w-full md:w-1/3">
             {/* TEAM */}
-            <div className="overflow-hidden hoveredSolution transition-basis ease-in-out duration-300">
-              <img src={rocket}/>
+            <div className="flex items-center justify-center">
+              <img src={team} height={60} width={60} />
             </div>
-            <p className="text-xl font-alliance hoveredText px-10">Build your teams remotely</p>
-            <p className="font-alliance px-10">
-              Hire developers part-time to work in your company with a fixed
-              day-rate.
-            </p>
-          </div>
-  
-          <div id="mainDiv" className="flex flex-col rounded boxItem gap-y-5 bg-white w-full md:w-1/3">
-            {/* PRODUCT */}
-            <div className="p-5 rounded-lg hoveredSolution transition-basis ease-in-out duration-300">
-
-            </div>
-            <p className="text-xl font-alliance hoveredText px-10">Product Development</p>
-            <p className="font-alliance px-10">
-              Hire developers part-time to work in your company with a fixed
-              day-rate.
-            </p>
-          </div>
-  
-          <div id="mainDiv" className="flex flex-col rounded boxItem gap-y-5 bg-white p-10 w-full md:w-1/3">
-            {/* GRADUATE */}
-            <div className="p-5 rounded-lg hoveredSolution transition-basis ease-in-out duration-300">
-
-            </div>
-            <p className="text-xl font-alliance hoveredText">Hire top graduate talent</p>
+            <p className="text-lg text-center font-alliance hoveredText">Build your teams remotely</p>
+            <div className="h-[1.5px] bg-gray-300"></div>
             <p className="font-alliance ">
               Hire developers part-time to work in your company with a fixed
               day-rate.
+            </p>
+            <p className="font-alliance">
+              Plug and play. Work remotely with the brightest students in their
+              fields.
+            </p>
+            <p className="font-alliance">
+              Leverage the area of expertise of each university to build a team
+              fit for all your needs and business divisions.
+            </p>
+          </div>
+  
+          <div id="mainDiv" className="flex flex-col rounded boxItem gap-y-8 bg-white p-10 w-full md:w-1/3">
+            {/* PRODUCT */}
+            <div className="flex items-center justify-center">
+              <img src={product} height={60} width={60} />
+            </div>
+            <p className="text-lg text-center font-alliance hoveredText">Product Development</p>
+            <div className="h-[1.5px] bg-gray-300"></div>
+            <p className="font-alliance">
+              Build your products with our developers led by our project managers.
+            </p>
+            <p className="font-alliance">
+              From design to deployment and maintenance, we assist you all the way.
+            </p>
+            <div className="flex flex-col">
+              <p className="font-alliance">We handle:</p>
+              <ul className="ml-2 list-disc list-inside font-alliance">
+                <li>Software engineering (MVPs, internal tools, ...)</li>
+                <li>Data engineering & analytics</li>
+                <li>Product benchmarking & commercial strategy</li>
+                <li>Business automations</li>
+              </ul>
+            </div>
+          </div>
+  
+          <div id="mainDiv" className="flex flex-col rounded boxItem gap-y-8 bg-white p-10 w-full md:w-1/3">
+            {/* GRADUATE */}
+            <div className="flex items-center justify-center">
+              <img src={graduate} height={60} width={60} />
+            </div>
+            <p className="text-lg text-center font-alliance hoveredText">Hire top graduate talent</p>
+            <div className="h-[1.5px] bg-gray-300"></div>
+            <p className="font-alliance">
+              We are gathering and vetting the brightest students throughout the
+              United Kingdom.
+            </p>
+            <p className="font-alliance">
+              Contact us to recruit top graduate talent and tap into our network
+              to advertise positions.
+            </p>
+            <p className="font-alliance">
+              Loremazea az eazeoapi cqs poqscioqpc soci qscoiq scpoiqsc iopic
+              qscqscqscpoi qscopio qscpoqisc qpociq pociqsopci qsopciqs coiqs
+              cpqsoic qspcqiosciqs cqoscpi
             </p>
           </div>
         </div>
@@ -183,7 +214,7 @@ function SolutionsSection({ solutionsRef }) {
       <div className="flex flex-col">
         <figure className="bg-[#F6F9FC] mx-auto text-center px-10 md:px-40 pb-10 md:pb-28">
           <svg
-            className="w-10 h-10 mx-auto mb-3 text-gray-400"
+            className="w-10 h-10 mx-auto mb-3 text-gray-400 dark:text-gray-600"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="#16B6DF"
@@ -192,7 +223,7 @@ function SolutionsSection({ solutionsRef }) {
             <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
           </svg>
           <blockquote>
-            <p className="text-md md:text-2xl font-alliance text-gray-900">
+            <p className="text-md md:text-2xl font-alliance text-gray-900 dark:text-white">
               "I joined Karter to utilize the data analytical skills I have
               developed over my current internship and apply these skills to have
               a rewarding impact on clients. Working with Karter has enabled me to
@@ -201,11 +232,11 @@ function SolutionsSection({ solutionsRef }) {
             </p>
           </blockquote>
           <figcaption className="flex items-center justify-center mt-6 space-x-3">
-            <div className="flex items-center divide-x-2 divide-gray-500">
-              <cite className="pr-3 font-medium text-gray-900 ">
+            <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
+              <cite className="pr-3 font-medium text-gray-900 dark:text-white">
                 Abhirup
               </cite>
-              <cite className="pl-3 text-sm text-gray-500">
+              <cite className="pl-3 text-sm text-gray-500 dark:text-gray-400">
                 Student at the University of Birmingham
               </cite>
             </div>
@@ -213,7 +244,7 @@ function SolutionsSection({ solutionsRef }) {
         </figure>
         <figure className="bg-[#F6F9FC] mx-auto text-center px-10 md:px-40 pb-20 md:pb-40">
           <svg
-            className="w-10 h-10 mx-auto mb-3 text-gray-400"
+            className="w-10 h-10 mx-auto mb-3 text-gray-400 dark:text-gray-600"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="#16B6DF"
@@ -222,7 +253,7 @@ function SolutionsSection({ solutionsRef }) {
             <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
           </svg>
           <blockquote>
-            <p className="text-md md:text-2xl font-alliance text-gray-900">
+            <p className="text-md md:text-2xl font-alliance text-gray-900 dark:text-white">
               "I joined Karter to utilize the data analytical skills I have
               developed over my current internship and apply these skills to have
               a rewarding impact on clients. Working with Karter has enabled me to
@@ -231,11 +262,11 @@ function SolutionsSection({ solutionsRef }) {
             </p>
           </blockquote>
           <figcaption className="flex items-center justify-center mt-6 space-x-3">
-            <div className="flex items-center divide-x-2 divide-gray-500">
-              <cite className="pr-3 font-medium text-gray-900">
+            <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
+              <cite className="pr-3 font-medium text-gray-900 dark:text-white">
                 Abhirup
               </cite>
-              <cite className="pl-3 text-sm text-gray-500">
+              <cite className="pl-3 text-sm text-gray-500 dark:text-gray-400">
                 Student at the University of Birmingham
               </cite>
             </div>

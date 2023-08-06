@@ -1,17 +1,40 @@
-import React, {useState} from "react";
+import React, { useState, useRef } from "react";
 import './Contact.css'
-
+import emailjs from 'emailjs-com'
 
 export default function ContactPage() {
 
     const [email, setEmail] = useState("");
-    const [subject, setSubject] = useState("");
+    const [fullname, setFullname] = useState("");
     const [message, setMessage] = useState("");
 
-    const sendEmail = () => {
-        console.log(email);
-        console.log(subject);
-        console.log(message);
+
+    const sendEmail = (e) => {
+      e.preventDefault();
+
+      // Replace these values with your own User ID, Service ID, and Template ID from EmailJS
+      const emailJSUserId = "cnVadq1cGJ3a_h7zg";
+      const serviceId = "service_hvg2hoa";
+      const templateId = "template_gtxyr0g";
+    
+      // Set the email parameters using the states
+      const emailParams = {
+        to_email: email,
+        from_name: fullname,
+        message: message,
+      };
+    
+      // Send the email using the EmailJS API
+      emailjs
+        .send(serviceId, templateId, emailParams, emailJSUserId)
+        .then((response) => {
+          console.log("Email sent successfully!", response);
+          // You can add a success message or perform any other actions here
+        })
+        .catch((error) => {
+          console.error("Error sending email:", error);
+          // You can display an error message to the user if the email fails to send
+        });
     }
 
     return (
@@ -41,24 +64,24 @@ export default function ContactPage() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                      placeholder="name@flowbite.com"
+                      placeholder="name@company.com"
                       required
                     />
                   </div>
                   <div>
                     <label
-                      for="subject"
+                      for="fullname"
                       class="block mb-2 text-sm font-alliance text-gray-900 dark:text-gray-300"
                     >
-                      Subject
+                      Full Name
                     </label>
                     <input
                       type="text"
-                      id="subject"
-                      value={subject}
-                      onChange={(e) => setSubject(e.target.value)}
+                      id="fullname"
+                      value={fullname}
+                      onChange={(e) => setFullname(e.target.value)}
                       class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light"
-                      placeholder="Let us know how we can help you"
+                      placeholder="Let us know your first and last name"
                       required
                     />
                   </div>
