@@ -129,4 +129,14 @@ mark {
 }
 
 
-
+@media (max-width: 767px) {
+  .whitesections {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .whitesections > div {
+    width: 100%;
+    max-width: 300px; /* Adjust as needed */
+  }
+}
