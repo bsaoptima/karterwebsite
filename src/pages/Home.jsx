@@ -30,7 +30,7 @@ export default function HomePage() {
         <div className="relative scroll-smooth">
             <LandingSection scrollToContact={scrollToContact} scrollToSolutions={scrollToSolutions}/>
             <MapSection />
-            {/* <StatsSection /> */}
+            <StatsSection />
             <SolutionsSection solutionsRef={solutionsRef}/>
             <QuoteSection/>
             <ContactSection contactRef={contactRef} />
@@ -112,20 +112,20 @@ function MapSection() {
 {/* STATISTICS SECTION */}
 function StatsSection() {
     return (
-      <div className="whitesections grid grid-cols-2 md:flex md:flex-row gap-x-2 gap-y-2 md:gap-x-10 justify-center px-5 py-10 md:px-10 md:py-20">
-        <div className="flex flex-col gap-y-2 justify-start p-8 bg-white">
+      <div className="whitesections grid grid-cols-2 md:flex md:flex-row  gap-x-2 gap-y-2 md:gap-x-10 justify-center px-5 py-10 md:px-10 md:py-20">
+        <div className="flex flex-col gap-y-2 justify-center p-8 bg-white">
+          <p className="font-alliance text-xl md:text-2xl">Backed by</p>
+          <p className="font-alliance text-xs md:text-lg">UoB Elevate</p>
+        </div>
+        <div className="flex flex-col gap-y-2 justify-center p-8 bg-white">
           <p className="font-alliance text-xl md:text-2xl">2000+</p>
           <p className="font-alliance text-xs md:text-lg">STEM students <br/> in the United Kingdom</p>
         </div>
-        <div className="flex flex-col gap-y-2 justify-start p-8 bg-white">
+        <div className="flex flex-col gap-y-2 justify-center p-8 bg-white">
           <p className="font-alliance text-xl md:text-2xl">8+</p>
           <p className="font-alliance text-xs md:text-lg">Projects completed in <br/> under one year</p>
         </div>
-        <div className="flex flex-col gap-y-2 justify-start p-8 bg-white">
-          <p className="font-alliance text-xl md:text-2xl">Started in</p>
-          <p className="font-alliance text-xs md:text-lg">September 2022</p>
-        </div>
-        <div className="flex flex-col gap-y-2 justify-start p-8 bg-white">
+        <div className="flex flex-col gap-y-2 justify-center p-8 bg-white">
           <p className="font-alliance text-xl md:text-2xl">Started in</p>
           <p className="font-alliance text-xs md:text-lg">September 2022</p>
         </div>
