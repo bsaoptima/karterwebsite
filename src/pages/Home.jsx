@@ -30,7 +30,7 @@ export default function HomePage() {
         <div className="relative scroll-smooth">
             <LandingSection scrollToContact={scrollToContact} scrollToSolutions={scrollToSolutions}/>
             <MapSection />
-            <StatsSection />
+            {/* <StatsSection /> */}
             <SolutionsSection solutionsRef={solutionsRef}/>
             <QuoteSection/>
             <ContactSection contactRef={contactRef} />
@@ -81,7 +81,7 @@ function MapSection() {
       <div className="relative">
         <div className="mapItem flex p-10 flex-col md:flex-row items-center h-auto md:h-[825px] w-auto md:gap-x-3">
           <div className="flex flex-col justify-center md:justify-start md:basis-1/2 gap-y-10 md:gap-y-16 md:pl-20 md:pr-10">
-            <p className="text-white text-3xl md:text-5xl font-alliance">
+            <p className="text-white text-3xl md:text-5xl font-sfprodisplay">
               Connect your business with <strong>tomorrow's</strong> best{" "}
               <strong>leaders</strong> and <strong>engineers</strong>
             </p>
@@ -138,7 +138,7 @@ function SolutionsSection({ solutionsRef }) {
     return (
       <div ref={solutionsRef} className="flex flex-col whitesections gap-y-20 justify-center px-5 py-10 md:pb-40 md:pt-20">
         <div className="mb-2 md:mb-16">
-          <p className="text-3xl md:text-6xl font-alliance text-center">
+          <p className="text-3xl md:text-6xl font-sfprodisplay text-center">
             How we help <strong>you</strong> and <strong>your business</strong>
           </p>
         </div>
