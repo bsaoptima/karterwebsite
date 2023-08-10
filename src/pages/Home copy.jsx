@@ -4,10 +4,14 @@ import { Link } from 'react-scroll';
 import './Home.css'
 import { useInView } from 'react-intersection-observer';
 
-import product from '../assets/technology.png'
-import team from '../assets/cpu.png'
+import product from '../assets/product.png'
+import team from '../assets/team.png'
 import graduate from '../assets/touch.png'
 import rocket from '../assets/rocket.png'
+import world from '../assets/world.png'
+
+import code from "../assets/code.png"
+import bulb from "../assets/bulb.png"
 
 
 export default function HomePage() {
@@ -91,11 +95,11 @@ function MapSection() {
               brilliant students to develop your products, promote your company,
               and hire top-notch graduate talent.
             </p>
-            <button>
+            {/* <button>
               <div className="bg-[#DE4321] w-60 py-3 px-6 md:py-5 md:px-10 text-white font-alliance">
                 <p className="text-white">Access our Network</p>
               </div>
-            </button>
+            </button> */}
           </div>
           <div className="flex flex-col md:basis-1/2">
             {/* Add content for the right side if needed */}
@@ -108,18 +112,22 @@ function MapSection() {
 {/* STATISTICS SECTION */}
 function StatsSection() {
     return (
-      <div className="whitesections flex flex-row gap-x-10 justify-center px-10 py-20">
+      <div className="whitesections grid grid-cols-2 md:flex md:flex-row gap-x-2 gap-y-2 md:gap-x-10 justify-center px-5 py-10 md:px-10 md:py-20">
         <div className="flex flex-col gap-y-2 justify-start p-8 bg-white">
-          <p className="font-alliance text-2xl">2000+</p>
-          <p className="font-alliance">STEM students <br/> in the United Kingdom</p>
+          <p className="font-alliance text-xl md:text-2xl">2000+</p>
+          <p className="font-alliance text-xs md:text-lg">STEM students <br/> in the United Kingdom</p>
         </div>
         <div className="flex flex-col gap-y-2 justify-start p-8 bg-white">
-          <p className="font-alliance text-2xl">8+</p>
-          <p className="font-alliance">Projects completed in <br/> under one year</p>
+          <p className="font-alliance text-xl md:text-2xl">8+</p>
+          <p className="font-alliance text-xs md:text-lg">Projects completed in <br/> under one year</p>
         </div>
         <div className="flex flex-col gap-y-2 justify-start p-8 bg-white">
-          <p className="font-alliance text-2xl">Started in</p>
-          <p className="font-alliance">September 2022</p>
+          <p className="font-alliance text-xl md:text-2xl">Started in</p>
+          <p className="font-alliance text-xs md:text-lg">September 2022</p>
+        </div>
+        <div className="flex flex-col gap-y-2 justify-start p-8 bg-white">
+          <p className="font-alliance text-xl md:text-2xl">Started in</p>
+          <p className="font-alliance text-xs md:text-lg">September 2022</p>
         </div>
       </div>
     )
@@ -128,48 +136,86 @@ function StatsSection() {
 {/* WHAT WE CAN BRING SECTION */}
 function SolutionsSection({ solutionsRef }) {
     return (
-      <div ref={solutionsRef} className="flex flex-col whitesections gap-y-20 justify-center px-10 py-20 md:pb-40 md:pt-20">
-        <div className="">
+      <div ref={solutionsRef} className="flex flex-col whitesections gap-y-20 justify-center px-5 py-10 md:pb-40 md:pt-20">
+        <div className="mb-2 md:mb-16">
           <p className="text-3xl md:text-6xl font-alliance text-center">
             How we help <strong>you</strong> and <strong>your business</strong>
           </p>
         </div>
-        <div className="flex flex-col gap-y-8 md:flex-row md:gap-x-5 justify-center">
-          <div id="mainDiv" className="flex boxItem flex-col gap-y-5 bg-white w-full md:w-1/3">
-            {/* TEAM */}
-            <div className="overflow-hidden hoveredSolution transition-basis ease-in-out duration-300">
-              <img src={rocket}/>
+        <div className="flex flex-col gap-y-16 md:gap-y-40 md:flex-col md:gap-x-5 justify-center md:px-20">
+          <div className="flex flex-col md:flex-row md:justify-center md:items-center md:gap-x-16 gap-y-8">
+            <div className="flex flex-col gap-y-2 md:basis-1/2 items-start">
+              <p className="text-[#00A6B2] text-[20px] md:text-[25px] font-alliance">Create teams for your business</p>
+              <p className="text-[#29363D] font-sfprodisplay font-bold text-[30px] md:text-[40px]">Part-time student developers</p>
+              <p className="text-[#656B8A] text-[16px] md:text-[20px] font-alliance py-5 md:py-10">We provide talented student developers for you business that can work on a part-time basis with a fixed day rate.</p>
+              <div className="flex flex-col md:flex-row gap-y-4 md:gap-y-0 gap-x-0 md:gap-x-20 justify-between">
+                <div className="flex flex-col gap-y-1 basis-1/2 md:mb-0">
+                  <img src={code} width="50px" height="50px"/>
+                  <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">Build teams throughout universities in the United Kingdom</p>
+                </div>
+                <div className="flex flex-col gap-y-1 basis 1/2 md:mb-0">
+                  <img src={bulb} width="50px" height="50px"/>
+                  <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">Tap in campuses to work with tomorrow’s top engineers</p>
+                </div>
+              </div>
+              <button className="rounded-2xl bg-[#39D3DE] my-10 px-5 py-2 text-white">
+                <a>Learn more</a>
+              </button>
             </div>
-            <p className="text-xl font-alliance hoveredText px-10">Build your teams remotely</p>
-            <p className="font-alliance px-10">
-              Hire developers part-time to work in your company with a fixed
-              day-rate.
-            </p>
+            <div className="basis-1/2 hidden md:block max-w-[800px] max-h-[800px]">
+              <img src={team} className="rounded-2xl"/>
+            </div>
           </div>
-  
-          <div id="mainDiv" className="flex flex-col rounded boxItem gap-y-5 bg-white w-full md:w-1/3">
-            {/* PRODUCT */}
-            <div className="p-5 rounded-lg hoveredSolution transition-basis ease-in-out duration-300">
 
+          <div className="flex flex-col md:flex-row md:justify-center md:items-center md:gap-x-16 gap-y-8">
+            <div className="basis-1/2 hidden md:block max-w-[800px] max-h-[800px]">
+              <img src={product} className="rounded-2xl"/>
             </div>
-            <p className="text-xl font-alliance hoveredText px-10">Product Development</p>
-            <p className="font-alliance px-10">
-              Hire developers part-time to work in your company with a fixed
-              day-rate.
-            </p>
+            <div className="flex flex-col gap-y-2 md:basis-1/2 items-start">
+              <p className="text-[#00A6B2] text-[20px] md:text-[25px] font-alliance">Build your products with us</p>
+              <p className="text-[#29363D] font-sfprodisplay font-bold text-[30px] md:text-[40px]">Bespoke Product Development</p>
+              <p className="text-[#656B8A] text-[16px] md:text-[20px] font-alliance py-5 md:py-10">We build teams of developers, led by one of our project managers helping you outsource the development of your products.</p>
+              <div className="flex flex-col md:flex-row gap-y-4 md:gap-y-0 gap-x-0 md:gap-x-20 justify-between">
+                <div className="flex flex-col gap-y-1 basis-1/2 md:mb-0">
+                  <img src={code} width="50px" height="50px"/>
+                  <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">From Web & Mobile apps to internal software development</p>
+                </div>
+                <div className="flex flex-col gap-y-1 basis-1/2 md:mb-0">
+                  <img src={bulb} width="50px" height="50px"/>
+                  <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">Data Analytics and Database Engineering for business purposes  </p>
+                </div>
+              </div>
+              <button className="rounded-2xl bg-[#39D3DE] my-10 px-5 py-2 text-white">
+                <a>Learn more</a>
+              </button>
+            </div>
           </div>
-  
-          <div id="mainDiv" className="flex flex-col rounded boxItem gap-y-5 bg-white p-10 w-full md:w-1/3">
-            {/* GRADUATE */}
-            <div className="p-5 rounded-lg hoveredSolution transition-basis ease-in-out duration-300">
 
+          <div className="flex flex-col md:flex-row md:justify-center md:items-center md:gap-x-16 gap-y-8">
+            <div className="flex flex-col gap-y-2 md:basis-1/2 items-start">
+              <p className="text-[#00A6B2] text-[20px] md:text-[25px] font-alliance">Hire top vetted junior engineers</p>
+              <p className="text-[#29363D] font-sfprodisplay font-bold text-[30px] md:text-[40px]">Elite Graduate Talent</p>
+              <p className="text-[#656B8A] text-[16px] md:text-[20px] font-alliance py-5 md:py-10">We identify the brightest students in universities and train them for months. Hire from us to secure the best talent for your business.</p>
+              <div className="flex flex-col md:flex-row gap-y-4 md:gap-y-0 gap-x-0 md:gap-x-20 justify-between">
+                <div className="flex flex-col gap-y-1 basis-1/2 md:mb-0">
+                  <img src={code} width="50px" height="50px" alt="Code Icon"/>
+                  <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">Advertise job opportunities throughout our network</p>
+                </div>
+                <div className="flex flex-col gap-y-1 basis-1/2 md:mb-0">
+                  <img src={bulb} width="50px" height="50px" alt="Bulb Icon"/>
+                  <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">Vetted and trained talent prepared for employment</p>
+                </div>
+              </div>
+              <button className="rounded-2xl bg-[#39D3DE] my-10 px-5 py-2 text-white">
+                <a>Learn more</a>
+              </button>
             </div>
-            <p className="text-xl font-alliance hoveredText">Hire top graduate talent</p>
-            <p className="font-alliance ">
-              Hire developers part-time to work in your company with a fixed
-              day-rate.
-            </p>
+            <div className="basis-1/2 hidden md:block max-w-[800px] max-h-[800px]">
+              <img src={world} className="rounded-2xl" alt="Team Image"/>
+            </div>
           </div>
+
+
         </div>
       </div>
     );
@@ -223,20 +269,20 @@ function SolutionsSection({ solutionsRef }) {
           </svg>
           <blockquote>
             <p className="text-md md:text-2xl font-alliance text-gray-900">
-              "I joined Karter to utilize the data analytical skills I have
-              developed over my current internship and apply these skills to have
-              a rewarding impact on clients. Working with Karter has enabled me to
-              gain client exposure and subsequently improve my client management
-              skills."
+            "It has been a pleasure working with Karter. They
+             really helped bring my idea to life and construct something that is going to
+             help connect more mountain bikers together. I came to them with some initial designs
+             and ideas, they were able to integrate all these features into a great web applications and
+             I am looking forward to future plans we have together."
             </p>
           </blockquote>
           <figcaption className="flex items-center justify-center mt-6 space-x-3">
             <div className="flex items-center divide-x-2 divide-gray-500">
               <cite className="pr-3 font-medium text-gray-900">
-                Abhirup
+                Alex Watkins
               </cite>
               <cite className="pl-3 text-sm text-gray-500">
-                Student at the University of Birmingham
+                CEO, NuZones
               </cite>
             </div>
           </figcaption>

@@ -4,10 +4,11 @@ import { Link } from 'react-scroll';
 import './Home.css'
 import { useInView } from 'react-intersection-observer';
 
-import product from '../assets/technology.png'
+import product from '../assets/product.png'
 import team from '../assets/team.png'
 import graduate from '../assets/touch.png'
 import rocket from '../assets/rocket.png'
+import world from '../assets/world.png'
 
 import code from "../assets/code.png"
 import bulb from "../assets/bulb.png"
@@ -94,11 +95,11 @@ function MapSection() {
               brilliant students to develop your products, promote your company,
               and hire top-notch graduate talent.
             </p>
-            <button>
+            {/* <button>
               <div className="bg-[#DE4321] w-60 py-3 px-6 md:py-5 md:px-10 text-white font-alliance">
                 <p className="text-white">Access our Network</p>
               </div>
-            </button>
+            </button> */}
           </div>
           <div className="flex flex-col md:basis-1/2">
             {/* Add content for the right side if needed */}
@@ -142,7 +143,7 @@ function SolutionsSection({ solutionsRef }) {
           </p>
         </div>
         <div className="flex flex-col gap-y-16 md:gap-y-40 md:flex-col md:gap-x-5 justify-center md:px-20">
-          <div className="flex flex-col md:flex-row md:items-center md:gap-x-16 gap-y-8">
+          <div className="flex flex-col md:flex-row md:justify-center md:items-center md:gap-x-16 gap-y-8">
             <div className="flex flex-col gap-y-2 md:basis-1/2 items-start">
               <p className="text-[#00A6B2] text-[20px] md:text-[25px] font-alliance">Create teams for your business</p>
               <p className="text-[#29363D] font-sfprodisplay font-bold text-[30px] md:text-[40px]">Part-time student developers</p>
@@ -161,14 +162,14 @@ function SolutionsSection({ solutionsRef }) {
                 <a>Learn more</a>
               </button>
             </div>
-            <div className="basis-1/2 hidden md:block">
+            <div className="basis-1/2 hidden md:block max-w-[800px] max-h-[800px]">
               <img src={team} className="rounded-2xl"/>
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center md:gap-x-16 gap-y-8">
-            <div className="basis-1/2 hidden md:block">
-              <img src={team} className="rounded-2xl"/>
+          <div className="flex flex-col md:flex-row md:justify-center md:items-center md:gap-x-16 gap-y-8">
+            <div className="basis-1/2 hidden md:block max-w-[800px] max-h-[800px]">
+              <img src={product} className="rounded-2xl"/>
             </div>
             <div className="flex flex-col gap-y-2 md:basis-1/2 items-start">
               <p className="text-[#00A6B2] text-[20px] md:text-[25px] font-alliance">Build your products with us</p>
@@ -190,7 +191,7 @@ function SolutionsSection({ solutionsRef }) {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center md:gap-x-16 gap-y-8">
+          <div className="flex flex-col md:flex-row md:justify-center md:items-center md:gap-x-16 gap-y-8">
             <div className="flex flex-col gap-y-2 md:basis-1/2 items-start">
               <p className="text-[#00A6B2] text-[20px] md:text-[25px] font-alliance">Hire top vetted junior engineers</p>
               <p className="text-[#29363D] font-sfprodisplay font-bold text-[30px] md:text-[40px]">Elite Graduate Talent</p>
@@ -209,8 +210,8 @@ function SolutionsSection({ solutionsRef }) {
                 <a>Learn more</a>
               </button>
             </div>
-            <div className="basis-1/2 hidden md:block">
-              <img src={team} className="rounded-2xl" alt="Team Image"/>
+            <div className="basis-1/2 hidden md:block max-w-[800px] max-h-[800px]">
+              <img src={world} className="rounded-2xl" alt="Team Image"/>
             </div>
           </div>
 
@@ -268,20 +269,20 @@ function SolutionsSection({ solutionsRef }) {
           </svg>
           <blockquote>
             <p className="text-md md:text-2xl font-alliance text-gray-900">
-              "I joined Karter to utilize the data analytical skills I have
-              developed over my current internship and apply these skills to have
-              a rewarding impact on clients. Working with Karter has enabled me to
-              gain client exposure and subsequently improve my client management
-              skills."
+            "It has been a pleasure working with Karter. They
+             really helped bring my idea to life and construct something that is going to
+             help connect more mountain bikers together. I came to them with some initial designs
+             and ideas, they were able to integrate all these features into a great web applications and
+             I am looking forward to future plans we have together."
             </p>
           </blockquote>
           <figcaption className="flex items-center justify-center mt-6 space-x-3">
             <div className="flex items-center divide-x-2 divide-gray-500">
               <cite className="pr-3 font-medium text-gray-900">
-                Abhirup
+                Alex Watkins
               </cite>
               <cite className="pl-3 text-sm text-gray-500">
-                Student at the University of Birmingham
+                CEO, NuZones
               </cite>
             </div>
           </figcaption>

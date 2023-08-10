@@ -6,11 +6,23 @@
 
 .contactItem {
   background-image: url("../assets/blue.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .landingItem {
-  background-color:#F6F9FC;
+  background-color: #F6F9FC;
   background-image: url("../assets/bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-position: center; */
+}
+
+/* Media query for smaller devices */
+@media (max-width: 768px) {
+  .landingItem {
+    background-image: none; /* Hide the background image */
+  }
 }
 
 .box img {

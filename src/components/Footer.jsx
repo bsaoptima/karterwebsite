@@ -6,8 +6,8 @@ export default function Footer() {
         
         <section class="">
             <div class="flex flex-col items-center bg-[#F6F9FC] py-12 space-y-10 overflow-hidden sm:px-6 lg:px-8">
-                <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0">
-                        <img src={logo} class="h-8" alt="Flowbite Logo" />
+                <a href="/" class="flex items-center">
+                    <p className="text-xl font-alliance text-gray-500 hover:text-black">&lt;karter&gt;</p>
                 </a>
                 <div class="flex justify-center mt-8 space-x-6">
                     <a href="#" class="text-gray-400 hover:text-gray-500">
