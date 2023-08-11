@@ -87,12 +87,11 @@ function MapSection() {
             </p>
             <p className="text-white text-base md:text-lg font-alliance">
               Our teams are made of brilliant students studying computer science,
-              engineering, physics, and gaining work experience through placements,
+              engineering, physics, and who have gained work experience through placements,
               projects, and internships.
             </p>
             <p className="text-white text-base md:text-lg font-alliance">
-              We operate on a Talent-as-a-Service basis. Tap into our network of
-              brilliant students to develop your products, promote your company,
+              We operate on a Talent-as-a-Service basis. Tap into our network to develop your products, promote your company,
               and hire top-notch graduate talent.
             </p>
             {/* <button>
@@ -147,7 +146,7 @@ function SolutionsSection({ solutionsRef }) {
             <div className="flex flex-col gap-y-2 md:basis-1/2 items-start">
               <p className="text-[#00A6B2] text-[20px] md:text-[25px] font-alliance">Create teams for your business</p>
               <p className="text-[#29363D] font-sfprodisplay font-bold text-[30px] md:text-[40px]">Part-time student developers</p>
-              <p className="text-[#656B8A] text-[16px] md:text-[20px] font-alliance py-5 md:py-10">We provide talented student developers for you business that can work on a part-time basis with a fixed day rate.</p>
+              <p className="text-[#656B8A] text-[16px] md:text-[20px] font-alliance py-5 md:py-10">We provide talented student developers for your business that can work on a part-time basis with a fixed day rate.</p>
               <div className="flex flex-col md:flex-row gap-y-4 md:gap-y-0 gap-x-0 md:gap-x-20 justify-between">
                 <div className="flex flex-col gap-y-1 basis-1/2 md:mb-0">
                   <img src={code} width="50px" height="50px"/>
@@ -155,11 +154,11 @@ function SolutionsSection({ solutionsRef }) {
                 </div>
                 <div className="flex flex-col gap-y-1 basis 1/2 md:mb-0">
                   <img src={bulb} width="50px" height="50px"/>
-                  <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">Tap in campuses to work with tomorrow’s top engineers</p>
+                  <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">Tap into campuses to work with tomorrow’s top engineers</p>
                 </div>
               </div>
               <button className="rounded-2xl bg-[#39D3DE] my-10 px-5 py-2 text-white">
-                <a>Learn more</a>
+                <a href="https://open.substack.com/pub/karterdevelopment/p/coming-soon?utm_campaign=post&utm_medium=web">Learn more</a>
               </button>
             </div>
             <div className="basis-1/2 hidden md:block max-w-[800px] max-h-[800px]">
@@ -186,7 +185,7 @@ function SolutionsSection({ solutionsRef }) {
                 </div>
               </div>
               <button className="rounded-2xl bg-[#39D3DE] my-10 px-5 py-2 text-white">
-                <a>Learn more</a>
+                <a href="https://open.substack.com/pub/karterdevelopment/p/coming-soon?utm_campaign=post&utm_medium=web">Learn more</a>
               </button>
             </div>
           </div>
@@ -207,7 +206,7 @@ function SolutionsSection({ solutionsRef }) {
                 </div>
               </div>
               <button className="rounded-2xl bg-[#39D3DE] my-10 px-5 py-2 text-white">
-                <a>Learn more</a>
+                <a href="https://open.substack.com/pub/karterdevelopment/p/coming-soon?utm_campaign=post&utm_medium=web">Learn more</a>
               </button>
             </div>
             <div className="basis-1/2 hidden md:block max-w-[800px] max-h-[800px]">
