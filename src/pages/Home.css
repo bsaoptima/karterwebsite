@@ -1,7 +1,13 @@
 
 .mapItem {
-    background-image: url("../assets/background.svg");
-    background-size: cover;
+  background-size: cover;
+  background-color: #004651;
+}
+
+@media (min-width: 768px) {
+  .mapItem {
+      background-image: url("../assets/background.svg");
+  }
 }
 
 .contactItem {
