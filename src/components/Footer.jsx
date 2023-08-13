@@ -25,7 +25,7 @@ export default function Footer() {
                     </a>
                 </div>
                 <p class="mt-8 text-base leading-6 text-center text-gray-400">
-                    © 2023 Karter Technologies Limited. All rights reserved.
+                    © 2023 Karter Development Limited. All rights reserved.
                 </p>
             </div>
         </section>
