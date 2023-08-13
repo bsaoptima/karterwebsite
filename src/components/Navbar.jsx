@@ -13,7 +13,7 @@ export default function Navbar() {
     return (
         <nav class="bg-[#F6F9FC] border-gray-200">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 py-6">
-                <a href="/" class="flex items-center">
+                <a href="/" class="flex items-center px-5">
                     <p className="text-xl font-alliance">&lt;karter&gt;</p>
                 </a>
                 <button
@@ -30,9 +30,9 @@ export default function Navbar() {
                 </button>
                 <div className={`w-full md:block md:w-auto ${isExpanded ? 'block' : 'hidden'}`} id="navbar-default">
                     <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-[#F6F9FC]">
-                        {/* <li>
-                        <a href="/solutions" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A6B2] md:p-0">Solutions</a>
-                        </li> */}
+                        <li>
+                        <a href="/vetting-process" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A6B2] md:p-0">Vetting Process</a>
+                        </li>
                         <li>
                         <a href="/contact" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A6B2] md:p-0">Contact</a>
                         </li>

@@ -5,6 +5,7 @@ import HomePage from "./pages/Home";
 import Footer from "./components/Footer";
 import ContactPage from "./pages/Contact";
 import SolutionPage from "./pages/Solutions";
+import VettingProcess from "./pages/VettingProcess";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path='/' element={<HomePage/>}/>
           <Route path='/contact' element={<ContactPage />}/>
           <Route path='/solutions' element={<SolutionPage />} />
+          <Route path='/vetting-process' element={<VettingProcess />} />
         </Routes>
         <Footer />
       </div>

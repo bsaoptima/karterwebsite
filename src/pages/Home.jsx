@@ -157,7 +157,7 @@ function SolutionsSection({ solutionsRef }) {
                   <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">Tap into campuses to work with tomorrow’s top engineers</p>
                 </div>
               </div>
-              <button className="rounded-2xl bg-[#39D3DE] my-10 px-5 py-2 text-white">
+              <button className="rounded-2xl bg-[#39D3DE] hover:drop-shadow-xl transform hover:scale-105 transition-transform duration-300 my-10 px-5 py-2 text-white">
                 <a href="https://open.substack.com/pub/karterdevelopment/p/coming-soon?utm_campaign=post&utm_medium=web">Learn more</a>
               </button>
             </div>
@@ -184,7 +184,7 @@ function SolutionsSection({ solutionsRef }) {
                   <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">Data Analytics and Database Engineering for business purposes  </p>
                 </div>
               </div>
-              <button className="rounded-2xl bg-[#39D3DE] my-10 px-5 py-2 text-white">
+              <button className="rounded-2xl bg-[#39D3DE] hover:drop-shadow-xl transform hover:scale-105 transition-transform duration-300 my-10 px-5 py-2 text-white">
                 <a href="https://open.substack.com/pub/karterdevelopment/p/coming-soon?utm_campaign=post&utm_medium=web">Learn more</a>
               </button>
             </div>
@@ -205,7 +205,7 @@ function SolutionsSection({ solutionsRef }) {
                   <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">Vetted and trained talent prepared for employment</p>
                 </div>
               </div>
-              <button className="rounded-2xl bg-[#39D3DE] my-10 px-5 py-2 text-white">
+              <button className="rounded-2xl bg-[#39D3DE] hover:drop-shadow-xl transform hover:scale-105 transition-transform duration-300 my-10 px-5 py-2 text-white">
                 <a href="https://open.substack.com/pub/karterdevelopment/p/coming-soon?utm_campaign=post&utm_medium=web">Learn more</a>
               </button>
             </div>
