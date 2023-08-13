@@ -14,7 +14,7 @@ export default function Navbar() {
         <nav class="bg-[#F6F9FC] border-gray-200">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 py-6">
                 <a href="/" class="flex items-center px-5">
-                    <p className="text-xl font-alliance">&lt;karter&gt;</p>
+                    <p className="text-xl font-alliance"><span class="bracket">&lt;</span>karter<span class="bracket">&gt;</span></p>
                 </a>
                 <button
                     onClick={toggleNavbar}
