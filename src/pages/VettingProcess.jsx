@@ -31,7 +31,7 @@ export default function VettingProcess(){
                     <div className="flex flex-col md:flex-row">
                         <div className="bg-white flex flex-col gap-y-5 justify-start drop-shadow-xl rounded-xl p-8 stepItem text-[#D3D3D3] hover:text-black transform hover:scale-105 transition-transform duration-300 w-full md:max-w-[600px]">
                             <p className="text-2xl font-alliance">2. Screening Interview</p>
-                            <p className="font-alliance">After an initial CV check, we invite students into a Screen Interview where we discuss their situation, their movitations and their experiences.</p>
+                            <p className="font-alliance">After an initial CV check, we invite students into a Screen Interview where we discuss their situation, their motivations and their experiences.</p>
                         </div>
                         <div className="">
                         </div>

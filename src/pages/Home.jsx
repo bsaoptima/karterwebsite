@@ -268,11 +268,7 @@ function SolutionsSection({ solutionsRef }) {
           </svg>
           <blockquote>
             <p className="text-md md:text-2xl font-alliance text-gray-900">
-            "It has been a pleasure working with Karter. They
-             really helped bring my idea to life and construct something that is going to
-             help connect more mountain bikers together. I came to them with some initial designs
-             and ideas, they were able to integrate all these features into a great web applications and
-             I am looking forward to future plans we have together."
+            "It has been a pleasure working with Karter. They really helped bring my idea to life and construct something that is going to help connect more mountain bikers together. I came to them with some initial designs and ideas. They were able to integrate all these features into a great web application and I am looking forward to future plans we have together."
             </p>
           </blockquote>
           <figcaption className="flex items-center justify-center mt-6 space-x-3">
@@ -299,7 +295,7 @@ function SolutionsSection({ solutionsRef }) {
         id="contact"
         className="contactItem flex flex-col justify-center items-center p-10 md:p-40 gap-y-10"
       >
-        <p className="text-white text-3xl md:text-4xl font-alliance font-bold">
+        <p className="text-white text-3xl md:text-4xl font-sfprodisplay font-semibold">
           Interested in working with / joining us?
         </p>
         <p className="text-white text-md md:text-xl font-alliance">
