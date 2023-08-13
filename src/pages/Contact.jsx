@@ -41,7 +41,7 @@ export default function ContactPage() {
     }
 
     return (
-      <div className="bg-[#F1F1F1] px-10 md:px-20 py-10">
+      <div className="bg-[#F6F9FC] px-10 md:px-20 py-10">
         <div className="flex flex-col md:flex-row rounded items-center bg-white">
           <div className="hidden md:flex flex-col contactItem2 h-[600px] items-stretch md:basis-1/3">
             {/* Content of the first element goes here */}
@@ -55,7 +55,7 @@ export default function ContactPage() {
             ) : (
               <>
                 <div className="">
-                  <p className="text-3xl font-alliance font-bold">Get in touch</p>
+                  <p className="text-3xl font-sfprodisplay font-semibold py-2">Get in touch</p>
                   <p className="text-gray-500 font-alliance">
                     Our team will get back in less than 2 hours!
                   </p>

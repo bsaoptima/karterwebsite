@@ -42,9 +42,9 @@ export default function HomePage() {
 {/* LANDING SECTION */}
 function LandingSection({ scrollToContact, scrollToSolutions }) {
     return (
-      <div className="flex flex-col md:flex-row landingItem md:h-screen p-10">
-        <div className="flex flex-col justify-center md:px-20 md:gap-y-20 md:basis-4/5 phone-gap-y-10">
-          <p className="text-4xl md:text-[85px] font-sfprodisplay leading-tight">
+      <div className="flex flex-col md:flex-row landingItem h-auto md:h-[825px] p-10">
+        <div className="flex flex-col justify-center md:px-20 gap-y-10 md:gap-y-20 md:basis-5/5 lg:basis-4/5">
+          <p className="text-4xl md:text-6xl lg:text-[85px] font-sfprodisplay leading-tight">
             Bridging the gap between <strong>University</strong> &{" "}
             <strong>Industry</strong>
           </p>
@@ -80,14 +80,14 @@ function MapSection() {
     return (
       <div className="relative">
         <div className="mapItem flex p-10 flex-col md:flex-row items-center h-auto md:h-[825px] w-auto md:gap-x-3">
-          <div className="flex flex-col justify-center md:justify-start md:basis-1/2 gap-y-10 md:gap-y-16 md:pl-20 md:pr-10">
-            <p className="text-white text-3xl md:text-5xl font-sfprodisplay">
+          <div className="flex flex-col justify-center md:justify-start md:basis-3/3 lg:basis-1/2 gap-y-10 md:gap-y-14 md:pl-10 md:pr-10 lg:gap-y-16 lg:pl-20 lg:pr-10">
+            <p className="text-white text-3xl md:text-4xl lg:text-5xl font-sfprodisplay">
               Connect your business with <strong>tomorrow's</strong> best{" "}
               <strong>leaders</strong> and <strong>engineers</strong>
             </p>
             <p className="text-white text-base md:text-lg font-alliance">
               Our teams are made of brilliant students studying computer science,
-              engineering, physics, and who have gained work experience through placements,
+              engineering and physics, who have gained work experience through placements,
               projects, and internships.
             </p>
             <p className="text-white text-base md:text-lg font-alliance">
@@ -135,15 +135,15 @@ function StatsSection() {
 {/* WHAT WE CAN BRING SECTION */}
 function SolutionsSection({ solutionsRef }) {
     return (
-      <div ref={solutionsRef} className="flex flex-col whitesections gap-y-20 justify-center px-5 py-10 md:pb-40 md:pt-20">
-        <div className="mb-2 md:mb-16">
-          <p className="text-3xl md:text-6xl font-sfprodisplay text-center">
+      <div ref={solutionsRef} className="flex flex-col whitesections gap-y-20 justify-center px-5 py-10 lg:pb-40 lg:pt-20">
+        <div className="lg:mb-16">
+          <p className="text-3xl md:text-5xl lg:text-6xl font-sfprodisplay text-center">
             How we help <strong>you</strong> and <strong>your business</strong>
           </p>
         </div>
-        <div className="flex flex-col gap-y-16 md:gap-y-40 md:flex-col md:gap-x-5 justify-center md:px-20">
+        <div className="flex flex-col gap-y-16 md:gap-y-20 lg:gap-y-40 md:flex-col md:gap-x-5 justify-center lg:px-20">
           <div className="flex flex-col md:flex-row md:justify-center md:items-center md:gap-x-16 gap-y-8">
-            <div className="flex flex-col gap-y-2 md:basis-1/2 items-start">
+            <div className="flex flex-col gap-y-2 md:px-20 lg:basis-1/2 items-start">
               <p className="text-[#00A6B2] text-[20px] md:text-[25px] font-alliance">Create teams for your business</p>
               <p className="text-[#29363D] font-sfprodisplay font-bold text-[30px] md:text-[40px]">Part-time student developers</p>
               <p className="text-[#656B8A] text-[16px] md:text-[20px] font-alliance py-5 md:py-10">We provide talented student developers for your business that can work on a part-time basis with a fixed day rate.</p>
@@ -157,20 +157,20 @@ function SolutionsSection({ solutionsRef }) {
                   <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">Tap into campuses to work with tomorrow’s top engineers</p>
                 </div>
               </div>
-              <button className="rounded-2xl bg-[#39D3DE] hover:drop-shadow-xl transform hover:scale-105 transition-transform duration-300 my-10 px-5 py-2 text-white">
+              <button className="rounded-xl bg-[#39D3DE] drop-shadow-xl transform hover:scale-105 transition-transform duration-150 my-10 px-5 py-2 text-white">
                 <a href="https://open.substack.com/pub/karterdevelopment/p/coming-soon?utm_campaign=post&utm_medium=web">Learn more</a>
               </button>
             </div>
-            <div className="basis-1/2 hidden md:block max-w-[800px] max-h-[800px]">
+            <div className="basis-1/2 hidden lg:block max-w-[800px] max-h-[800px]">
               <img src={team} className="rounded-2xl"/>
             </div>
           </div>
 
           <div className="flex flex-col md:flex-row md:justify-center md:items-center md:gap-x-16 gap-y-8">
-            <div className="basis-1/2 hidden md:block max-w-[800px] max-h-[800px]">
+            <div className="basis-1/2 hidden lg:block max-w-[800px] max-h-[800px]">
               <img src={product} className="rounded-2xl"/>
             </div>
-            <div className="flex flex-col gap-y-2 md:basis-1/2 items-start">
+            <div className="flex flex-col gap-y-2 md:px-20 lg:basis-1/2 items-start">
               <p className="text-[#00A6B2] text-[20px] md:text-[25px] font-alliance">Build your products with us</p>
               <p className="text-[#29363D] font-sfprodisplay font-bold text-[30px] md:text-[40px]">Bespoke Product Development</p>
               <p className="text-[#656B8A] text-[16px] md:text-[20px] font-alliance py-5 md:py-10">We build teams of developers, led by one of our project managers helping you outsource the development of your products.</p>
@@ -184,14 +184,14 @@ function SolutionsSection({ solutionsRef }) {
                   <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">Data Analytics and Database Engineering for business purposes  </p>
                 </div>
               </div>
-              <button className="rounded-2xl bg-[#39D3DE] hover:drop-shadow-xl transform hover:scale-105 transition-transform duration-300 my-10 px-5 py-2 text-white">
+              <button className="rounded-xl bg-[#39D3DE] drop-shadow-xl transform hover:scale-105 transition-transform duration-150 my-10 px-5 py-2 text-white">
                 <a href="https://open.substack.com/pub/karterdevelopment/p/coming-soon?utm_campaign=post&utm_medium=web">Learn more</a>
               </button>
             </div>
           </div>
 
           <div className="flex flex-col md:flex-row md:justify-center md:items-center md:gap-x-16 gap-y-8">
-            <div className="flex flex-col gap-y-2 md:basis-1/2 items-start">
+            <div className="flex flex-col gap-y-2 md:px-20 lg:basis-1/2 items-start">
               <p className="text-[#00A6B2] text-[20px] md:text-[25px] font-alliance">Hire top vetted junior engineers</p>
               <p className="text-[#29363D] font-sfprodisplay font-bold text-[30px] md:text-[40px]">Elite Graduate Talent</p>
               <p className="text-[#656B8A] text-[16px] md:text-[20px] font-alliance py-5 md:py-10">We identify the brightest students in universities and train them for months. Hire from us to secure the best talent for your business.</p>
@@ -205,11 +205,11 @@ function SolutionsSection({ solutionsRef }) {
                   <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">Vetted and trained talent prepared for employment</p>
                 </div>
               </div>
-              <button className="rounded-2xl bg-[#39D3DE] hover:drop-shadow-xl transform hover:scale-105 transition-transform duration-300 my-10 px-5 py-2 text-white">
+              <button className="rounded-xl bg-[#39D3DE] drop-shadow-xl transform hover:scale-105 transition-transform duration-150 my-10 px-5 py-2 text-white">
                 <a href="https://open.substack.com/pub/karterdevelopment/p/coming-soon?utm_campaign=post&utm_medium=web">Learn more</a>
               </button>
             </div>
-            <div className="basis-1/2 hidden md:block max-w-[800px] max-h-[800px]">
+            <div className="basis-1/2 hidden lg:block max-w-[800px] max-h-[800px]">
               <img src={world} className="rounded-2xl" alt="Team Image"/>
             </div>
           </div>
@@ -306,7 +306,7 @@ function SolutionsSection({ solutionsRef }) {
           Click the <strong>button</strong> below, fill the <strong>short form</strong>{" "}
           and we will <strong>get back to you shortly</strong>:
         </p>
-        <div className="bg-[#DE4321] py-3 px-6 md:py-5 md:px-10 text-white font-alliance">
+        <div className="bg-[#DE4321] py-3 px-6 rounded md:py-5 md:px-10 text-white font-alliance">
           <button>
             <a href="/contact">Contact us</a>
           </button>
