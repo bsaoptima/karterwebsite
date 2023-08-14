@@ -1,5 +1,5 @@
-.stepItem:hover {
-    border-width: 2px;
+.stepItem {
+    border-width: 3px;
     border-color: black;
     box-shadow: 6px 6px rgb(0, 0, 0);
 }

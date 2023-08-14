@@ -21,7 +21,7 @@ export default function VettingProcess(){
 
                 <div className="flex flex-col justify-center items-center gap-y-10 md:gap-y-20">
                     <div className="flex flex-col md:flex-row">
-                        <div className="bg-white flex flex-col gap-y-5 justify-start drop-shadow-xl rounded-xl p-8 stepItem text-[#D3D3D3] hover:text-black transform hover:scale-105 transition-transform duration-300 w-full md:max-w-[600px]">
+                        <div className="bg-white flex flex-col gap-y-5 justify-start drop-shadow-xl rounded-xl p-8 stepItem text-black transform hover:scale-105 transition-transform duration-300 w-full md:max-w-[600px]">
                             <p className="text-2xl font-alliance">1. Contact us with your CV</p>
                             <p className="font-alliance">Reach out to us through our <a href="/contact" className="hover:text-[#4B8BFC]">contact form</a>, <a href="https://www.linkedin.com/company/karter-dev/" className="hover:text-[#4B8BFC]">LinkedIn</a> or <button className="hover:text-[#4B8BFC]" onClick={() => {{setIsEmailCopied("(copied)")}; {navigator.clipboard.writeText("karterdevelopment@gmail.com")}}}>email</button> {isEmailCopied} with your CV. <br /> If your profile meets our fundamental requirements you will be invited for a Screening Interview.</p>
                         </div>
@@ -29,7 +29,7 @@ export default function VettingProcess(){
                         </div>
                     </div>
                     <div className="flex flex-col md:flex-row">
-                        <div className="bg-white flex flex-col gap-y-5 justify-start drop-shadow-xl rounded-xl p-8 stepItem text-[#D3D3D3] hover:text-black transform hover:scale-105 transition-transform duration-300 w-full md:max-w-[600px]">
+                        <div className="bg-white flex flex-col gap-y-5 justify-start drop-shadow-xl rounded-xl p-8 stepItem text-black transform hover:scale-105 transition-transform duration-300 w-full md:max-w-[600px]">
                             <p className="text-2xl font-alliance">2. Screening Interview</p>
                             <p className="font-alliance">After an initial CV check, we invite students into a Screen Interview where we discuss their situation, their motivations and their experiences.</p>
                         </div>
@@ -37,7 +37,7 @@ export default function VettingProcess(){
                         </div>
                     </div> 
                     <div className="flex flex-col md:flex-row">
-                        <div className="bg-white flex flex-col gap-y-5 justify-start drop-shadow-xl rounded-xl p-8 stepItem text-[#D3D3D3] hover:text-black transform hover:scale-105 transition-transform duration-300 w-full md:max-w-[600px]">
+                        <div className="bg-white flex flex-col gap-y-5 justify-start drop-shadow-xl rounded-xl p-8 stepItem text-black transform hover:scale-105 transition-transform duration-300 w-full md:max-w-[600px]">
                             <p className="text-2xl font-alliance">3. Technical Interview</p>
                             <p className="font-alliance">Shortly after the Screening Interview, students go through a Technical Interview where they can showcase and explain their past projects. They will also solve problems and answer system design questions.</p>
                         </div>
