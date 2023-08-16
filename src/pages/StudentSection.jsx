@@ -21,7 +21,7 @@ export default function StudentSectionTesting(){
 function MainSection({ scrollToProcess }) {
     return (
         <div className="bg-[#F6F9FC] flex flex-col justify-center items-center px-10 py-10 lg:py-20 gap-y-5">
-            <p className="text-lg lg:text-xl text-center font-alliance font-semibold text-[#00A6B2]">Join our remote vibrant community</p>
+            <p className="text-lg lg:text-xl text-center font-alliance font-semibold text-[#4B8BFC]">Join our remote vibrant community</p>
             <p className="text-4xl lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]">Working at Karter</p>
             <p className="text-[#656B8A] text-center text-lg md:text-xl font-alliance"> blablablabalablabllabalbalb</p>
             <button onClick={scrollToProcess}>
@@ -87,7 +87,7 @@ function VettingProcess({ processRef }){
                     <p className="text-3xl md:text-4xl text-center font-sfprodisplay font-semibold text-[#29363D]">How to join our Network</p>
                     <p className="text-[#656B8A] text-center text-lg md:text-xl font-alliance">Every student in our network is thoroughly vetted <br/> through interviews and assessments.</p>
                     <button className="">
-                        <div className="bg-white flex flex-col justify-start rounded-lg p-4 hover:drop-shadow-xl ring-2 ring-[#00A6B2] text-[#00A6B2] hover:text-white hover:bg-[#00A6B2] transform hover:scale-105 transition-transform duration-300">
+                        <div className="bg-white flex flex-col justify-start rounded-lg p-4 hover:drop-shadow-xl ring-2 ring-[#4B8BFC] text-[#4B8BFC] hover:text-white hover:bg-[#4B8BFC] transform hover:scale-105 transition-transform duration-300">
                             <a href="/contact" className="text-xl font-alliance">Join us</a>
                         </div>
                     </button>
