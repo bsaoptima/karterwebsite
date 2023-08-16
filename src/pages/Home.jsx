@@ -111,7 +111,7 @@ function MapSection() {
 {/* STATISTICS SECTION */}
 function StatsSection() {
     return (
-      <div className="whitesections grid grid-cols-2 md:flex md:flex-row  gap-x-2 gap-y-2 md:gap-x-10 justify-center px-5 py-10 md:px-10 md:py-20">
+      <div className="whitesections grid grid-cols-2 md:flex md:flex-row gap-x-2 gap-y-2 md:gap-x-10 justify-center px-5 py-10 md:px-10 md:py-20">
         <div className="flex flex-col gap-y-2 justify-center p-8 bg-white">
           <p className="font-alliance text-xl md:text-2xl">Backed by</p>
           <p className="font-alliance text-xs md:text-lg">UoB Elevate</p>

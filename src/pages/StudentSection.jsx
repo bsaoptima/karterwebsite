@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import "./VettingProcess.css"
 import { ArrowDownCircle, Clock, Map, DollarSign, Users, Award, MapPin } from 'feather-icons-react';
 
-export default function StudentSection(){
+export default function StudentSectionTesting(){
 
     const processRef = useRef();
     const scrollToProcess = () => {
@@ -11,8 +11,8 @@ export default function StudentSection(){
 
     return (
         <div className="relative scroll-smooth">
-            {/* <MainSection scrollToProcess={scrollToProcess}/>
-            <BenefitSection /> */}
+            <MainSection scrollToProcess={scrollToProcess}/>
+            <BenefitSection />
             <VettingProcess processRef={processRef}/>
         </div>
     )
@@ -87,7 +87,7 @@ function VettingProcess({ processRef }){
                     <p className="text-3xl md:text-4xl text-center font-sfprodisplay font-semibold text-[#29363D]">How to join our Network</p>
                     <p className="text-[#656B8A] text-center text-lg md:text-xl font-alliance">Every student in our network is thoroughly vetted <br/> through interviews and assessments.</p>
                     <button className="">
-                        <div className="bg-white flex flex-col justify-start rounded-lg p-4 hover:drop-shadow-xl ring-2 ring-[#4B8BFC] text-[#4B8BFC] hover:text-white hover:bg-[#4B8BFC] transform hover:scale-105 transition-transform duration-300">
+                        <div className="bg-white flex flex-col justify-start rounded-lg p-4 hover:drop-shadow-xl ring-2 ring-[#00A6B2] text-[#00A6B2] hover:text-white hover:bg-[#00A6B2] transform hover:scale-105 transition-transform duration-300">
                             <a href="/contact" className="text-xl font-alliance">Join us</a>
                         </div>
                     </button>
