@@ -50,7 +50,7 @@ function BenefitSection() {
                 <div className="flex flex-col justify-center items-center gap-y-2">
                     <Map className="text-[#00A6B2] mb-2"/>
                     <p className="text-[#29363D] text-xl font-alliance font-semibold">Remote work</p>
-                    <p className="text-[#656B8A] text-start md:text-center lg:text-center text-md font-alliance">Work from home, on campus, <br/>in a café, it does not matter!</p>
+                    <p className="text-[#656B8A] text-start md:text-center lg:text-center text-md font-alliance">Work from home, on campus, <br/>in a café, it does not matter.</p>
                 </div>
                 <div className="flex flex-col justify-center items-center gap-y-2">
                     <DollarSign className="text-[#00A6B2] mb-2"/>
