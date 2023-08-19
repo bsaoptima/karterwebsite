@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
-import "./VettingProcess.css"
+import "./StudentSection.css"
 import { ArrowDownCircle, Clock, Map, DollarSign, Users, Award, MapPin } from 'feather-icons-react';
 
-export default function StudentSectionTesting(){
+export default function StudentSection(){
 
     const processRef = useRef();
     const scrollToProcess = () => {
