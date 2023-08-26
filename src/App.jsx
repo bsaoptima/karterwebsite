@@ -7,6 +7,7 @@ import ContactPage from "./pages/Contact";
 import SolutionPage from "./pages/Solutions";
 import StudentSection from "./pages/StudentSection";
 import ApplicationForm from "./pages/ApplicationForm";
+import PeriodicTableScene from "./pages/Testing"
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Route path='/contact' element={<ContactPage />}/>
           <Route path='/solutions' element={<SolutionPage />} />
           <Route path='/vetting-process' element={<StudentSection />} />
-          <Route path='/private-testing' element={<ApplicationForm />} />
+          <Route path='/private-testing' element={<PeriodicTableScene />} />
         </Routes>
         <Footer />
       </div>

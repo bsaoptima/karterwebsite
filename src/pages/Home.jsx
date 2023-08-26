@@ -42,8 +42,8 @@ export default function HomePage() {
 {/* LANDING SECTION */}
 function LandingSection({ scrollToContact, scrollToSolutions }) {
     return (
-      <div className="flex flex-col md:flex-row landingItem h-auto md:h-[825px] p-10">
-        <div className="flex flex-col justify-center md:px-20 gap-y-10 md:gap-y-20 md:basis-5/5 lg:basis-4/5">
+      <div className="flex flex-col md:flex-row landingItem h-auto md:h-[800px] p-8">
+        <div className="flex flex-col justify-center md:px-20 gap-y-10 md:gap-y-16 md:basis-5/5 lg:basis-4/5">
           <p className="text-4xl md:text-6xl lg:text-[85px] font-sfprodisplay leading-tight">
             Bridging the gap between <strong>University</strong> &{" "}
             <strong>Industry</strong>
@@ -53,9 +53,15 @@ function LandingSection({ scrollToContact, scrollToSolutions }) {
             <br /> accessible to companies of all sizes.
           </p>
           <div className="flex flex-row md:items-center gap-x-5 md:gap-x-10 phone-flex-col">
-            <div className="bg-black text-white transition-colors duration-300 ease-in-out hover:text-black hover:bg-white px-8 md:px-16 py-4 md:py-6">
-              <button onClick={scrollToContact}>
+            <div className="py-4 md:py-6">
+              {/* <button onClick={scrollToContact}>
                 <p className="text-lg md:text-2xl font-alliance">Contact us</p>
+              </button> */}
+              <button class="btn">
+                <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" class="sparkle">
+                    <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
+                </svg>
+                <span class="text">Start building</span>
               </button>
             </div>
             <div className="flex flex-row items-center gap-x-2 md:gap-x-4 phone-hidden">
