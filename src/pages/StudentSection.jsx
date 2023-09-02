@@ -98,7 +98,7 @@ function VettingProcess({ processRef }){
                     <div className="flex flex-col md:flex-row">
                         <div className="bg-white flex flex-col gap-y-5 justify-start drop-shadow-xl rounded-xl p-8 stepItem text-black transform hover:scale-105 transition-transform duration-300 w-full md:max-w-[600px]">
                             <p className="text-2xl font-alliance">1. Contact us with your CV</p>
-                            <p className="font-alliance">Reach out to us through our <a href="/contact" className="hover:text-[#4B8BFC]">contact form</a>, <a href="https://www.linkedin.com/company/karter-dev/" className="hover:text-[#4B8BFC]">LinkedIn</a> or <button className="hover:text-[#4B8BFC]" onClick={() => {{setIsEmailCopied("(copied)")}; {navigator.clipboard.writeText("karterdevelopment@gmail.com")}}}>email</button> {isEmailCopied} with your CV. <br /> If your profile meets our requirements you will be invited for a Screening Interview.</p>
+                            <p className="font-alliance">Reach out to us through our <a href="/contact" className="hover:text-[#4B8BFC]">contact form</a>, <a href="https://www.linkedin.com/company/karter-dev/" className="hover:text-[#4B8BFC]">LinkedIn</a> or <button className="hover:text-[#4B8BFC]" onClick={() => {{setIsEmailCopied("(copied)")}; {navigator.clipboard.writeText("communications@karter.dev")}}}>email</button> {isEmailCopied} with your CV. <br /> If your profile meets our requirements you will be invited for a Screening Interview.</p>
                         </div>
                         <div className="">
                         </div>
