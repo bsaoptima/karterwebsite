@@ -57,23 +57,30 @@ function LandingSection({ scrollToContact, scrollToSolutions }) {
               {/* <button onClick={scrollToContact}>
                 <p className="text-lg md:text-2xl font-alliance">Contact us</p>
               </button> */}
-              <button class="btn">
+              {/* <button class="btn">
                 <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" class="sparkle">
                     <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
                 </svg>
                 <span class="text">
                   <a href="/build">Start building</a>
                 </span>
+              </button> */}
+              <button className="buttonHome">
+                <span class="button_top font-alliance">
+                  <a href="/build">&lt;/&gt; Start building</a> 
+                </span>
               </button>
             </div>
             <div className="flex flex-row items-center gap-x-2 md:gap-x-4 phone-hidden">
               {/* <div className="triangle"></div> */}
-              <a
-                onClick={scrollToSolutions}
-                className="text-sm md:text-lg font-alliance relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] before:bottom-0 before:left-0 before:bg-black before:hover:scale-x-100 before:scale-x-0 before:origin-top-left before:transition before:ease-in-out before:duration-300"
-              >
-                How it works
-              </a>
+              <button>
+                <a
+                  onClick={scrollToSolutions}
+                  className="text-sm md:text-lg font-alliance relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] before:bottom-0 before:left-0 before:bg-black before:hover:scale-x-100 before:scale-x-0 before:origin-top-left before:transition before:ease-in-out before:duration-300"
+                >
+                  How it works
+                </a>
+              </button>
             </div>
           </div>
         </div>

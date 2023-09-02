@@ -7,8 +7,9 @@ import ContactPage from "./pages/Contact";
 import SolutionPage from "./pages/Solutions";
 import StudentSection from "./pages/StudentSection";
 import ApplicationForm from "./pages/ApplicationForm";
-import PeriodicTableScene from "./pages/Testing"
+import Testing from "./pages/Testing"
 import LeadGenForm from "./components/LeadGenForm";
+import ProjectsPage from "./pages/Projects";
 
 function App() {
   return (
@@ -20,8 +21,9 @@ function App() {
           <Route path='/contact' element={<ContactPage />}/>
           <Route path='/solutions' element={<SolutionPage />} />
           <Route path='/vetting-process' element={<StudentSection />} />
-          <Route path='/private-testing' element={<PeriodicTableScene />} />
+          <Route path='/private-testing' element={<Testing />} />
           <Route path='/build' element={<LeadGenForm />} />
+          <Route path='/projects' element={<ProjectsPage />} /> 
         </Routes>
         <Footer />
       </div>

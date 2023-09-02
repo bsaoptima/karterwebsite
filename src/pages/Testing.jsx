@@ -129,7 +129,16 @@ const table = [
     'Og', 'Oganesson', '(294)', 18, 7
 ];
 
-export default function PeriodicTableScene()  {
+export default function TestingPage() {
+    return (
+        <div className='relative'>
+            <PeriodicTableScene />
+            <CodeComponent />
+        </div>
+    )
+}
+
+function PeriodicTableScene()  {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -343,3 +352,37 @@ export default function PeriodicTableScene()  {
   return <div ref={containerRef} id="container" />;
 };
 
+
+function CodeComponent() {
+    return (
+        <div className="code-editor">
+            <div className="header">
+                <span className="title">success.py</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="icon"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M6 6L18 18"></path> <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M18 6L6 18"></path> </g></svg>
+            </div>
+            <div className="editor-content">
+                <code className="code">
+                <p className=''><span className="text-[#c26eb5]">import</span> <span className='text-[#00A6B2]'>Karter</span></p>
+                <p className='mb-5'><span className="text-[#c26eb5]">import</span> <span className='text-[#00A6B2]'>Founder</span></p>
+                <p><span className="color-0">def MakeStartupSuccessful</span><span>():</span></p>
+
+                <p className="property">
+                    <span className="color-2">idea = Founder.brain.generate()</span>
+                </p>
+                <p className="property">
+                    <span className="color-2">project_manager = Karter.addProjectManager(number="1")</span>
+                </p>
+                <p className="property">
+                    <span className="color-2">backend_dev = Karter.addProjectManager(number="2")</span>
+                </p>
+                <p className="property">
+                    <span className="color-2">frontend_dev = Karter.addProjectManager(number="2")</span>
+                </p>
+                <p className="property mt-5">
+                    <span className="color-2">return "Great Success!"</span>
+                </p>
+                </code>
+            </div>
+            </div>
+    )
+}
