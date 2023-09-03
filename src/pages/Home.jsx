@@ -65,11 +65,14 @@ function LandingSection({ scrollToContact, scrollToSolutions }) {
                   <a href="/build">Start building</a>
                 </span>
               </button> */}
-              <button className="buttonHome">
-                <span class="button_top font-alliance">
-                  <a href="/build">&lt;/&gt; Start building</a> 
-                </span>
-              </button>
+              <a href="/build">
+                <button className="buttonHome">
+                  <span class="button_top font-alliance">
+                    <a href="/build">&lt;Start building /&gt;</a> 
+                  </span>
+                </button>
+              </a>
+              
             </div>
             <div className="flex flex-row items-center gap-x-2 md:gap-x-4 phone-hidden">
               {/* <div className="triangle"></div> */}
