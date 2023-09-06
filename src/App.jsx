@@ -4,17 +4,17 @@ import Navbar from "./components/Navbar"
 import HomePage from "./pages/Home";
 import Footer from "./components/Footer";
 import ContactPage from "./pages/Contact";
-import SolutionPage from "./pages/Solutions";
 import StudentSection from "./pages/StudentSection";
 import ApplicationForm from "./pages/ApplicationForm";
 import Testing from "./pages/Testing"
 import LeadGenForm from "./components/LeadGenForm";
 import ProjectsPage from "./pages/Projects";
+import SolutionPage from "./pages/Solutions";
 
 function App() {
   return (
     <>
-      <div className="relative">
+      <div className="">
         <Navbar />
         <Routes>
           <Route path='/' element={<HomePage/>}/>
