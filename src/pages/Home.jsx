@@ -6,8 +6,6 @@ import { useInView } from 'react-intersection-observer';
 
 import product from '../assets/product.png'
 import team from '../assets/team.png'
-import graduate from '../assets/touch.png'
-import rocket from '../assets/rocket.png'
 import world from '../assets/world.png'
 
 import code from "../assets/code.png"
@@ -135,29 +133,39 @@ function StatsSection() {
 
   return (
     <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
-      <div className="whitesections grid grid-cols-2 md:flex md:flex-row gap-x-2 gap-y-2 md:gap-x-10 justify-center px-5 py-10 md:px-10 md:py-20">
-        <div className="flex flex-col gap-y-2 justify-center p-8 bg-white">
-            <p className="font-alliance text-xl md:text-2xl">
-              {counterOn && <CountUp start={0} end={30000} duration={3}/>}
-              +
+      {/* <div className="mt-20">
+        <p className="text-3xl md:text-5xl lg:text-6xl font-sfprodisplay text-center">
+          Our results
+        </p>
+      </div> */}
+      <div className="whitesections bg-white grid grid-cols-2 md:flex md:flex-row gap-x-2 gap-y-2 md:gap-x-14 justify-center px-5 py-10 md:px-10 md:py-10">
+        <div className="flex flex-col gap-y-2 justify-center p-8 bg-white rounded-xl">
+            <p className="font-alliance font-semibold text-xl md:text-5xl text-[#00A6B2]">
+              {counterOn && <CountUp start={0} end={30} duration={5}/>}
+              k+
             </p>
-          <p className="font-alliance text-xs md:text-lg">student developers <br/> in the United Kingdom</p>
+          <p className="font-alliance text-xs md:text-lg">student developers <br/> in the UK</p>
         </div>
         <div className="flex flex-col gap-y-2 justify-center p-8 bg-white">
-        <p className="font-alliance text-xl md:text-2xl">
-              {counterOn && <CountUp start={0} end={10} duration={5} delay={0.2}/>}
-              +
-            </p>
+          <p className="font-alliance font-semibold  text-xl md:text-5xl text-[#00A6B2]">
+            {counterOn && <CountUp start={0} end={10} duration={5} delay={0.2}/>}
+            +
+          </p>
           <p className="font-alliance text-xs md:text-lg">Projects completed in <br/> under one year</p>
         </div>
         <div className="flex flex-col gap-y-2 justify-center p-8 bg-white">
-          <p className="font-alliance text-xl md:text-2xl">Backed by</p>
-          <p className="font-alliance text-xs md:text-lg">UoB Elevate</p>
+          <div className="flex flex-row justify-center items-center gap-x-2">
+            <p className="font-alliance font-semibold  text-xl md:text-5xl text-[#00A6B2]">
+              {counterOn && <CountUp start={0} end={3} duration={5} delay={0.2}/>}
+            </p>
+            <p className="font-alliance font-semibold text-xl md:text-3xl text-[#00A6B2]">months</p>
+          </div>
+          <p className="font-alliance text-xs md:text-lg">Average time <br/>to build an MVP.</p>
         </div>
-        <div className="flex flex-col gap-y-2 justify-center p-8 bg-white">
-          <p className="font-alliance text-xl md:text-2xl">Started in</p>
-          <p className="font-alliance text-xs md:text-lg">September 2022</p>
-        </div>
+        {/* <div className="flex flex-col gap-y-2 justify-center p-8 bg-white">
+          <p className="font-alliance font-semibold  text-xl md:text-4xl text-[#00A6B2]">UoB Elevate</p>
+          <p className="font-alliance text-xs md:text-lg">is backing our startup <br/> in their incubator.</p>
+        </div> */}
       </div>
     </ScrollTrigger>
   )
@@ -168,7 +176,7 @@ function SolutionsSection({ solutionsRef }) {
     return (
       <div ref={solutionsRef} className="flex flex-col whitesections gap-y-20 justify-center px-5 py-10 lg:pb-40 lg:pt-20">
         <div className="lg:mb-16">
-          <p className="text-3xl md:text-5xl lg:text-6xl font-sfprodisplay text-center">
+          <p className="text-4xl lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]">
             How we help <strong>you</strong> and <strong>your business</strong>
           </p>
         </div>

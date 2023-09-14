@@ -1,7 +1,7 @@
 import React, { Suspense, useRef } from "react";
 import { TypeAnimation } from 'react-type-animation';
 import './Solutions.css'
-import { FiArrowRightCircle, ArrowDownCircle } from 'feather-icons-react'
+import { UserCheck, ArrowDownCircle, Repeat, CheckCircle, DollarSign } from 'feather-icons-react'
 
 const Spline = React.lazy(() => import('@splinetool/react-spline'));
 
@@ -9,6 +9,8 @@ export default function SolutionPage (){
     return (
         <div className="relative scroll-smooth">
             <LandingItem />
+            <StayLean />
+            <WhatYouGet />
         </div>
     )
 }
@@ -38,7 +40,7 @@ function LandingItem(){
                         className="text-4xl lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]"
                     />
                 </div>
-                <p className="text-[#656B8A] text-center text-lg md:text-xl md:px-40 lg:px-96 font-alliance">Hire on demand a team of developers & project managers without the hassle of managing a team by yourself</p>
+                <p className="text-[#656B8A] text-center text-lg md:text-xl md:px-40 lg:px-96 font-alliance">Hire on demand a team of developers & project managers without the hassle of managing a team by yourself.</p>
                 <a href="/build">
                     <button>
                         <div className="flex flex-row bg-[#00A6B2] text-white hover:bg-[#02becc] mt-5 drop-shadow-xl rounded-3xl px-4 py-2 gap-x-2">
@@ -48,6 +50,102 @@ function LandingItem(){
                     </button>
                 </a>
             </div>
+        </div>
+    )
+}
+
+
+function StayLean(){
+    return(
+        <div className="flex flex-col md:flex-row bg-[#F6F9FC] gap-y-10 md:gap-x-10 justify-center items-center p-10 md:p-20">
+            <div className="flex flex-col gap-y-5 basis-1/2">
+                <p className="text-4xl lg:text-5xl text-start font-sfprodisplay font-bold text-[#29363D]">Stay Lean and get to market</p>
+                <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">These days, founders need to run lean operations. Focus on your strengths and outsource tasks to build great products fast.</p>
+                <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">In a few clicks, you have a dedicated project manager and student developers ready to go.</p>
+            </div>
+            <div className="basis-1/2">
+                <CodeComponent />
+            </div>
+        </div>
+    )
+}
+
+function CodeComponent() {
+    return (
+        <div className="code-editor">
+            <div className="header">
+                <span className="title">success.py</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="icon"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M6 6L18 18"></path> <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M18 6L6 18"></path> </g></svg>
+            </div>
+            <div className="px-3">
+                <div className="bg-[#575757] h-[0.5px] mb-3"></div>
+            </div>
+            <div className="editor-content">
+                <code className="code">
+                <p className=''><span className="text-[#c26eb5]">import</span> <span className='text-[#00A6B2]'>Karter</span></p>
+                <p className='mb-5'><span className="text-[#c26eb5]">import</span> <span className='text-[#00A6B2]'>Founder</span></p>
+                <p><span className="color-0">def <span className="color-6">BuildMyMVP</span></span><span className="color-5">()</span>:</p>
+
+                <p className="property">
+                    <span className="color-4"><span className="color-2">idea</span> <span className="text-white">=</span> Founder<span className="text-white">.</span>brain<span className="text-white">.</span><span className="text-white">generate<span className="color-5">()</span></span></span>
+                </p>
+                <p className="property">
+                    <span className="color-4"><span className="color-2">project_manager</span> <span className="text-white">=</span> Karter<span className="text-white">.</span>addProjectManager<span className="color-5">(</span><span className="color-2">number</span><span className="text-white">=</span><span className="color-3">"1"</span><span className="color-5">)</span></span>
+                </p>
+                <p className="property">
+                    <span className="color-4"><span className="color-2">backend_dev</span> <span className="text-white">=</span> Karter<span className="text-white">.</span>addDeveloper<span className="color-5">(</span><span className="color-2">number</span><span className="text-white">=</span><span className="color-3">"1"</span><span className="color-5"><span className="text-white">,</span> <span className="color-2">type</span><span className="text-white">=</span><span className="color-3">"BE"</span>)</span></span>
+                </p>
+                <p className="property">
+                    <span className="color-4"><span className="color-2">frontend_dev</span> <span className="text-white">=</span> Karter<span className="text-white">.</span>addDeveloper<span className="color-5">(</span><span className="color-2">number</span><span className="text-white">=</span><span className="color-3">"2"</span><span className="color-5"><span className="text-white">,</span> <span className="color-2">type</span><span className="text-white">=</span><span className="color-3">"FE"</span>)</span></span>
+                </p>
+                <p className="property mt-5">
+                    <span className="text-[#c26eb5]">return <span className="color-3">"Great Success!"</span></span>
+                </p>
+                </code>
+            </div>
+        </div>
+    )
+}
+
+function WhatYouGet(){
+    return (
+        <div className="flex flex-col bg-[#F6F9FC] justify-center items-center gap-y-10 p-10 md:p-20">
+            <p className="text-4xl lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]">What you get from us</p>
+            <div className="bg-[#F6F9FC] flex flex-col justify-center items-center px-10 mb-10">
+                <div className="bg-[#F6F9FC] mt-5 lg:mt-16 grid grid-cols-2 lg:grid-cols-3 gap-x-10 md:gap-x-20 lg:gap-x-32 gap-y-10">
+                    <div className="flex flex-col justify-start items-start gap-y-2">
+                        <CheckCircle className="text-[#00A6B2]"/>
+                        <p className="text-[#29363D] text-xl font-alliance font-semibold">Top Vetted Talent</p>
+                        <p className="text-[#656B8A] text-start md:text-start lg:text-start font-alliance">Our students will work at the best tech companies out there. Leverage this great talent now.</p>
+                    </div>
+                    <div className="flex flex-col justify-start items-start gap-y-2">
+                        <UserCheck className="text-[#00A6B2]"/>
+                        <p className="text-[#29363D] text-xl font-alliance font-semibold">Fully-Managed Teams</p>
+                        <p className="text-[#656B8A] text-start md:text-start lg:text-start text-md font-alliance">You get a dedicated team managed by us with clear and quick communication channels to track progress.</p>
+                    </div>
+                    <div className="flex flex-col justify-start items-start gap-y-2">
+                        <DollarSign className="text-[#00A6B2]"/>
+                        <p className="text-[#29363D] text-xl font-alliance font-semibold">Predicable Pricing</p>
+                        <p className="text-[#656B8A] text-start md:text-start lg:text-start text-md font-alliance">Our rates are competitive and simple. No recruiting & setup fees. Get an estimation of your project and pay as you go.</p>
+                    </div>
+                </div>
+            </div>
+            <div className="flex flex-col md:flex-row items-center gap-y-10 gap-x-10">
+                <div className="flex flex-col basis-1/2 justify-start items-start gap-y-5 p-10">
+                    <p className="text-2xl lg:text-3xl text-center font-sfprodisplay font-semibold text-[#29363D]">Without <span class="text-[#00A6B2]">&lt;</span><span className="font-alliance">karter</span><span class="text-[#00A6B2]">&gt;</span></p>
+                    <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">Investors nowadays want to see results even at the Pre-Seed stage. Software agencies and hiring full-time devs is too expensive and a massive commitment just for an MVP.</p>
+                    <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">Don't get us started on no-code tools.</p>
+                </div>
+                <div className="bg-white flex flex-col basis-1/2 gap-y-5 justify-start items-start drop-shadow-xl rounded-xl p-10 withKarterItem text-black">
+                    <p className="text-2xl lg:text-3xl text-center font-sfprodisplay font-semibold text-[#29363D]">With <span class="text-[#00A6B2]">&lt;</span><span className="font-alliance">karter</span><span class="text-[#00A6B2]">&gt;</span></p>
+                    <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">You get a team of student developers and a dedicated project manager that will build your idea at competitive rates. Perfect for lean startups, agencies and solo-founders.</p>
+                    <div className="flex flex-row justify-center items-center gap-x-5">
+                        <Repeat className="text-[#00A6B2]"/>
+                        <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">Launch, Win and Repeat.</p>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     )
 }
