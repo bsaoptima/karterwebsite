@@ -1,0 +1,5 @@
+.text-container {
+    text-align: left; /* Start the text on the left */
+    position: relative; /* Create a relative positioning context */
+    overflow: hidden; /* Hide overflowing text on the right */
+}

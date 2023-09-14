@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Route, Routes } from 'react-router-dom';
 import { Link } from 'react-scroll';
 import './Home.css'
@@ -13,6 +13,8 @@ import world from '../assets/world.png'
 import code from "../assets/code.png"
 import bulb from "../assets/bulb.png"
 
+import CountUp from "react-countup";
+import ScrollTrigger from "react-scroll-trigger";
 
 export default function HomePage() {
 
@@ -128,26 +130,37 @@ function MapSection() {
 
 {/* STATISTICS SECTION */}
 function StatsSection() {
-    return (
+
+  const [counterOn, setCounterOn] = useState(false);
+
+  return (
+    <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
       <div className="whitesections grid grid-cols-2 md:flex md:flex-row gap-x-2 gap-y-2 md:gap-x-10 justify-center px-5 py-10 md:px-10 md:py-20">
+        <div className="flex flex-col gap-y-2 justify-center p-8 bg-white">
+            <p className="font-alliance text-xl md:text-2xl">
+              {counterOn && <CountUp start={0} end={30000} duration={3}/>}
+              +
+            </p>
+          <p className="font-alliance text-xs md:text-lg">student developers <br/> in the United Kingdom</p>
+        </div>
+        <div className="flex flex-col gap-y-2 justify-center p-8 bg-white">
+        <p className="font-alliance text-xl md:text-2xl">
+              {counterOn && <CountUp start={0} end={10} duration={5} delay={0.2}/>}
+              +
+            </p>
+          <p className="font-alliance text-xs md:text-lg">Projects completed in <br/> under one year</p>
+        </div>
         <div className="flex flex-col gap-y-2 justify-center p-8 bg-white">
           <p className="font-alliance text-xl md:text-2xl">Backed by</p>
           <p className="font-alliance text-xs md:text-lg">UoB Elevate</p>
-        </div>
-        <div className="flex flex-col gap-y-2 justify-center p-8 bg-white">
-          <p className="font-alliance text-xl md:text-2xl">2000+</p>
-          <p className="font-alliance text-xs md:text-lg">STEM students <br/> in the United Kingdom</p>
-        </div>
-        <div className="flex flex-col gap-y-2 justify-center p-8 bg-white">
-          <p className="font-alliance text-xl md:text-2xl">8+</p>
-          <p className="font-alliance text-xs md:text-lg">Projects completed in <br/> under one year</p>
         </div>
         <div className="flex flex-col gap-y-2 justify-center p-8 bg-white">
           <p className="font-alliance text-xl md:text-2xl">Started in</p>
           <p className="font-alliance text-xs md:text-lg">September 2022</p>
         </div>
       </div>
-    )
+    </ScrollTrigger>
+  )
 }
 
 {/* WHAT WE CAN BRING SECTION */}
