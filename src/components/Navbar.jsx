@@ -32,9 +32,9 @@ export default function Navbar() {
                     </button>
                     <div className={`w-full md:block md:w-auto ${isExpanded ? 'block' : 'hidden'}`} id="navbar-default">
                         <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
-                            <li>
+                            {/* <li>
                                 <a href="/services" class="block text-[18px] py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A6B2] md:p-0">Services</a>
-                            </li>
+                            </li> */}
                             <li>
                                 <a href="/solutions" class="block text-[18px] py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A6B2] md:p-0">Solutions</a>
                             </li>
