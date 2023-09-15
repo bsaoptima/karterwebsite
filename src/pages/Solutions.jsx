@@ -63,12 +63,12 @@ function LandingItem(){
 function StayLean(){
     return(
         <div className="flex flex-col md:flex-row bg-[#F6F9FC] gap-y-10 md:gap-x-10 justify-center items-center p-10 md:p-20">
-            <div className="flex flex-col gap-y-5 basis-1/2">
+            <div className="flex flex-col gap-y-5 basis-1/2 md:px-10">
                 <p className="text-4xl lg:text-5xl text-start font-sfprodisplay font-bold text-[#29363D]">Stay Lean and get to market</p>
                 <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">These days, founders need to run lean operations. Focus on your strengths and outsource tasks to build great products fast.</p>
                 <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">In a few clicks, you have a dedicated project manager and student developers ready to go.</p>
             </div>
-            <div className="basis-1/2">
+            <div className="flex flex-col justify-center items-center basis-1/2">
                 <CodeComponent />
             </div>
         </div>

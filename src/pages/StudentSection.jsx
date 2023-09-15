@@ -31,7 +31,6 @@ function MainSection({ scrollToProcess }) {
                     <ArrowDownCircle />
                 </div>
             </button>
-            
         </div>
     )
 }

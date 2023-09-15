@@ -10,6 +10,8 @@ import Testing from "./pages/Testing"
 import LeadGenForm from "./components/LeadGenForm";
 import ProjectsPage from "./pages/Projects";
 import SolutionPage from "./pages/Solutions";
+import ServicesPage from "./pages/Services";
+
 
 function App() {
   return (
@@ -24,6 +26,7 @@ function App() {
           <Route path='/private-testing' element={<Testing />} />
           <Route path='/build' element={<LeadGenForm />} />
           <Route path='/projects' element={<ProjectsPage />} /> 
+          <Route path='/services' element={<ServicesPage />} />
         </Routes>
         <Footer />
       </div>
