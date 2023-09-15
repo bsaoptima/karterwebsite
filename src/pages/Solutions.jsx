@@ -12,7 +12,7 @@ export default function SolutionPage (){
         <div className="relative flex flex-col scroll-smooth">
             <LandingItem />
             <StayLean />
-            <p className="text-4xl bg-[#F6F9FC] pt-20 pb-12  lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]">What you get from us</p>
+            <p className="text-4xl bg-[#F6F9FC] md:pt-20 pb-12 lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]">What you get from us</p>
             <Services />
             <WhatYouGet />
             <EndingComponent />
@@ -114,7 +114,7 @@ function CodeComponent() {
 
 function WhatYouGet(){
     return (
-        <div className="flex flex-col bg-[#F6F9FC] justify-center items-center gap-y-10 px-20">
+        <div className="flex flex-col bg-[#F6F9FC] justify-center items-center gap-y-10 px-10 md:px-20">
             <div className="bg-[#F6F9FC] flex flex-col justify-center items-center md:px-10 md:mb-10">
                 <div className="bg-[#F6F9FC] mt-5 lg:mt-16 grid grid-cols-1 lg:grid-cols-3 gap-x-10 md:gap-x-20 lg:gap-x-32 gap-y-10">
                     <div className="flex flex-col justify-start items-start gap-y-2">
@@ -222,19 +222,19 @@ function Services(){
 
 function EndingComponent(){
     return (
-        <div className="px-20 pt-40 pb-20 bg-[#F6F9FC]">
-            <div className="flex flex-col justify-center gap-y-10 items-center bg-[#00A6B2] rounded px-40 py-28">
-                <p className="text-5xl text-white font-alliance font-medium text-center">Launch Startups & Build MVPs</p>
-                <p className="text-xl text-[#F4F4F4] font-alliance text-center px-20">We help you build quality products at competitive prices thanks to our network of trained and talented student developers.</p>
-                <div className="flex flex-row justify-center gap-x-2 items-center">
-                    <a href="/build" class="block text-[18px] py-2 pl-3 pr-4 rounded border-1 ">
-                        <div className="rounded-md border-[3px] border-black bg-black font-alliance text-white px-5 py-2">
+        <div className="px-10 md:px-20 pt-20 md:pt-40 pb-10 md:pb-20 bg-[#F6F9FC]">
+            <div className="flex flex-col justify-center gap-y-6 md:gap-y-10 items-center bg-[#00A6B2] rounded px-10 md:px-40 py-10 md:py-28">
+                <p className="text-4xl md:text-5xl text-white font-alliance font-medium text-center">Launch Startups & Build MVPs</p>
+                <p className="text-xl text-[#F4F4F4] font-alliance text-center md:px-20">We help you build quality products at competitive prices thanks to our network of trained and talented student developers.</p>
+                <div className="flex flex-col md:flex-row justify-center items-center gap-y-2 md:gap-x-2">
+                    <a href="/build" class="block text-[18px]">
+                        <div className="rounded-md border-[4px] md:border-[3px] border-black bg-black font-alliance text-white text-center px-5 py-2">
                             Book a Free Call
                         </div>
                     </a>
-                    <a href="/projects" class="block text-[18px]  md:hover:text-[#00A6B2]">
-                        <div className="rounded-md border-[3px] border-black bg-white font-alliance text-black px-5 py-2">
-                            Check our Past Projects
+                    <a href="/projects" class="block text-[18px]">
+                        <div className="rounded-md border-[3px] border-black bg-white font-alliance text-black text-center px-5 py-2">
+                            Our Past Projects
                         </div>
                     </a>
                 </div>
