@@ -2,6 +2,8 @@ import React, { Suspense, useRef } from "react";
 import { TypeAnimation } from 'react-type-animation';
 import './Solutions.css'
 import { UserCheck, ArrowDownCircle, Repeat, CheckCircle, DollarSign } from 'feather-icons-react'
+import Marquee from "react-fast-marquee";
+
 
 const Spline = React.lazy(() => import('@splinetool/react-spline'));
 
@@ -11,13 +13,14 @@ export default function SolutionPage (){
             <LandingItem />
             <StayLean />
             <WhatYouGet />
+            <Services />
         </div>
     )
 }
 
 function LandingItem(){
     return (
-        <div className="bg-[#F6F9FC] flex flex-row justify-around items-center p-20">
+        <div className="bg-[#F6F9FC] flex flex-row justify-around items-center p-10 md:p-20">
             <div className="flex flex-col justify-center items-center gap-y-6">
                 <p className="text-lg text-center lg:text-xl font-alliance font-semibold text-[#00A6B2]">Quality, Speed and Reliability</p>
                 <div className="">
@@ -37,7 +40,7 @@ function LandingItem(){
                         speed={50}
                         // style={{ fontSize: '2em', font: 'sfprodisplay', fontWeight: '500'}}
                         repeat={Infinity}
-                        className="text-4xl lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]"
+                        className="text-[35px] lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]"
                     />
                 </div>
                 <p className="text-[#656B8A] text-center text-lg md:text-xl md:px-40 lg:px-96 font-alliance">Hire on demand a team of developers & project managers without the hassle of managing a team by yourself.</p>
@@ -111,8 +114,8 @@ function WhatYouGet(){
     return (
         <div className="flex flex-col bg-[#F6F9FC] justify-center items-center gap-y-10 p-10 md:p-20">
             <p className="text-4xl lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]">What you get from us</p>
-            <div className="bg-[#F6F9FC] flex flex-col justify-center items-center px-10 mb-10">
-                <div className="bg-[#F6F9FC] mt-5 lg:mt-16 grid grid-cols-2 lg:grid-cols-3 gap-x-10 md:gap-x-20 lg:gap-x-32 gap-y-10">
+            <div className="bg-[#F6F9FC] flex flex-col justify-center items-center md:px-10 md:mb-10">
+                <div className="bg-[#F6F9FC] mt-5 lg:mt-16 grid grid-cols-1 lg:grid-cols-3 gap-x-10 md:gap-x-20 lg:gap-x-32 gap-y-10">
                     <div className="flex flex-col justify-start items-start gap-y-2">
                         <CheckCircle className="text-[#00A6B2]"/>
                         <p className="text-[#29363D] text-xl font-alliance font-semibold">Top Vetted Talent</p>
@@ -131,7 +134,7 @@ function WhatYouGet(){
                 </div>
             </div>
             <div className="flex flex-col md:flex-row items-center gap-y-10 gap-x-10">
-                <div className="flex flex-col basis-1/2 justify-start items-start gap-y-5 p-10">
+                <div className="flex flex-col basis-1/2 justify-start items-start gap-y-5 py-5 md:px-10">
                     <p className="text-2xl lg:text-3xl text-center font-sfprodisplay font-semibold text-[#29363D]">Without <span class="text-[#00A6B2]">&lt;</span><span className="font-alliance">karter</span><span class="text-[#00A6B2]">&gt;</span></p>
                     <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">Investors nowadays want to see results even at the Pre-Seed stage. Software agencies and hiring full-time devs is too expensive and a massive commitment just for an MVP.</p>
                     <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">Don't get us started on no-code tools.</p>
@@ -139,13 +142,51 @@ function WhatYouGet(){
                 <div className="bg-white flex flex-col basis-1/2 gap-y-5 justify-start items-start drop-shadow-xl rounded-xl p-10 withKarterItem text-black">
                     <p className="text-2xl lg:text-3xl text-center font-sfprodisplay font-semibold text-[#29363D]">With <span class="text-[#00A6B2]">&lt;</span><span className="font-alliance">karter</span><span class="text-[#00A6B2]">&gt;</span></p>
                     <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">You get a team of student developers and a dedicated project manager that will build your idea at competitive rates. Perfect for lean startups, agencies and solo-founders.</p>
-                    <div className="flex flex-row justify-center items-center gap-x-5">
-                        <Repeat className="text-[#00A6B2]"/>
-                        <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">Launch, Win and Repeat.</p>
+                    <div className="flex flex-col md:justify-center md:items-center md:flex-row md:gap-x-10 gap-y-5">
+                        <div className="flex flex-row justify-center items-center gap-x-5">
+                            <Repeat className="text-[#00A6B2]"/>
+                            <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">Launch, Win and Repeat.</p>
+                        </div>
+                        {/* <a href="/build">
+                            <button>
+                                <div className="flex flex-row bg-[#00A6B2] text-white hover:bg-[#02becc] drop-shadow-xl rounded-3xl px-4 py-2 gap-x-2">
+                                    <p className="font-alliance">Start building</p>
+                                </div>
+                            </button>
+                        </a> */}
                     </div>
                 </div>
             </div>
-            
+        </div>
+    )
+}
+
+function Services(){
+    return(
+        <div className="flex flex-col bg-[#F6F9FC] gap-y-10">
+            <Marquee autoFill="true" speed={50} gradient="true">
+                <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
+                    <p className="font-alliance text-lg">Web Development</p>
+                </div>
+                <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
+                    <p className="font-alliance text-lg">Mobile Apps</p>
+                </div>
+                <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
+                    <p className="font-alliance text-lg">Data Analytics</p>
+                </div>
+                <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
+                    <p className="font-alliance text-lg">Figma</p>
+                </div>
+                <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
+                    <p className="font-alliance text-lg">Automations</p>
+                </div>
+                <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
+                    <p className="font-alliance text-lg">Ecommerce</p>
+                </div>
+                <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
+                    <p className="font-alliance text-lg">Databases</p>
+                </div>
+            </Marquee>
         </div>
     )
 }
