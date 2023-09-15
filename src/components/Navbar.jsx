@@ -33,26 +33,30 @@ export default function Navbar() {
                     <div className={`w-full md:block md:w-auto ${isExpanded ? 'block' : 'hidden'}`} id="navbar-default">
                         <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
                             <li>
-                                <a href="/projects" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A6B2] md:p-0">Past Projects</a>
+                                <a href="/services" class="block text-[18px] py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A6B2] md:p-0">Services</a>
                             </li>
                             <li>
-                                <a href="/vetting-process" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A6B2] md:p-0">Join Karter</a>
+                                <a href="/solutions" class="block text-[18px] py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A6B2] md:p-0">Solutions</a>
                             </li>
                             <li>
-                                <a href="/contact" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A6B2] md:p-0">Contact</a>
+                                <a href="/projects" class="block text-[18px] py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A6B2] md:p-0">Past Projects</a>
                             </li>
                         </ul>
                     </div>
-                    {/* <div className={`w-full md:block md:w-auto ${isExpanded ? 'block' : 'hidden'}`} id="navbar-default">
-                        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
+                    <div className={`w-full md:block md:w-auto ${isExpanded ? 'block' : 'hidden'}`} id="navbar-default">
+                        <ul class="font-medium flex flex-col justify-center items-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0">
                             <li>
-                                <a href="/projects" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A6B2] md:p-0">Past Projects</a>
+                                <a href="/vetting-process" class="block text-[18px] py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A6B2] md:p-0">Apply to Karter</a>
                             </li>
                             <li>
-                                <a href="/vetting-process" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A6B2] md:p-0">Join Karter</a>
+                                <a href="/contact" class="block text-[18px] py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A6B2] md:p-0">
+                                    <div className="rounded-md bg-black text-white px-5 py-2">
+                                        Book a Call
+                                    </div>
+                                </a>
                             </li>
                         </ul>
-                    </div> */}
+                    </div>
                 </div>
             </nav>
         </div>

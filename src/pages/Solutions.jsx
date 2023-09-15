@@ -9,11 +9,13 @@ const Spline = React.lazy(() => import('@splinetool/react-spline'));
 
 export default function SolutionPage (){
     return (
-        <div className="relative scroll-smooth">
+        <div className="relative flex flex-col scroll-smooth">
             <LandingItem />
             <StayLean />
-            <WhatYouGet />
+            <p className="text-4xl bg-[#F6F9FC] pt-20 pb-12  lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]">What you get from us</p>
             <Services />
+            <WhatYouGet />
+            <EndingComponent />
         </div>
     )
 }
@@ -43,7 +45,7 @@ function LandingItem(){
                         className="text-[35px] lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]"
                     />
                 </div>
-                <p className="text-[#656B8A] text-center text-lg md:text-xl md:px-40 lg:px-96 font-alliance">Hire on demand a team of developers & project managers without the hassle of managing a team by yourself.</p>
+                <p className="text-[#656B8A] text-center text-lg md:text-xl md:px-40 lg:px-96 font-alliance">Hire on demand a team of student developers & project managers without the hassle of managing a team by yourself.</p>
                 <a href="/build">
                     <button>
                         <div className="flex flex-row bg-[#00A6B2] text-white hover:bg-[#02becc] mt-5 drop-shadow-xl rounded-3xl px-4 py-2 gap-x-2">
@@ -112,8 +114,7 @@ function CodeComponent() {
 
 function WhatYouGet(){
     return (
-        <div className="flex flex-col bg-[#F6F9FC] justify-center items-center gap-y-10 p-10 md:p-20">
-            <p className="text-4xl lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]">What you get from us</p>
+        <div className="flex flex-col bg-[#F6F9FC] justify-center items-center gap-y-10 px-20">
             <div className="bg-[#F6F9FC] flex flex-col justify-center items-center md:px-10 md:mb-10">
                 <div className="bg-[#F6F9FC] mt-5 lg:mt-16 grid grid-cols-1 lg:grid-cols-3 gap-x-10 md:gap-x-20 lg:gap-x-32 gap-y-10">
                     <div className="flex flex-col justify-start items-start gap-y-2">
@@ -165,28 +166,79 @@ function Services(){
     return(
         <div className="flex flex-col bg-[#F6F9FC] gap-y-10">
             <Marquee autoFill="true" speed={50} gradient="true">
-                <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
-                    <p className="font-alliance text-lg">Web Development</p>
-                </div>
-                <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
-                    <p className="font-alliance text-lg">Mobile Apps</p>
-                </div>
-                <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
-                    <p className="font-alliance text-lg">Data Analytics</p>
-                </div>
-                <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
-                    <p className="font-alliance text-lg">Figma</p>
-                </div>
-                <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
-                    <p className="font-alliance text-lg">Automations</p>
-                </div>
-                <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
-                    <p className="font-alliance text-lg">Ecommerce</p>
-                </div>
-                <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
-                    <p className="font-alliance text-lg">Databases</p>
-                </div>
+                <a href="/services">
+                    <button>
+                        <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
+                            <p className="font-alliance text-lg">Web Development</p>
+                        </div>
+                    </button>
+                </a>
+                <a href="/services">
+                    <button>
+                        <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
+                            <p className="font-alliance text-lg">Mobile Apps</p>
+                        </div>
+                    </button>
+                </a>
+                <a href="/services">
+                    <button>
+                        <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
+                            <p className="font-alliance text-lg">Data Analytics</p>
+                        </div>
+                    </button>
+                </a>
+                <a href="/services">
+                    <button>
+                        <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
+                            <p className="font-alliance text-lg">Figma</p>
+                        </div>
+                    </button>
+                </a>
+                <a href="/services">
+                    <button>
+                        <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
+                            <p className="font-alliance text-lg">Automations</p>
+                        </div>
+                    </button>
+                </a>
+                <a href="/services">
+                    <button>
+                        <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
+                            <p className="font-alliance text-lg">Ecommerce</p>
+                        </div>
+                    </button>
+                </a>
+                <a href="/services">
+                    <button>
+                        <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
+                            <p className="font-alliance text-lg">Databases</p>
+                        </div>
+                    </button>
+                </a>
             </Marquee>
+        </div>
+    )
+}
+
+function EndingComponent(){
+    return (
+        <div className="px-20 pt-40 pb-20 bg-[#F6F9FC]">
+            <div className="flex flex-col justify-center gap-y-10 items-center bg-[#00A6B2] rounded px-40 py-28">
+                <p className="text-5xl text-white font-alliance font-medium text-center">Launch Startups & Build MVPs</p>
+                <p className="text-xl text-[#F4F4F4] font-alliance text-center px-20">We help you build quality products at competitive prices thanks to our network of trained and talented student developers.</p>
+                <div className="flex flex-row justify-center gap-x-2 items-center">
+                    <a href="/build" class="block text-[18px] py-2 pl-3 pr-4 rounded border-1 ">
+                        <div className="rounded-md border-[3px] border-black bg-black font-alliance text-white px-5 py-2">
+                            Book a Free Call
+                        </div>
+                    </a>
+                    <a href="/projects" class="block text-[18px]  md:hover:text-[#00A6B2]">
+                        <div className="rounded-md border-[3px] border-black bg-white font-alliance text-black px-5 py-2">
+                            Check our Past Projects
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     )
 }
