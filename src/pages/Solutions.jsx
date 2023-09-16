@@ -12,7 +12,7 @@ export default function SolutionPage (){
         <div className="relative flex flex-col scroll-smooth">
             <LandingItem />
             <StayLean />
-            <p className="text-4xl bg-[#F6F9FC] md:pt-20 pb-12 lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]">What you get from us</p>
+            <p className="text-4xl bg-[#F6F9FC] md:pt-20 px-10 pb-12 lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]">What you get from us</p>
             <Services />
             <WhatYouGet />
             <EndingComponent />
@@ -22,7 +22,7 @@ export default function SolutionPage (){
 
 function LandingItem(){
     return (
-        <div className="bg-[#F6F9FC] flex flex-row justify-around items-center p-10 md:p-20">
+        <div className="bg-[#F6F9FC] flex flex-row justify-around items-center px-8 py-10 md:p-20">
             <div className="flex flex-col justify-center items-center gap-y-6">
                 <p className="text-lg text-center lg:text-xl font-alliance font-semibold text-[#00A6B2]">Quality, Speed and Reliability</p>
                 <div className="">
@@ -62,7 +62,7 @@ function LandingItem(){
 
 function StayLean(){
     return(
-        <div className="flex flex-col md:flex-row bg-[#F6F9FC] gap-y-10 md:gap-x-10 justify-center items-center p-10 md:p-20">
+        <div className="flex flex-col md:flex-row bg-[#F6F9FC] gap-y-10 md:gap-x-10 justify-center items-center p-8 md:p-20">
             <div className="flex flex-col gap-y-5 basis-1/2 md:px-10">
                 <p className="text-4xl lg:text-5xl text-start font-sfprodisplay font-bold text-[#29363D]">Stay Lean and get to market</p>
                 <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">These days, founders need to run lean operations. Focus on your strengths and outsource tasks to build great products fast.</p>
@@ -114,7 +114,7 @@ function CodeComponent() {
 
 function WhatYouGet(){
     return (
-        <div className="flex flex-col bg-[#F6F9FC] justify-center items-center gap-y-10 px-10 md:px-20">
+        <div className="flex flex-col bg-[#F6F9FC] justify-center items-center gap-y-10 px-8 md:px-20">
             <div className="bg-[#F6F9FC] flex flex-col justify-center items-center md:px-10 md:mb-10">
                 <div className="bg-[#F6F9FC] mt-5 lg:mt-16 grid grid-cols-1 lg:grid-cols-3 gap-x-10 md:gap-x-20 lg:gap-x-32 gap-y-10">
                     <div className="flex flex-col justify-start items-start gap-y-2">
@@ -140,7 +140,7 @@ function WhatYouGet(){
                     <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">Investors nowadays want to see results even at the Pre-Seed stage. Software agencies and hiring full-time devs is too expensive and a massive commitment just for an MVP.</p>
                     <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">Don't get us started on no-code tools.</p>
                 </div>
-                <div className="bg-white flex flex-col basis-1/2 gap-y-5 justify-start items-start drop-shadow-xl rounded-xl p-10 withKarterItem text-black">
+                <div className="bg-white flex flex-col basis-1/2 gap-y-5 justify-start items-start drop-shadow-xl rounded-xl p-6 withKarterItem text-black">
                     <p className="text-2xl lg:text-3xl text-center font-sfprodisplay font-semibold text-[#29363D]">With <span class="text-[#00A6B2]">&lt;</span><span className="font-alliance">karter</span><span class="text-[#00A6B2]">&gt;</span></p>
                     <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">You get a team of student developers and a dedicated project manager that will build your idea at competitive rates. Perfect for lean startups, agencies and solo-founders.</p>
                     <div className="flex flex-col md:justify-center md:items-center md:flex-row md:gap-x-10 gap-y-5">
@@ -222,8 +222,8 @@ function Services(){
 
 function EndingComponent(){
     return (
-        <div className="px-10 md:px-20 pt-20 md:pt-40 pb-10 md:pb-20 bg-[#F6F9FC]">
-            <div className="flex flex-col justify-center gap-y-6 md:gap-y-10 items-center bg-[#00A6B2] rounded px-10 md:px-40 py-10 md:py-28">
+        <div className="px-8 md:px-20 pt-20 md:pt-40 pb-10 md:pb-20 bg-[#F6F9FC]">
+            <div className="flex flex-col justify-center gap-y-6 md:gap-y-10 items-center bg-[#00A6B2] rounded px-5 md:px-40 py-10 md:py-28">
                 <p className="text-4xl md:text-5xl text-white font-alliance font-medium text-center">Launch Startups & Build MVPs</p>
                 <p className="text-xl text-[#F4F4F4] font-alliance text-center md:px-20">We help you build quality products at competitive prices thanks to our network of trained and talented student developers.</p>
                 <div className="flex flex-col md:flex-row justify-center items-center gap-y-2 md:gap-x-2">
