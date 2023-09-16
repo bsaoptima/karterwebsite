@@ -49,3 +49,10 @@
   .input:checked + .btn .span {
     color: #111;
   }
+
+
+  @media (max-width: 768px) {
+    .service-choices {
+      display: none;
+    }
+  }

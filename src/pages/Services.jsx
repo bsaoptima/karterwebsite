@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { ArrowDownCircle } from "feather-icons-react";
 import minds from '../assets/minds.svg'
 import Web from '../assets/Web.svg'
+import "./Services.css"
 
 
 export default function ServicesPage(){
@@ -38,7 +39,7 @@ function LandingItem({ scrollToServices }){
 
 function StudentAreGreatItem(){
     return(
-        <div className="flex flex-col gap-y-5 md:flex-row md:gap-x-2 bg-[#F6F9FC] justify-between items-center px-8 md:px-20">
+        <div className="flex flex-col gap-y-5 md:flex-row md:gap-x-2 bg-[#F6F9FC] justify-between items-center px-8 py-10 md:px-20">
             <div className="flex flex-col gap-y-5 basis-1/2 md:px-10">
                 <p className="text-4xl lg:text-5xl text-start font-sfprodisplay font-bold text-[#29363D]">Young, brilliant minds</p>
                 <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">Our trained and vetted student developers are at the forefront of technical innovation.</p>
@@ -55,11 +56,11 @@ function ServicesItem({servicesRef}){
     const [openTab, setOpenTab] = useState(1);
 
     return (
-        <div ref={servicesRef} className="flex flex-wrap flex-col gap-y-10 justify-center items-center bg-[#F6F9FC] px-5 md:px-20 md:py-14">
+        <div ref={servicesRef} className="flex flex-wrap flex-col justify-center items-center bg-[#F6F9FC] px-5 md:px-20 md:py-14">
             <p className="text-4xl lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]">Our Services</p>
-            <div className="md:top-36">
+            <div className="service-choices py-10 md:top-36">
                 <ul
-                    className="flex list-none flex-wrap flex-row"
+                    className="flex list-none flex-wrap gap-y-2 flex-row"
                     role="tablist"
                 >
                     <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
