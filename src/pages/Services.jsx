@@ -327,48 +327,61 @@ function DataComponent(){
                             <img width="25" height="25" src="https://s3-symbol-logo.tradingview.com/snowflake--600.png" alt="snowflake"/>
                             <img width="23" height="25" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Apache_kafka-icon.svg/1200px-Apache_kafka-icon.svg.png" alt="mongodb"/>
                             <img width="25" height="25" src="https://img.icons8.com/color/48/redis.png" alt="redis"/>
-                            <img width="25" height="25" src="https://img.icons8.com/color/48/python--v1.png" alt="python--v1"/>                            
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/python--v1.png" alt="python--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/amazon-web-services.png" alt="amazon-web-services"/>                          
+                        </div>
+                    </div>
+                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Datalake</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Build the perfect architecture for ML & DL models.</p>
+                        <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
+                        <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/amazon-web-services.png" alt="snowflake"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/google-cloud.png" alt="google-cloud"/>
+                            <img width="25" height="25" src="https://cdn.icon-icons.com/icons2/2699/PNG/512/databricks_logo_icon_170295.png" alt="python--v1"/>
+                            <img width="25" height="25" src="https://s3-symbol-logo.tradingview.com/snowflake--600.png" alt="snowflake"/>
+                        </div>
+                    </div>
+                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Power your Models</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Translate your math models in code and feed them data.</p>
+                        <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
+                        <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/amazon-web-services.png" alt="snowflake"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/python--v1.png" alt="python--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/numpy.png" alt="numpy"/>
+                            <img width="15" height="20" src={pandas} alt="pandas"/>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div className="flex flex-wrap flex-col gap-y-5 justify-center items-center md:justify-start md:items-start py-10">
-                <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-semibold text-[#29363D]">Custom Software</p>
-                <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">Websites, Web Applications, Figma, UI Designs make a cool text.</p>
+                <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-semibold text-[#29363D]">AI & LLMs</p>
+                <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">Impletement powerful models and innovative features in your applications.</p>
                 <div className="grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
                     <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
-                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Internal Tool</p>
-                        <p className="text-[#37434a] text-start text-lg font-alliance">Build a custom tool solving a business problem.</p>
-                        <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
-                        <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
-                            <img width="25" height="25" src="https://img.icons8.com/color/48/python--v1.png" alt="python--v1"/>
-                            <img width="25" height="25" src="https://img.icons8.com/color/48/java-coffee-cup-logo--v1.png" alt="java-coffee-cup-logo--v1"/>
-                            <img width="25" height="25" src="https://img.icons8.com/color/48/c-sharp-logo.png" alt="c-sharp-logo"/>
-                        </div>
-                    </div>
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
-                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">App Improvement</p>
-                        <p className="text-[#37434a] text-start text-lg font-alliance">Update your app and add the features you want.</p>
-                        <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
-                        <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
-                            <img width="25" height="25" src="https://img.icons8.com/color/48/python--v1.png" alt="python--v1"/>
-                            <img width="25" height="25" src="https://img.icons8.com/color/48/javascript--v1.png" alt="javascript--v1"/>
-                            <img width="25" height="25" src="https://img.icons8.com/color/48/c-sharp-logo.png" alt="c-sharp-logo"/>
-                            <img width="25" height="25" src="https://img.icons8.com/color/48/spring-logo.png" alt="spring-logo"/>
-                            <img width="25" height="25" src="https://img.icons8.com/color/48/flutter.png" alt="flutter"/>
-                        </div>
-                    </div>
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">ChatBot</p>
-                        <p className="text-[#37434a] text-start text-lg font-alliance">Power your applications with a custom ChatBot for your audience.</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Power your applications with a ChatBot trained on YOUR data.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
                         <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
                             <img width="25" height="25" src="https://img.icons8.com/color/48/python--v1.png" alt="python--v1"/>
-                            <img width="25" height="25" src="https://img.icons8.com/color/48/javascript--v1.png" alt="javascript--v1"/>
+                            <img width="25" height="25" src="https://www.mlq.ai/content/images/2023/06/Screenshot-2023-06-15-at-8.15.36-PM.png" alt="javascript--v1"/>
                             <img width="25" height="25" src="https://img.icons8.com/ios-glyphs/30/chatgpt.png" alt="chatgpt"/>
                         </div>
                     </div>
+                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Private Company LLM</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Create a secure query system for employees with your documents.</p>
+                        <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
+                        <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/python--v1.png" alt="python--v1"/>
+                            <img width="30" height="20" src="https://seeklogo.com/images/C/chroma-logo-FB287847E7-seeklogo.com.png" alt="javascript--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/ios-glyphs/30/chatgpt.png" alt="chatgpt"/>
+                            <img width="20" height="20" src="https://seeklogo.com/images/P/pinecone-icon-logo-AF8B5B7F96-seeklogo.com.png" alt="redis"/>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
