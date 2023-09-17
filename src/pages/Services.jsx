@@ -3,6 +3,7 @@ import { ArrowDownCircle } from "feather-icons-react";
 import minds from '../assets/minds.svg'
 import Web from '../assets/Web.svg'
 import "./Services.css"
+import pandas from '../assets/pandas.svg'
 
 
 export default function ServicesPage(){
@@ -59,68 +60,61 @@ function ServicesItem({servicesRef}){
         <div ref={servicesRef} className="flex flex-wrap flex-col justify-center items-center bg-[#F6F9FC] px-5 md:px-20 md:py-14">
             <p className="text-4xl lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]">Our Services</p>
             <div className="service-choices py-10 md:top-36">
-                <ul
-                    className="flex list-none flex-wrap gap-y-2 flex-row"
-                    role="tablist"
-                >
-                    <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-                        <a
-                            className={
-                            "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
-                            (openTab === 1
-                                ? "text-white bg-black border-[3px] border-black"
-                                : "text-black bg-white border-[3px] border-black")
-                            }
-                            onClick={e => {
-                            e.preventDefault();
-                            setOpenTab(1);
-                            }}
-                            data-toggle="tab"
-                            href="#link1"
-                            role="tablist"
-                        >
-                            Software
-                        </a>
-                    </li>
-                    <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-                        <a
-                            className={
-                            "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
-                            (openTab === 2
-                                ? "text-white bg-black border-[3px] border-black"
-                                : "text-black bg-white border-[3px] border-black")
-                            }
-                            onClick={e => {
-                            e.preventDefault();
-                            setOpenTab(2);
-                            }}
-                            data-toggle="tab"
-                            href="#link2"
-                            role="tablist"
-                        >
-                            Data
-                        </a>
-                    </li>
-                    <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-                        <a
-                            className={
-                            "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
-                            (openTab === 3
-                                ? "text-white bg-black border-[3px] border-black"
-                                : "text-black bg-white border-[3px] border-black")
-                            }
-                            onClick={e => {
-                            e.preventDefault();
-                            setOpenTab(3);
-                            }}
-                            data-toggle="tab"
-                            href="#link3"
-                            role="tablist"
-                        >
-                            Automations
-                        </a>
-                    </li>
-                </ul>
+                <div className="flex flex-row gap-x-2 justify-center items-center">
+                    <a
+                        className={
+                        "text-xs font-bold uppercase px-8 py-3 shadow-lg rounded block leading-normal " +
+                        (openTab === 1
+                            ? "text-white bg-black border-[3px] border-black"
+                            : "text-black bg-white border-[3px] border-black")
+                        }
+                        onClick={e => {
+                        e.preventDefault();
+                        setOpenTab(1);
+                        }}
+                        data-toggle="tab"
+                        href="#link1"
+                        role="tablist"
+                    >
+                    Software
+                    </a>
+
+                    <a
+                        className={
+                        "text-xs font-bold uppercase px-12 py-3 shadow-lg rounded block leading-normal " +
+                        (openTab === 2
+                            ? "text-white bg-black border-[3px] border-black"
+                            : "text-black bg-white border-[3px] border-black")
+                        }
+                        onClick={e => {
+                        e.preventDefault();
+                        setOpenTab(2);
+                        }}
+                        data-toggle="tab"
+                        href="#link2"
+                        role="tablist"
+                    >
+                        Data
+                    </a>
+
+                    <a
+                        className={
+                        "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                        (openTab === 3
+                            ? "text-white bg-black border-[3px] border-black"
+                            : "text-black bg-white border-[3px] border-black")
+                        }
+                        onClick={e => {
+                        e.preventDefault();
+                        setOpenTab(3);
+                        }}
+                        data-toggle="tab"
+                        href="#link3"
+                        role="tablist"
+                    >
+                        Automations
+                    </a>
+                </div>
             </div>
             <div className="flex flex-col">
                     <div className="flex-auto">
@@ -146,11 +140,11 @@ function SoftwareComponentV2(){
         <div className="flex flex-col gap-y-10">
             <div className="flex flex-wrap flex-col gap-y-5 justify-center items-center md:justify-start md:items-start py-10">
                 <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-semibold text-[#29363D]">Web Development</p>
-                <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">Websites, Web Applications, Figma, UI Designs make a cool text.</p>
+                <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">Build an online presence for your business and launch Web MVPs.</p>
                 <div className="grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
                     <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Static Website</p>
-                        <p className="text-[#37434a] text-start text-lg font-alliance">Create a static website for your company.</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Create a website for your company.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
                         <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
                             <img width="25" height="25" src="https://img.icons8.com/windows/32/wix.png" alt="wix"/>
@@ -197,7 +191,7 @@ function SoftwareComponentV2(){
 
             <div className="flex flex-wrap flex-col gap-y-5 justify-center items-center md:justify-start md:items-start">
                 <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-semibold text-[#29363D]">Mobile Applications</p>
-                <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">Websites, Web Applications, Figma, UI Designs make a cool text.</p>
+                <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">We build scalable mobile apps with innovative and up-to-date technologies.</p>
                 <div className="grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
                     <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Mobile Wireframe</p>
@@ -224,110 +218,158 @@ function SoftwareComponentV2(){
 
             <div className="flex flex-wrap flex-col gap-y-5 justify-center items-center md:justify-start md:items-start py-10">
                 <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-semibold text-[#29363D]">Custom Software</p>
-                <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">Websites, Web Applications, Figma, UI Designs make a cool text.</p>
+                <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">If you are in need of more tailored software solutions, you came to the right place.</p>
                 <div className="grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
                     <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
-                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Mobile Wireframe</p>
-                        <p className="text-[#37434a] text-start text-lg font-alliance">Sketch and design your mobile application.</p>
+                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Internal Tool</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Build a custom tool solving a business problem.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
                         <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
-                            <img width="25" height="25" src="https://img.icons8.com/color/48/figma--v1.png" alt="figma--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/python--v1.png" alt="python--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/java-coffee-cup-logo--v1.png" alt="java-coffee-cup-logo--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/c-sharp-logo.png" alt="c-sharp-logo"/>
                         </div>
                     </div>
                     <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
-                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Mobile Application</p>
-                        <p className="text-[#37434a] text-start text-lg font-alliance">Build the MVP of your mobile app.</p>
+                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">App Improvement</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Update your app and add the features you want.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
                         <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/python--v1.png" alt="python--v1"/>
                             <img width="25" height="25" src="https://img.icons8.com/color/48/javascript--v1.png" alt="javascript--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/c-sharp-logo.png" alt="c-sharp-logo"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/spring-logo.png" alt="spring-logo"/>
                             <img width="25" height="25" src="https://img.icons8.com/color/48/flutter.png" alt="flutter"/>
-                            <img width="25" height="25" src="https://img.icons8.com/color/48/swift.png" alt="swift"/>
-                            <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/mac-os.png" alt="mac-os"/>
-                            <img width="25" height="25" src="https://img.icons8.com/color/48/android-os.png" alt="android-os"/>
+                        </div>
+                    </div>
+                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">ChatBot</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Power your applications with a custom ChatBot for your audience.</p>
+                        <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
+                        <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/python--v1.png" alt="python--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/javascript--v1.png" alt="javascript--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/ios-glyphs/30/chatgpt.png" alt="chatgpt"/>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>  
     )
 }
 
-function SoftwareComponent(){
-    return (
-        <div className="flex flex-wrap flex-col justify-center items-center py-10">
-            <div className="flex flex-col justify center items-center gap-y-20">
-                
-                <div className="flex flex-row justify-center items-center md:gap-x-5 gap-y-5">
-                    <div className="flex flex-col justify-start items-start gap-y-5 basis-1/2">
-                        <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-bold text-[#29363D]">Web Development</p>
-                        <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">Websites, Web Applications, Figma, UI Designs make a cool text.</p>
-                    </div>
-                    <div className="flex flex-col justify-center items-center basis-1/2">
-                        <img src={Web} className="rounded" alt="Team Image" height={450} width={450}/>
-                    </div>
-                </div>
-                
-                <div className="flex flex-row justify-center items-center md:gap-x-5 gap-y-5">
-                    <div className="flex flex-col justify-center items-center basis-1/2">
-                        Mobile Apps IMAGE
-                    </div>
-                    <div className="flex flex-col justify-start items-start gap-y-5 basis-1/2">
-                        <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-bold text-[#29363D]">Mobile Applications</p>
-                        <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">make a cool text about why mobile applications are cool and edgy.</p>
-                    </div>
-                </div>
-                
-                <div className="flex flex-row justify-center items-center md:gap-x-5 gap-y-5">
-                    <div className="flex flex-col justify-start items-start gap-y-5 basis-1/2">
-                        <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-bold text-[#29363D]">Internal Tools</p>
-                        <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">Want something for your company but existing solutions do not exist, then we build it for you.</p>
-                    </div>
-                    <div className="flex flex-col justify-center items-center basis-1/2">
-                        WEB DEV IMAGE
-                    </div>
-                </div>
-            
-            </div>
-        </div>
-    )
-}
 
 function DataComponent(){
     return (
-        <div className="flex flex-wrap flex-col justify-center items-center py-10">
-            <div className="flex flex-col justify center items-center gap-y-20">
-                
-                <div className="flex flex-row justify-center items-center md:gap-x-5 gap-y-5">
-                    <div className="flex flex-col justify-start items-start gap-y-5 basis-1/2">
-                        <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-bold text-[#29363D]">Leveraging AI</p>
-                        <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">Websites, Web Applications, Figma, UI Designs make a cool text.</p>
+        <div className="flex flex-col gap-y-10">
+            <div className="flex flex-wrap flex-col gap-y-5 justify-center items-center md:justify-start md:items-start py-10">
+                <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-semibold text-[#29363D]">Data Intelligence</p>
+                <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">Leverage the power of data to reach your highest business potential.</p>
+                <div className="grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Business Dashboard</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Visualize all your data and understand your business's health.</p>
+                        <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
+                        <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/power-bi.png" alt="power-bi"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/python--v1.png" alt="python--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/tableau-software.png" alt="tableau-software"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/microsoft-excel-2019--v1.png" alt="microsoft-excel-2019--v1"/>
+                        </div>
                     </div>
-                    <div className="flex flex-col justify-center items-center basis-1/2">
-                        WEB DEV IMAGE
+                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Data Analytics</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Analyse and get insights from datasets for better business decisions.</p>
+                        <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
+                        <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/python--v1.png" alt="python--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/numpy.png" alt="numpy"/>
+                            <img width="15" height="20" src={pandas} alt="pandas"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/hadoop-distributed-file-system.png" alt="hadoop-distributed-file-system"/>
+                        </div>
+                    </div>
+                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Web Benchmarking</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Compare the performance of your website w/ competition.</p>
+                        <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
+                        <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/google-analytics.png" alt="google-analytics"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/shopify.png" alt="shopify"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/wordpress.png" alt="wordpress"/>
+                            <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/webflow.png" alt="webflow"/>
+                        </div>
                     </div>
                 </div>
-                
-                <div className="flex flex-row justify-center items-center md:gap-x-5 gap-y-5">
-                    <div className="flex flex-col justify-center items-center basis-1/2">
-                        Mobile Apps IMAGE
+            </div>
+
+            <div className="flex flex-wrap flex-col gap-y-5 justify-center items-center md:justify-start md:items-start">
+                <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-semibold text-[#29363D]">Data Engineering</p>
+                <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">We build strong, reliable systems to help you create and gather data autonomously.</p>
+                <div className="grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Database Setup</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Implement the right database infrastructure for your business.</p>
+                        <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
+                        <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/postgreesql.png" alt="postgreesql"/>
+                            <img width="23" height="25" src="https://cdn.iconscout.com/icon/free/png-256/free-mongodb-3629020-3030245.png" alt="mongodb"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/redis.png" alt="redis"/>
+                            <img width="20" height="20" src="https://seeklogo.com/images/P/pinecone-icon-logo-AF8B5B7F96-seeklogo.com.png" alt="redis"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/my-sql.png" alt="my-sql"/>
+                            
+                        </div>
                     </div>
-                    <div className="flex flex-col justify-start items-start gap-y-5 basis-1/2">
-                        <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-bold text-[#29363D]">Data Analytics</p>
-                        <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">make a cool text about why mobile applications are cool and edgy.</p>
+                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Data Pipeline</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Create pipelines to gather and store data for analysis.</p>
+                        <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
+                        <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
+                            <img width="25" height="25" src="https://s3-symbol-logo.tradingview.com/snowflake--600.png" alt="snowflake"/>
+                            <img width="23" height="25" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Apache_kafka-icon.svg/1200px-Apache_kafka-icon.svg.png" alt="mongodb"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/redis.png" alt="redis"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/python--v1.png" alt="python--v1"/>                            
+                        </div>
                     </div>
                 </div>
-                
-                <div className="flex flex-row justify-center items-center md:gap-x-5 gap-y-5">
-                    <div className="flex flex-col justify-start items-start gap-y-5 basis-1/2">
-                        <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-bold text-[#29363D]">Data Engineering</p>
-                        <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">Want something for your company but existing solutions do not exist, then we build it for you.</p>
+            </div>
+
+            <div className="flex flex-wrap flex-col gap-y-5 justify-center items-center md:justify-start md:items-start py-10">
+                <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-semibold text-[#29363D]">Custom Software</p>
+                <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">Websites, Web Applications, Figma, UI Designs make a cool text.</p>
+                <div className="grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Internal Tool</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Build a custom tool solving a business problem.</p>
+                        <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
+                        <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/python--v1.png" alt="python--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/java-coffee-cup-logo--v1.png" alt="java-coffee-cup-logo--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/c-sharp-logo.png" alt="c-sharp-logo"/>
+                        </div>
                     </div>
-                    <div className="flex flex-col justify-center items-center basis-1/2">
-                        WEB DEV IMAGE
+                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">App Improvement</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Update your app and add the features you want.</p>
+                        <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
+                        <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/python--v1.png" alt="python--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/javascript--v1.png" alt="javascript--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/c-sharp-logo.png" alt="c-sharp-logo"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/spring-logo.png" alt="spring-logo"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/flutter.png" alt="flutter"/>
+                        </div>
+                    </div>
+                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">ChatBot</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Power your applications with a custom ChatBot for your audience.</p>
+                        <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
+                        <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/python--v1.png" alt="python--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/javascript--v1.png" alt="javascript--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/ios-glyphs/30/chatgpt.png" alt="chatgpt"/>
+                        </div>
                     </div>
                 </div>
-            
             </div>
         </div>
     )
