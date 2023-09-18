@@ -166,49 +166,49 @@ function Services(){
     return(
         <div className="flex flex-col bg-[#F6F9FC] gap-y-10">
             <Marquee autoFill="true" speed={50} gradient="true">
-                <a href="#">
+                <a href="/services">
                     <button>
                         <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
                             <p className="font-alliance text-lg">Web Development</p>
                         </div>
                     </button>
                 </a>
-                <a href="#">
+                <a href="/services">
                     <button>
                         <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
                             <p className="font-alliance text-lg">Mobile Apps</p>
                         </div>
                     </button>
                 </a>
-                <a href="#">
+                <a href="/services">
                     <button>
                         <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
                             <p className="font-alliance text-lg">Data Analytics</p>
                         </div>
                     </button>
                 </a>
-                <a href="#">
+                <a href="/services">
                     <button>
                         <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
                             <p className="font-alliance text-lg">Figma</p>
                         </div>
                     </button>
                 </a>
-                <a href="#">
+                <a href="/services">
                     <button>
                         <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
                             <p className="font-alliance text-lg">Automations</p>
                         </div>
                     </button>
                 </a>
-                <a href="#">
+                <a href="/services">
                     <button>
                         <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
                             <p className="font-alliance text-lg">Ecommerce</p>
                         </div>
                     </button>
                 </a>
-                <a href="#">
+                <a href="/services">
                     <button>
                         <div className="px-5 py-2 bg-[#EEEEEE] text-[#37434a] hover:bg-[#00A6B2] hover:text-white transition-colors duration-300 ease-in-out rounded-3xl mx-4">
                             <p className="font-alliance text-lg">Databases</p>

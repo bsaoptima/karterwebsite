@@ -4,6 +4,7 @@ import minds from '../assets/minds.svg'
 import Web from '../assets/Web.svg'
 import "./Services.css"
 import pandas from '../assets/pandas.svg'
+import { useMediaQuery } from "react-responsive";
 
 
 export default function ServicesPage(){
@@ -55,87 +56,98 @@ function StudentAreGreatItem(){
 
 function ServicesItem({servicesRef}){
     const [openTab, setOpenTab] = useState(1);
+    const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
 
     return (
         <div ref={servicesRef} className="flex flex-wrap flex-col justify-center items-center bg-[#F6F9FC] px-5 md:px-20 md:py-14">
             <p className="text-4xl lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]">Our Services</p>
-            <div className="service-choices py-10 md:top-36">
-                <div className="flex flex-row gap-x-2 justify-center items-center">
-                    <a
-                        className={
-                        "text-xs font-bold uppercase px-8 py-3 shadow-lg rounded block leading-normal " +
-                        (openTab === 1
-                            ? "text-white bg-black border-[3px] border-black"
-                            : "text-black bg-white border-[3px] border-black")
-                        }
-                        onClick={e => {
-                        e.preventDefault();
-                        setOpenTab(1);
-                        }}
-                        data-toggle="tab"
-                        href="#link1"
-                        role="tablist"
-                    >
-                    Software
-                    </a>
 
-                    <a
-                        className={
-                        "text-xs font-bold uppercase px-12 py-3 shadow-lg rounded block leading-normal " +
-                        (openTab === 2
-                            ? "text-white bg-black border-[3px] border-black"
-                            : "text-black bg-white border-[3px] border-black")
-                        }
-                        onClick={e => {
-                        e.preventDefault();
-                        setOpenTab(2);
-                        }}
-                        data-toggle="tab"
-                        href="#link2"
-                        role="tablist"
-                    >
-                        Data
-                    </a>
-
-                    <a
-                        className={
-                        "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
-                        (openTab === 3
-                            ? "text-white bg-black border-[3px] border-black"
-                            : "text-black bg-white border-[3px] border-black")
-                        }
-                        onClick={e => {
-                        e.preventDefault();
-                        setOpenTab(3);
-                        }}
-                        data-toggle="tab"
-                        href="#link3"
-                        role="tablist"
-                    >
-                        Automations
-                    </a>
+            {isMobile ?
+                <div className="flex flex-col">
+                    <SoftwareComponent />
+                    <DataComponent />
+                    <AutomationsComponent />
                 </div>
-            </div>
-            <div className="flex flex-col">
-                    <div className="flex-auto">
-                        <div className="tab-content tab-space">
-                            <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                                <SoftwareComponentV2 />
-                            </div>
-                            <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                                <DataComponent />
-                            </div>
-                            <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                                <AutomationsComponent />
+                :   
+                <div>
+                    <div className="service-choices py-10 md:top-36">
+                        <div className="flex flex-row gap-x-2 justify-center items-center">
+                            <a
+                                className={
+                                "text-xs font-bold uppercase px-8 py-3 shadow-lg rounded block leading-normal " +
+                                (openTab === 1
+                                    ? "text-white bg-black border-[3px] border-black"
+                                    : "text-black bg-white border-[3px] border-black")
+                                }
+                                onClick={e => {
+                                e.preventDefault();
+                                setOpenTab(1);
+                                }}
+                                data-toggle="tab"
+                                href="#link1"
+                                role="tablist"
+                            >
+                            Software
+                            </a>
+                            <a
+                                className={
+                                "text-xs font-bold uppercase px-12 py-3 shadow-lg rounded block leading-normal " +
+                                (openTab === 2
+                                    ? "text-white bg-black border-[3px] border-black"
+                                    : "text-black bg-white border-[3px] border-black")
+                                }
+                                onClick={e => {
+                                e.preventDefault();
+                                setOpenTab(2);
+                                }}
+                                data-toggle="tab"
+                                href="#link2"
+                                role="tablist"
+                            >
+                                Data
+                            </a>
+                            <a
+                                className={
+                                "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
+                                (openTab === 3
+                                    ? "text-white bg-black border-[3px] border-black"
+                                    : "text-black bg-white border-[3px] border-black")
+                                }
+                                onClick={e => {
+                                e.preventDefault();
+                                setOpenTab(3);
+                                }}
+                                data-toggle="tab"
+                                href="#link3"
+                                role="tablist"
+                            >
+                                Automations
+                            </a>
+                        </div>
+                    </div>
+                    <div className="flex flex-col">
+                        <div className="flex-auto">
+                            <div className="tab-content tab-space">
+                                <div className={openTab === 1 ? "block" : "hidden"} id="link1">
+                                    <SoftwareComponent />
+                                </div>
+                                <div className={openTab === 2 ? "block" : "hidden"} id="link2">
+                                    <DataComponent />
+                                </div>
+                                <div className={openTab === 3 ? "block" : "hidden"} id="link3">
+                                    <AutomationsComponent />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+            }
         </div>
     )
 }
 
-function SoftwareComponentV2(){
+function SoftwareComponent(){
     return (
         <div className="flex flex-col gap-y-10">
             <div className="flex flex-wrap flex-col gap-y-5 justify-center items-center md:justify-start md:items-start py-10">
@@ -376,7 +388,7 @@ function DataComponent(){
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
                         <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
                             <img width="25" height="25" src="https://img.icons8.com/color/48/python--v1.png" alt="python--v1"/>
-                            <img width="30" height="20" src="https://seeklogo.com/images/C/chroma-logo-FB287847E7-seeklogo.com.png" alt="javascript--v1"/>
+                            <img width="25" height="25" src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.png" alt="javascript--v1"/>
                             <img width="25" height="25" src="https://img.icons8.com/ios-glyphs/30/chatgpt.png" alt="chatgpt"/>
                             <img width="20" height="20" src="https://seeklogo.com/images/P/pinecone-icon-logo-AF8B5B7F96-seeklogo.com.png" alt="redis"/>
                         </div>
@@ -390,40 +402,73 @@ function DataComponent(){
 
 function AutomationsComponent(){
     return (
-        <div className="flex flex-wrap flex-col justify-center items-center py-10">
-            <div className="flex flex-col justify center items-center gap-y-20">
-                
-                <div className="flex flex-row justify-center items-center md:gap-x-5 gap-y-5">
-                    <div className="flex flex-col justify-start items-start gap-y-5 basis-1/2">
-                        <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-bold text-[#29363D]">Web Development</p>
-                        <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">Websites, Web Applications, Figma, UI Designs make a cool text.</p>
+        <div className="flex flex-col gap-y-10">
+            <div className="flex flex-wrap flex-col gap-y-5 justify-center items-center md:justify-start md:items-start py-10">
+                <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-semibold text-[#29363D]">Marketing</p>
+                <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">Develop and scale automated marketing processes to increase your audience and drive more revenue.</p>
+                <div className="grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Email Marketing</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Create top performing campaigns, scheduled and event-driven.</p>
+                        <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
+                        <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
+                            <img width="25" height="25" src="https://img.icons8.com/windows/32/mailchimp.png" alt="mailchimp"/>
+                            <img width="25" height="25" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAb1BMVEUAAAD////z8/Pn5+fg4OD6+votLS3Pz89zc3P4+Pi3t7cgICDV1dW9vb1aWlqBgYGpqalAQEAZGRmRkZEPDw81NTUlJSVNTU2bm5t6enrt7e2ioqI5OTliYmKIiIgRERFqamqXl5e5ubnGxsZJSUkSepZRAAAC3UlEQVR4nO3d2U4CQRSEYVpEUMENBQQUXN7/GU0UFGZ688KY+qfqCfwSYzlzTvf0Aj29//4B/jwW6sdC/VioHwv1Y6F+LNSPhfqxUD8W6sdC/VioHwv1Y6F+LNSPhfqxUD8W6sdC/VgonsFO2O9Rc4YX9unCaYALZ4EuHNKFo0AXntOFFwEunAe6sE8XLgJceBnowjFd+BjowkAXTujCq0AXLunCVYALHwJdOKYLrwNdGOjCCV141QTihCd04aoFhAnXbSBMeEoXNqsQJ7yPAVHCN7rwKQokCdtVCBPexIEcYawKWcJYFaKEzykgRbhJAinCeBWChIkqBAkTVcgRpqoQI7zNARHCZBVShOkqhAjv8kCAMFOFDOG2ANQX5qoQIbwoAdWF+SokCPsln7pwWgZqCzNPhRDhkC4c1QClhQO6sFyF4sJ5iSYvrKhCbeFLJVBWOKsFygrHJZi6sK4KlYV1VSgsfK0Hagprq1BXuCyp1IWLEkpdePYroKKwvgpFhdHVLgulhPzf0g78peG3RQcavwP/tdW+hBIW8p+eOvAEXPdCX1p4WYLJC6sGa9pC/hvh3jteyJ/M7O8QIguLy0LywuLCl74wfpSLJORvm5SWZwlC/tZXfokdIeRvX2YPkzCE/C3oYinqC/mnETpwoqR5bRJQyD/ZlX/NzxC2792hCdt3J+GE9+nX/BBhZvZNEaZn3xhhshQxwuTsmyNMlSJImChFkDBRiiRhfPaNEj7ihdFSZAljC2EsYawUYcJIKdKE7YUwmrA9+8YJW6XIEzYXwnhC/o3lzaOJQGFj9k0UHi+EIYXveOFRKTKFhwthUOEWLzyYfVOFG7zwpxSxwu/ZN1d4ixfuZ99gIf9Lq7tSJAv5Xzz+utoULeR/efyzFOHC9U4YTrDZC8mxUD8W6sdC/VioHwv1Y6F+LNSPhfqxUD8W6sdC/VioHwv1Y6F+LNSPhfqxUD8W6ocv/ABKqmGpLV8uswAAAABJRU5ErkJggg==" alt="external-zapier-an-american-corporation-allows-to-integrate-the-web-applications-logo-color-tal-revivo"/>
+                            <img width="25" height="25" src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/24/external-hubspot-a-developer-and-marketer-of-software-products-logo-color-tal-revivo.png" alt="external-hubspot-a-developer-and-marketer-of-software-products-logo-color-tal-revivo"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/shopify.png" alt="shopify"/>
+                        </div>
                     </div>
-                    <div className="flex flex-col justify-center items-center basis-1/2">
-                        WEB DEV IMAGE
+                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">SMS Marketing</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Use the most underrated and highly converting strategy available.</p>
+                        <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
+                        <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="whatsapp--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/shopify.png" alt="shopify"/>
+                        </div>
+                    </div>
+                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Content Creation</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Mass produce and schedule trending content on social media.</p>
+                        <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
+                        <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
+                            <img width="25" height="25" src="https://img.icons8.com/fluency/48/instagram-new.png" alt="instagram-new"/>
+                            <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/tiktok--v1.png" alt="tiktok--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/color/48/linkedin.png" alt="linkedin"/>
+                            <img width="25" height="25" src="https://img.icons8.com/ios/50/twitterx--v1.png" alt="twitterx--v1"/>
+                            <img width="25" height="25" src="https://img.icons8.com/fluency/48/canva.png" alt="canva"/>
+                        </div>
                     </div>
                 </div>
-                
-                <div className="flex flex-row justify-center items-center md:gap-x-5 gap-y-5">
-                    <div className="flex flex-col justify-center items-center basis-1/2">
-                        Mobile Apps IMAGE
-                    </div>
-                    <div className="flex flex-col justify-start items-start gap-y-5 basis-1/2">
-                        <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-bold text-[#29363D]">Mobile Applications</p>
-                        <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">make a cool text about why mobile applications are cool and edgy.</p>
-                    </div>
-                </div>
-                
-                <div className="flex flex-row justify-center items-center md:gap-x-5 gap-y-5">
-                    <div className="flex flex-col justify-start items-start gap-y-5 basis-1/2">
-                        <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-bold text-[#29363D]">Internal Tools</p>
-                        <p className="text-[#37434a] text-start text-lg md:text-xl font-alliance">Want something for your company but existing solutions do not exist, then we build it for you.</p>
-                    </div>
-                    <div className="flex flex-col justify-center items-center basis-1/2">
-                        WEB DEV IMAGE
-                    </div>
-                </div>
-            
             </div>
+
+            <div className="flex flex-wrap flex-col gap-y-5 justify-center items-center md:justify-start md:items-start">
+                <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-semibold text-[#29363D]">Business Automations</p>
+                <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">Save time and money by automating internal and commercial business processes using code and no-code tools.</p>
+                <div className="grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Lead Generation</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Automate how you acquire and manage new customers.</p>
+                        <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
+                        <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
+                            <img width="25" height="25" src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/24/external-zapier-an-american-corporation-allows-to-integrate-the-web-applications-logo-color-tal-revivo.png" alt="external-zapier-an-american-corporation-allows-to-integrate-the-web-applications-logo-color-tal-revivo"/>
+                            <img width="25" height="25" src="https://renderform.io/assets/make.png" alt="external-hubspot-a-developer-and-marketer-of-software-products-logo-color-tal-revivo"/>
+                            <img width="34" height="25" src="https://ww1.freelogovectors.net/wp-content/uploads/2023/05/calendly_logo-freelogovectors.net_.png" alt="shopify"/>
+                            <img width="25" height="25" src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/24/external-hubspot-a-developer-and-marketer-of-software-products-logo-color-tal-revivo.png" alt="external-hubspot-a-developer-and-marketer-of-software-products-logo-color-tal-revivo"/>
+                        </div>
+                    </div>
+                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                        <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Onboarding</p>
+                        <p className="text-[#37434a] text-start text-lg font-alliance">Save time on onboarding new employees in your business.</p>
+                        <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
+                        <div className="flex flex-wrap flex-row gap-x-2 gap-y-2">
+                            <img width="25" height="25" src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/24/external-zapier-an-american-corporation-allows-to-integrate-the-web-applications-logo-color-tal-revivo.png" alt="external-zapier-an-american-corporation-allows-to-integrate-the-web-applications-logo-color-tal-revivo"/>
+                            <img width="25" height="25" src="https://renderform.io/assets/make.png" alt="external-hubspot-a-developer-and-marketer-of-software-products-logo-color-tal-revivo"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     )
 }
