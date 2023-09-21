@@ -11,7 +11,8 @@ import LeadGenForm from "./components/LeadGenForm";
 import ProjectsPage from "./pages/Projects";
 import SolutionPage from "./pages/Solutions";
 import ServicesPage from "./pages/Services";
-
+import AddStack from "./pages/Stack/AddStack";
+import RateStacks from "./pages/Stack/RateStacks";
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
           <Route path='/build' element={<LeadGenForm />} />
           <Route path='/projects' element={<ProjectsPage />} /> 
           <Route path='/services' element={<ServicesPage />} />
+          <Route path='/stacks/add' element={<AddStack />} />
+          <Route path='/stacks/rate' element={<RateStacks />} />
         </Routes>
         <Footer />
       </div>
