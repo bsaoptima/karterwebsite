@@ -29,18 +29,10 @@ function LandingItem(){
                     <TypeAnimation
                         preRenderFirstString={true}
                         sequence={[
-                        // 500,
-                        // 'We build web apps...', // initially rendered starting point
-                        // 1000,
-                        // 'We build mobile apps...',
-                        // 1000,
-                        // 'We build data pipelines...',
-                        // 1000,
                         'We build your idea.',
                         5000,
                         ]}
                         speed={50}
-                        // style={{ fontSize: '2em', font: 'sfprodisplay', fontWeight: '500'}}
                         repeat={Infinity}
                         className="text-[35px] lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]"
                     />

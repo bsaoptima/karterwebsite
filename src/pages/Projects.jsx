@@ -2,14 +2,24 @@ import React from "react";
 import "./Projects.css"
 import { ArrowDownCircle, Clock, Map, DollarSign, Users, Award, MapPin } from 'feather-icons-react';
 import { CheckCircle } from "feather-icons-react/build/IconComponents";
-
+import { TypeAnimation } from 'react-type-animation';
+    
 
 export default function ProjectsPage(){
     return (
         <div className="flex flex-col justify-center items-center bg-[#F6F9FC]">
             <div className="bg-[#F6F9FC] flex flex-col justify-center items-center px-10 py-10 lg:py-20 gap-y-5">
                 <p className="text-lg lg:text-xl text-center font-alliance font-semibold text-[#00A6B2]">Our portofolio of case studies</p>
-                <p className="text-4xl lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]">Past Projects</p>
+                <TypeAnimation
+                    preRenderFirstString={true}
+                    sequence={[
+                    'Our Past Projects.',
+                    5000,
+                    ]}
+                    speed={50}
+                    repeat={Infinity}
+                    className="text-[35px] lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]"
+                />
                 <p className="text-[#656B8A] text-center text-lg md:text-xl md:px-40 lg:px-60 xl:px-96 font-alliance">We have talent in software engineering, data engineering & analytics and automations.</p>
                 <a href="/build">
                     <button>

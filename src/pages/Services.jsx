@@ -5,6 +5,8 @@ import Web from '../assets/Web.svg'
 import "./Services.css"
 import pandas from '../assets/pandas.svg'
 import { useMediaQuery } from "react-responsive";
+import { TypeAnimation } from 'react-type-animation';
+
 
 
 export default function ServicesPage(){
@@ -27,7 +29,16 @@ function LandingItem({ scrollToServices }){
     return (
         <div className="bg-[#F6F9FC] flex flex-col justify-center items-center px-8 py-10 lg:py-20 gap-y-5">
             <p className="text-lg lg:text-xl text-center font-alliance font-semibold text-[#00A6B2]">Digital Services for Innovative Startups</p>
-            <p className="text-4xl lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]">Areas of expertise</p>
+            <TypeAnimation
+                preRenderFirstString={true}
+                sequence={[
+                'Areas of expertise.',
+                5000,
+                ]}
+                speed={50}
+                repeat={Infinity}
+                className="text-[35px] lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]"
+            />
             <p className="text-[#656B8A] text-center text-lg md:text-xl md:px-40 lg:px-60 xl:px-96 font-alliance">Thanks to our network, we have a large coverage in services offered. Leverage all this talent to build your products.</p>
             <button onClick={scrollToServices}>
                 <div className="flex flex-row bg-[#00A6B2] text-white hover:bg-[#02becc] mt-5 drop-shadow-xl rounded-3xl px-4 py-2 gap-x-2">
