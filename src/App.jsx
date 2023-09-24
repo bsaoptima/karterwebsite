@@ -13,6 +13,7 @@ import SolutionPage from "./pages/Solutions";
 import ServicesPage from "./pages/Services";
 import AddStack from "./pages/Stack/AddStack";
 import RateStacks from "./pages/Stack/RateStacks";
+import BookACallPage from "./components/BookACall";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path='/services' element={<ServicesPage />} />
           <Route path='/stacks/add' element={<AddStack />} />
           <Route path='/stacks/rate' element={<RateStacks />} />
+          <Route path='/book-a-call' element={<BookACallPage />} />
         </Routes>
         <Footer />
       </div>

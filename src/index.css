@@ -14,3 +14,8 @@ html {
     font-family: 'SFProDisplay';
     src: url('./assets/fonts/SFProDisplay-Regular.ttf');
 }
+
+#root {
+  margin: 0 auto;
+  background-color:#F6F9FC;
+}

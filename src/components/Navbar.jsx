@@ -49,7 +49,7 @@ export default function Navbar() {
                                 <a href="/vetting-process" class="block text-[18px] py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A6B2] md:p-0">Apply to Karter</a>
                             </li>
                             <li>
-                                <a href="/contact" class="block text-[18px] py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A6B2] md:p-0">
+                                <a href="/book-a-call" class="block text-[18px] py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#00A6B2] md:p-0">
                                     <div className="rounded-md bg-black text-white px-5 py-2">
                                         Book a Call
                                     </div>

@@ -68,7 +68,7 @@ function LandingSection({ scrollToContact, scrollToSolutions }) {
               <a href="/build">
                 <button className="buttonHome">
                   <span class="button_top font-alliance">
-                    <a href="/build">&lt;Start building&gt;</a> 
+                    <a href="/book-a-call">&lt;Start building&gt;</a> 
                   </span>
                 </button>
               </a>
