@@ -14,6 +14,8 @@ import ServicesPage from "./pages/Services";
 import AddStack from "./pages/Stack/AddStack";
 import RateStacks from "./pages/Stack/RateStacks";
 import BookACallPage from "./components/BookACall";
+import TermsOfServices from "./pages/TermsOfServices";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
           <Route path='/stacks/add' element={<AddStack />} />
           <Route path='/stacks/rate' element={<RateStacks />} />
           <Route path='/book-a-call' element={<BookACallPage />} />
+          <Route path='/terms-of-services' element={<TermsOfServices />} />
+          <Route path='/privacy-policy' element={<PrivacyPolicy />} />
         </Routes>
         <Footer />
       </div>

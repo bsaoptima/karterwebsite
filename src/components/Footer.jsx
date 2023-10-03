@@ -9,6 +9,10 @@ export default function Footer() {
                 <a href="/" class="flex items-center">
                     <p className="text-xl font-alliance text-gray-500 hover:text-black">&lt;karter&gt;</p>
                 </a>
+                <div className="flex justify-center items-center space-x-6">
+                    <a href="/terms-of-services" className="font-alliance text-gray-500 hover:text-black">Terms of Services</a>
+                    <a href="/privacy-policy" className="font-alliance text-gray-500 hover:text-black">Privacy Policy</a>
+                </div>
                 <div class="flex justify-center items-center mt-8 space-x-6">
                     <a href="https://www.linkedin.com/company/karter-dev/" class="text-gray-400 hover:text-gray-500">
                         <span class="sr-only">LinkedIn</span>
@@ -24,7 +28,7 @@ export default function Footer() {
 
                     </a>
                 </div>
-                <p class="mt-5 text-base leading-6 text-center text-gray-400 p-5">
+                <p class="text-base leading-6 text-center text-gray-400">
                     © 2023 Karter is the trading name of Karter Labs Limited. All rights reserved.
                 </p>
             </div>
