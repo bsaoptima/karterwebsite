@@ -164,8 +164,8 @@ function SoftwareComponent(){
             <div className="flex flex-wrap flex-col gap-y-5 justify-center items-center md:justify-start md:items-start py-10">
                 <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-semibold text-[#29363D]">Web Development</p>
                 <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">Build an online presence for your business and launch Web MVPs.</p>
-                <div className="grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                <div className="grid justify-center items-start grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Static Website</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Create a website for your company.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -177,7 +177,7 @@ function SoftwareComponent(){
                             <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/000000/webflow.png" alt="webflow"/>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Web Application</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Build your SaaS MVP with Karter.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -189,7 +189,7 @@ function SoftwareComponent(){
                             <img width="25" height="25" src="https://img.icons8.com/fluency/48/azure-1.png" alt="azure-1"/>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Ecommerce</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Sell products and create an online presence.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -201,7 +201,7 @@ function SoftwareComponent(){
                             <img width="25" height="25" src="https://img.icons8.com/color/48/stripe.png" alt="stripe"/>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Website Wireframe</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Sketch and design your website.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -215,8 +215,8 @@ function SoftwareComponent(){
             <div className="flex flex-wrap flex-col gap-y-5 justify-center items-center md:justify-start md:items-start">
                 <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-semibold text-[#29363D]">Mobile Applications</p>
                 <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">We build scalable mobile apps with innovative and up-to-date technologies.</p>
-                <div className="grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                <div className="grid justify-center items-start grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Mobile Wireframe</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Sketch and design your mobile application.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -224,7 +224,7 @@ function SoftwareComponent(){
                             <img width="25" height="25" src="https://img.icons8.com/color/48/figma--v1.png" alt="figma--v1"/>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Mobile Application</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Build the MVP of your mobile app.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -242,8 +242,8 @@ function SoftwareComponent(){
             <div className="flex flex-wrap flex-col gap-y-5 justify-center items-center md:justify-start md:items-start py-10">
                 <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-semibold text-[#29363D]">Custom Software</p>
                 <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">If you are in need of more tailored software solutions, you came to the right place.</p>
-                <div className="grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                <div className="grid justify-center items-start grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Internal Tool</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Build a custom tool solving a business problem.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -253,7 +253,7 @@ function SoftwareComponent(){
                             <img width="25" height="25" src="https://img.icons8.com/color/48/c-sharp-logo.png" alt="c-sharp-logo"/>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">App Improvement</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Update your app and add the features you want.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -265,7 +265,7 @@ function SoftwareComponent(){
                             <img width="25" height="25" src="https://img.icons8.com/color/48/flutter.png" alt="flutter"/>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">ChatBot</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Power your applications with a custom ChatBot for your audience.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -288,8 +288,8 @@ function DataComponent(){
             <div className="flex flex-wrap flex-col gap-y-5 justify-center items-center md:justify-start md:items-start py-10">
                 <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-semibold text-[#29363D]">Data Intelligence</p>
                 <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">Leverage the power of data to reach your highest business potential.</p>
-                <div className="grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                <div className="grid justify-center items-start grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Business Dashboard</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Visualize all your data and understand your business's health.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -300,7 +300,7 @@ function DataComponent(){
                             <img width="25" height="25" src="https://img.icons8.com/color/48/microsoft-excel-2019--v1.png" alt="microsoft-excel-2019--v1"/>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Data Analytics</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Analyse and get insights from datasets for better business decisions.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -311,7 +311,7 @@ function DataComponent(){
                             <img width="25" height="25" src="https://img.icons8.com/color/48/hadoop-distributed-file-system.png" alt="hadoop-distributed-file-system"/>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Web Benchmarking</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Compare the performance of your website w/ competition.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -328,8 +328,8 @@ function DataComponent(){
             <div className="flex flex-wrap flex-col gap-y-5 justify-center items-center md:justify-start md:items-start">
                 <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-semibold text-[#29363D]">Data Engineering</p>
                 <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">We build strong, reliable systems to help you create and gather data autonomously.</p>
-                <div className="grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                <div className="grid justify-center items-start grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Database Setup</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Implement the right database infrastructure for your business.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -342,7 +342,7 @@ function DataComponent(){
                             
                         </div>
                     </div>
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Data Pipeline</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Create pipelines to gather and store data for analysis.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -354,7 +354,7 @@ function DataComponent(){
                             <img width="25" height="25" src="https://img.icons8.com/color/48/amazon-web-services.png" alt="amazon-web-services"/>                          
                         </div>
                     </div>
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Datalake</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Build the perfect architecture for ML & DL models.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -365,7 +365,7 @@ function DataComponent(){
                             <img width="25" height="25" src="https://s3-symbol-logo.tradingview.com/snowflake--600.png" alt="snowflake"/>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Power your Models</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Translate your math models in code and feed them data.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -382,8 +382,8 @@ function DataComponent(){
             <div className="flex flex-wrap flex-col gap-y-5 justify-center items-center md:justify-start md:items-start py-10">
                 <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-semibold text-[#29363D]">AI & LLMs</p>
                 <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">Impletement powerful models and innovative features in your applications.</p>
-                <div className="grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                <div className="grid justify-center items-start grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">ChatBot</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Power your applications with a ChatBot trained on YOUR data.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -393,7 +393,7 @@ function DataComponent(){
                             <img width="25" height="25" src="https://img.icons8.com/ios-glyphs/30/chatgpt.png" alt="chatgpt"/>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Private Company LLM</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Create a secure query system for employees with your documents.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -417,8 +417,8 @@ function AutomationsComponent(){
             <div className="flex flex-wrap flex-col gap-y-5 justify-center items-center md:justify-start md:items-start py-10">
                 <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-semibold text-[#29363D]">Marketing</p>
                 <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">Develop and scale automated marketing processes to increase your audience and drive more revenue.</p>
-                <div className="grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                <div className="grid justify-center items-start grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Email Marketing</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Create top performing campaigns, scheduled and event-driven.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -429,7 +429,7 @@ function AutomationsComponent(){
                             <img width="25" height="25" src="https://img.icons8.com/color/48/shopify.png" alt="shopify"/>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">SMS Marketing</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Use the most underrated and highly converting strategy available.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -438,7 +438,7 @@ function AutomationsComponent(){
                             <img width="25" height="25" src="https://img.icons8.com/color/48/shopify.png" alt="shopify"/>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Content Creation</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Mass produce and schedule trending content on social media.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -456,8 +456,8 @@ function AutomationsComponent(){
             <div className="flex flex-wrap flex-col gap-y-5 justify-center items-center md:justify-start md:items-start">
                 <p className="text-3xl lg:text-4xl text-start font-sfprodisplay font-semibold text-[#29363D]">Business Automations</p>
                 <p className="text-[#37434a] text-center md:text-start text-lg md:text-xl font-alliance">Save time and money by automating internal and commercial business processes using code and no-code tools.</p>
-                <div className="grid justify-center items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                <div className="grid justify-center items-start grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Lead Generation</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Automate how you acquire and manage new customers.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
@@ -468,7 +468,7 @@ function AutomationsComponent(){
                             <img width="25" height="25" src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/24/external-hubspot-a-developer-and-marketer-of-software-products-logo-color-tal-revivo.png" alt="external-hubspot-a-developer-and-marketer-of-software-products-logo-color-tal-revivo"/>
                         </div>
                     </div>
-                    <div className="flex flex-col justify-start gap-y-2 items-start rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
+                    <div className="flex flex-col justify-between h-full rounded p-5 bg-white border-2 border-gray hover:border-[#F6F9FC]">
                         <p className="text-xl text-start font-alliance font-semibold text-[#29363D]">Onboarding</p>
                         <p className="text-[#37434a] text-start text-lg font-alliance">Save time on onboarding new employees in your business.</p>
                         <p className="text-start font-alliance font-semibold text-[#29363D] mt-2">Technology</p>
