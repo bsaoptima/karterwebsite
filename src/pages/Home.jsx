@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Route, Routes } from 'react-router-dom';
 import { Link } from 'react-scroll';
 import './Home.css'
@@ -13,6 +13,47 @@ import bulb from "../assets/bulb.png"
 
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
+
+import { TypeAnimation } from 'react-type-animation';
+
+import Marquee from "react-fast-marquee";
+
+import lottie from 'lottie-web';
+import animationData from '../assets/lottie.json';
+
+import uob_color from "../assets/universities/uob_color.png"
+import icl from "../assets/universities/icl.png"
+import ucl from "../assets/universities/ucl.png"
+import warwick from "../assets/universities/warwick.png"
+import bristol from "../assets/universities/bristol.png"
+import cam from "../assets/universities/cambridge.jpg"
+
+import sat from "../assets/satellite.svg"
+
+const LottieAnimation = ({ play, className }) => {
+  const animationContainer = useRef(null);
+  const animationInstance = useRef(null);
+
+  useEffect(() => {
+    animationInstance.current = lottie.loadAnimation({
+      container: animationContainer.current,
+      renderer: 'svg',
+      loop: false,
+      autoplay: false,
+      animationData: animationData,
+    });
+
+    return () => animationInstance.current?.destroy();
+  }, []);
+
+  useEffect(() => {
+    if (play) {
+      animationInstance.current?.play();
+    }
+  }, [play]);
+
+  return <div ref={animationContainer} className={className} />;
+};
 
 export default function HomePage() {
 
@@ -30,7 +71,7 @@ export default function HomePage() {
         <div className="relative scroll-smooth">
             <LandingSection scrollToContact={scrollToContact} scrollToSolutions={scrollToSolutions}/>
             <MapSection />
-            <StatsSection />
+            <UniMarqueeSection />
             <SolutionsSection solutionsRef={solutionsRef}/>
             <QuoteSection/>
             <ContactSection contactRef={contactRef} />
@@ -41,133 +82,190 @@ export default function HomePage() {
 
 {/* LANDING SECTION */}
 function LandingSection({ scrollToContact, scrollToSolutions }) {
-    return (
-      <div className="flex flex-col md:flex-row landingItem h-auto md:h-[800px] p-8">
-        <div className="flex flex-col justify-center md:px-20 gap-y-10 md:gap-y-16 md:basis-5/5 lg:basis-4/5">
-          <p className="text-4xl md:text-6xl lg:text-[85px] font-sfprodisplay leading-tight">
-            Bridging the gap between <strong>University</strong> &{" "}
-            <strong>Industry</strong>
-          </p>
-          <p className="text-lg md:text-2xl font-sfprodisplay">
-            We are building the largest network of student developers,
-            <br /> accessible to companies of all sizes.
-          </p>
-          <div className="flex flex-row md:items-center gap-x-5 md:gap-x-10 phone-flex-col">
-            <div className="py-4 md:py-6">
-              {/* <button onClick={scrollToContact}>
-                <p className="text-lg md:text-2xl font-alliance">Contact us</p>
-              </button> */}
-              {/* <button class="btn">
-                <svg height="24" width="24" fill="#FFFFFF" viewBox="0 0 24 24" data-name="Layer 1" id="Layer_1" class="sparkle">
-                    <path d="M10,21.236,6.755,14.745.264,11.5,6.755,8.255,10,1.764l3.245,6.491L19.736,11.5l-6.491,3.245ZM18,21l1.5,3L21,21l3-1.5L21,18l-1.5-3L18,18l-3,1.5ZM19.333,4.667,20.5,7l1.167-2.333L24,3.5,21.667,2.333,20.5,0,19.333,2.333,17,3.5Z"></path>
-                </svg>
-                <span class="text">
-                  <a href="/build">Start building</a>
-                </span>
-              </button> */}
-              <a href="/build">
-                <button className="buttonHome">
-                  <span class="button_top font-alliance">
-                    <a href="/book-a-call">&lt;Start building&gt;</a> 
-                  </span>
-                </button>
-              </a>
-              
-            </div>
-            <div className="flex flex-row items-center gap-x-2 md:gap-x-4 phone-hidden">
-              {/* <div className="triangle"></div> */}
-              <button>
-                <a
-                  onClick={scrollToSolutions}
-                  className="text-sm md:text-lg font-alliance relative before:content-[''] before:absolute before:block before:w-full before:h-[2px] before:bottom-0 before:left-0 before:bg-black before:hover:scale-x-100 before:scale-x-0 before:origin-top-left before:transition before:ease-in-out before:duration-300"
-                >
-                  How it works
-                </a>
+  return (
+    <div className="flex flex-col justify-center items-center py-10 md:py-20 md:py-28">
+      <div className="flex flex-col justify-center items-center md:px-20 gap-y-8 md:gap-y-12">
+        <TypeAnimation
+          preRenderFirstString={true}
+          sequence={[
+          'Bridging the gap between University & Industry.',
+          5000,
+          ]}
+          speed={50}
+          repeat={Infinity}
+          className="text-3xl md:text-6xl lg:text-[80px] font-alliance font-semibold text-center px-5"
+        />
+        <p className="text-lg md:text-2xl font-alliance text-center text-[#5E5E5E] px-5">
+          Get access to the best UK student developers for hire in just a few clicks!
+        </p>
+
+        <div className="flex flex-col md:flex-row md:items-center gap-x-5 md:gap-x-8 phone-flex-col">
+          <div className="py-4 md:py-6">
+            <button class="buttonWOW">
+              <a href="/book-a-call">
+                <p className="font-alliance text-lg">
+                  Start building
+                </p>
+              </a>  
+            </button>
+          </div>
+          <div className="flex flex-row items-center gap-x-2 md:gap-x-4 phone-hidden">
+            <button class="buttonWOW2">
+                <a href="/solutions">
+                  <p className="font-alliance text-lg">
+                    How it works
+                  </p>
+                </a>  
               </button>
-            </div>
           </div>
         </div>
-        <div className="basis-1/5"></div>
       </div>
-    );
-  }
+    </div>
+  );
+}
+
+function UniversitySection(){
+  return (
+    <div>
+      
+    </div>
+  )
+}
   
+
 {/* COOL MAP SECTION */}
 
 function MapSection() {
-    return (
-      <div className="relative">
-        <div className="mapItem flex p-10 flex-col md:flex-row items-center h-auto md:h-[825px] w-auto md:gap-x-3">
-          <div className="flex flex-col justify-center md:justify-start md:basis-3/3 lg:basis-1/2 gap-y-10 md:gap-y-14 md:pl-10 md:pr-10 lg:gap-y-16 lg:pl-20 lg:pr-10">
-            <p className="text-white text-3xl md:text-4xl lg:text-5xl font-sfprodisplay">
-              Connect your business with <strong>tomorrow's</strong> best{" "}
-              <strong>leaders</strong> and <strong>engineers</strong>
-            </p>
-            <p className="text-white text-base md:text-lg font-alliance">
-              Our teams are made of brilliant students studying computer science,
-              engineering and physics, who have gained work experience through placements,
-              projects, and internships.
-            </p>
-            <p className="text-white text-base md:text-lg font-alliance">
-              We operate on a Talent-as-a-Service basis. Tap into our network to develop your products, promote your company,
-              and hire top-notch graduate talent.
-            </p>
-            {/* <button>
-              <div className="bg-[#DE4321] w-60 py-3 px-6 md:py-5 md:px-10 text-white font-alliance">
-                <p className="text-white">Access our Network</p>
-              </div>
-            </button> */}
-          </div>
-          <div className="flex flex-col md:basis-1/2">
-            {/* Add content for the right side if needed */}
-          </div>
-        </div>
-      </div>   
-    );
-  }
+  const [playAnimation, setPlayAnimation] = useState(false);
+  const sectionRef = useRef(null);
 
-{/* STATISTICS SECTION */}
-function StatsSection() {
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setPlayAnimation(true);
+          // Optional: Unobserve after playing once
+          observer.unobserve(sectionRef.current);
+        }
+      },
+      { threshold: 0.5 } // Trigger when 50% of the element is in view
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   const [counterOn, setCounterOn] = useState(false);
 
   return (
-    <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
-      {/* <div className="mt-20">
-        <p className="text-3xl md:text-5xl lg:text-6xl font-sfprodisplay text-center">
-          Our results
-        </p>
-      </div> */}
-      <div className="whitesections bg-white grid grid-cols-2 md:flex md:flex-row gap-x-2 gap-y-2 md:gap-x-14 justify-center px-5 py-10 md:px-10 md:py-10">
-        <div className="flex flex-col gap-y-2 justify-center p-8 bg-white rounded-xl">
-            <p className="font-alliance font-semibold text-xl md:text-5xl text-[#00A6B2]">
-              {counterOn && <CountUp start={0} end={30} duration={5}/>}
-              k+
-            </p>
-          <p className="font-alliance text-xs md:text-lg">student developers <br/> in the UK</p>
+    <div ref={sectionRef} className="relative">
+        <div className="mapItem flex p-10 flex-col items-center h-auto md:h-[600px] md:gap-x-3 md:py-20 md:px-60">
+          <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
+            <div className="flex flex-col gap-y-5 md:gap-y-10 p-5 md:p-14 justify-center items-center border-2 border-gray w-auto md:w-[800px] rounded-lg bg-white/30 backdrop-blur-md">
+              {/* <LottieAnimation play={playAnimation} className="w-[500px]"/> */}
+              <p className="font-alliance text-2xl md:text-4xl mx:px-8 font-semibold">Build your websites, MVP, internal tools, ... with top remote talent</p>
+              
+              <div className="flex flex-row gap-x-5 md:gap-x-12 justify-start items-start">
+                <div className="flex flex-col gap-y-2 justify-center">
+                  <p className="font-alliance font-semibold text-xl md:text-4xl text-[#00A6B2]">
+                    {counterOn && <CountUp start={0} end={15} duration={5}/>}
+                    k+
+                  </p>
+                  <p className="font-alliance text-xs md:text-lg">Student developers <br/> accessible</p>
+                </div>
+                <div className="flex flex-col gap-y-2 justify-center">
+                  <p className="font-alliance font-semibold  text-xl md:text-4xl text-[#00A6B2]">
+                    {counterOn && <CountUp start={0} end={10} duration={5} delay={0.2}/>}
+                    +
+                  </p>
+                  <p className="font-alliance text-xs md:text-lg">Projects completed in <br/> under one year</p>
+                </div>
+                <div className="flex flex-col gap-y-2 justify-center">
+                  <p className="font-alliance font-semibold  text-xl md:text-4xl text-[#00A6B2]">
+                    {counterOn && <CountUp start={0} end={3} duration={5} delay={0.2}/>}
+                    
+                  </p>
+                  <p className="font-alliance text-xs md:text-lg">Months on average<br/>to build  an MVP</p>
+                </div>
+              </div>
+
+              <button class="buttonWOW2">
+                <a href="/projects">
+                  <p className="font-alliance text-lg">
+                    Check our Past Projects
+                  </p>
+                </a>  
+              </button>
+
+
+            </div>
+          </ScrollTrigger>
         </div>
-        <div className="flex flex-col gap-y-2 justify-center p-8 bg-white">
-          <p className="font-alliance font-semibold  text-xl md:text-5xl text-[#00A6B2]">
-            {counterOn && <CountUp start={0} end={10} duration={5} delay={0.2}/>}
-            +
-          </p>
-          <p className="font-alliance text-xs md:text-lg">Projects completed in <br/> under one year</p>
+    </div>
+  );
+}
+
+{/* HIRE TOP TALENT AND UNI MARQUEE */}
+
+function UniMarqueeSection(){
+  return (
+    <div className="flex flex-col justify-center items-center py-10 md:py-20 gap-y-10">
+      <p className="hidden lg:block font-alliance text-3xl md:text-5xl p-8 font-semibold md:px-80 text-center">Hire top students directly from campus</p>
+      <Marquee autoFill="true" speed={30} className="hidden md:flex flex-row justify-center items-center">
+        <div className="px-10 w-[200px]">
+          <img src={uob_color} alt="Default" className="default-image"/>
         </div>
-        <div className="flex flex-col gap-y-2 justify-center p-8 bg-white">
-          <div className="flex flex-row justify-center items-center gap-x-2">
-            <p className="font-alliance font-semibold  text-xl md:text-5xl text-[#00A6B2]">
-              {counterOn && <CountUp start={0} end={3} duration={5} delay={0.2}/>}
-            </p>
-            <p className="font-alliance font-semibold text-xl md:text-3xl text-[#00A6B2]">months</p>
+        <div className="px-10 w-[200px]">
+          <img src={icl} alt="Default" className="default-image"/>
+        </div>
+        <div className="px-10 w-[200px]">
+          <img src={ucl} alt="Default" className="default-image"/>
+        </div>
+        <div className="px-10 w-[150px]">
+          <img src={warwick} alt="Default" className="default-image"/>
+        </div>
+        <div className="px-10 w-[200px]">
+          <img src={bristol} alt="Default" className="default-image"/>
+        </div>
+        <div className="px-10 w-[200px]">
+          <img src={cam} alt="Default" className="default-image"/>
+        </div>
+      </Marquee>
+
+      <div className="flex flex-col md:flex-row justify-center items-center gap-y-5 md:gap-x-10 px-8">
+        <div className="flex flex-col justify-start items-start gap-y-5 basis-1/2 md:px-10">
+          <p className="text-left font-alliance text-3xl text-[#00A6B2]">Discover talent remotely and easily</p>
+          <p className="text-left font-alliance text-lg">Get exclusive access to the best and most brilliant student developers in the country thanks to our vetting process.</p>
+          <p className="text-left font-alliance text-lg">Walk us through your project in order to get a team ready in just a few clicks. Leverage our wide network to build your start-up.</p>
+          
+          <div className="flex flex-row gap-x-5 justify-center items-center">
+
           </div>
-          <p className="font-alliance text-xs md:text-lg">Average time <br/>to build an MVP.</p>
+          
+          <button class="buttonWOW2">
+            <a href="/book-a-call">
+              <p className="font-alliance text-lg">
+                Hire talent
+              </p>
+            </a> 
+          </button> 
         </div>
-        {/* <div className="flex flex-col gap-y-2 justify-center p-8 bg-white">
-          <p className="font-alliance font-semibold  text-xl md:text-4xl text-[#00A6B2]">UoB Elevate</p>
-          <p className="font-alliance text-xs md:text-lg">is backing our startup <br/> in their incubator.</p>
-        </div> */}
+
+        <div className="hidden lg:block">
+          <img src={sat} />
+        </div>
+
       </div>
-    </ScrollTrigger>
+
+    </div>
   )
 }
 
