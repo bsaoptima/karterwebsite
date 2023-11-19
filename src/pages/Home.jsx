@@ -348,7 +348,7 @@ function SolutionsSection({ solutionsRef }) {
           </div>
         </div>
         <div className="md:px-40">
-          <div className="flex flex-row gap-x-10 bg-[#506C53] justify-center items-center px-10 py-10 md:p-20">
+          <div className="flex flex-row gap-x-10 bg-[#1B998B] justify-center items-center px-10 py-10 md:p-20">
             <div className="flex flex-col gap-y-5">
               <p className="font-alliance text-3xl text-white font-semibold text-left">Build remote teams in a few clicks</p>
               <p className="font-alliance text-lg text-[#dbdbdb] text-left">Our students are future industry leaders and will end up working at top companies. Leverage their talent and work with them now.</p>
