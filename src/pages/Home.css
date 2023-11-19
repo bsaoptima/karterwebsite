@@ -257,6 +257,34 @@ mark {
   box-shadow: none;
 }
 
+.buttonWOW3 {
+  --bg: #fff;
+  --hover-text: #000;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 4px;
+  padding: 0.8em 2em;
+  background: var(--bg);
+  transition: 0.2s;
+}
+
+.buttonWOW3:hover {
+  color: var(#FFFFFF);
+  transform: translate(-0.25rem,-0.25rem);
+  background: var(--bg);
+  box-shadow: 0.3rem 0.3rem #FFFFFF;
+  border-width: 2px;
+  border-color: #000;
+  
+}
+
+.buttonWOW3:active {
+  transform: translate(0);
+  box-shadow: none;
+  border-width: 2px;
+  border-color: #000;
+}
+
 .buttonWOW2 {
   --bg: #ffffff;
   --hover-text: #000;

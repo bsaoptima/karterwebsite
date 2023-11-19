@@ -19,7 +19,8 @@ import { TypeAnimation } from 'react-type-animation';
 import Marquee from "react-fast-marquee";
 
 import lottie from 'lottie-web';
-import animationData from '../assets/lottie.json';
+import animationData from '../assets/lottie_phone.json';
+import animationData2 from '../assets/people.json';
 
 import uob_color from "../assets/universities/uob_color.png"
 import icl from "../assets/universities/icl.png"
@@ -27,33 +28,10 @@ import ucl from "../assets/universities/ucl.png"
 import warwick from "../assets/universities/warwick.png"
 import bristol from "../assets/universities/bristol.png"
 import cam from "../assets/universities/cambridge.jpg"
+import bro from "../assets/bro.svg"
 
 import sat from "../assets/satellite.svg"
 
-const LottieAnimation = ({ play, className }) => {
-  const animationContainer = useRef(null);
-  const animationInstance = useRef(null);
-
-  useEffect(() => {
-    animationInstance.current = lottie.loadAnimation({
-      container: animationContainer.current,
-      renderer: 'svg',
-      loop: false,
-      autoplay: false,
-      animationData: animationData,
-    });
-
-    return () => animationInstance.current?.destroy();
-  }, []);
-
-  useEffect(() => {
-    if (play) {
-      animationInstance.current?.play();
-    }
-  }, [play]);
-
-  return <div ref={animationContainer} className={className} />;
-};
 
 export default function HomePage() {
 
@@ -198,9 +176,9 @@ function MapSection() {
               </div>
 
               <button class="buttonWOW2">
-                <a href="/projects">
+                <a href="/services">
                   <p className="font-alliance text-lg">
-                    Check our Past Projects
+                    Check our Services
                   </p>
                 </a>  
               </button>
@@ -270,92 +248,128 @@ function UniMarqueeSection(){
 }
 
 {/* WHAT WE CAN BRING SECTION */}
+
+const LottieAnimation = ({ play, className }) => {
+  const animationContainer = useRef(null);
+  const animationInstance = useRef(null);
+
+  useEffect(() => {
+    animationInstance.current = lottie.loadAnimation({
+      container: animationContainer.current,
+      renderer: 'svg',
+      loop: false,
+      autoplay: false,
+      animationData: animationData,
+    });
+
+    return () => animationInstance.current?.destroy();
+  }, []);
+
+  useEffect(() => {
+    if (play) {
+      animationInstance.current?.play();
+    }
+  }, [play]);
+
+  return <div ref={animationContainer} className={className} />;
+};
+
+const PeopleAnimation = ({ play, className }) => {
+  const animationContainer = useRef(null);
+  const animationInstance = useRef(null);
+
+  useEffect(() => {
+    animationInstance.current = lottie.loadAnimation({
+      container: animationContainer.current,
+      renderer: 'svg',
+      loop: false,
+      autoplay: false,
+      animationData: animationData2,
+    });
+
+    return () => animationInstance.current?.destroy();
+  }, []);
+
+  useEffect(() => {
+    if (play) {
+      animationInstance.current?.play();
+    }
+  }, [play]);
+
+  return <div ref={animationContainer} className={className} />;
+};
+
 function SolutionsSection({ solutionsRef }) {
-    return (
-      <div ref={solutionsRef} className="flex flex-col whitesections gap-y-20 justify-center px-5 py-10 lg:pb-40 lg:pt-20">
-        <div className="lg:mb-16">
-          <p className="text-4xl lg:text-5xl text-center font-sfprodisplay font-bold text-[#29363D]">
-            How we help <strong>you</strong> and <strong>your business</strong>
-          </p>
+
+  const [playAnimation, setPlayAnimation] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setPlayAnimation(true);
+          // Optional: Unobserve after playing once
+          observer.unobserve(sectionRef.current);
+        }
+      },
+      { threshold: 0.5 } // Trigger when 50% of the element is in view
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div ref={sectionRef} className="flex flex-col whitesections gap-y-20 justify-center items-center px-5 py-10 lg:pb-40 lg:pt-20">
+      <p className="hidden lg:block font-alliance text-3xl md:text-6xl font-semibold md:px-80 text-center">How we help your <span className="text-[#005CE6]">business</span></p>
+      <div className="flex flex-col gap-y-6">
+        <div className="flex flex-col md:flex-row gap-y-3 md:gap-x-6 md:px-40">
+          <div className="flex flex-col gap-y-5 justify-center pt-10 pr-10 pl-10 basis-1/2 bg-[#2468FF]">
+            <p className="font-alliance text-3xl text-white font-semibold text-left">Launch and build your MVP with Karter</p>
+            <p className="font-alliance text-lg text-[#dbdbdb] text-left">We assist start-ups by helping them design, develop and get their products to market in no time. 360° technical assistance.</p>
+            <div className="flex flex-col justify-center items-center pt-10">
+              <LottieAnimation play={playAnimation} className="w-[400px] md:w-[500px]"/>
+            </div>
+          </div>
+          <div className="flex flex-col gap-y-5 p-10 basis-1/2 bg-[#7B41ED]">
+            <div className="flex flex-col justify-center items-center">
+              <PeopleAnimation play={playAnimation} className="w-[400px] md:w-[500px]"/>
+            </div>
+            <p className="font-alliance text-3xl text-white font-semibold text-left">Instant access to undervalued talent</p>
+            <p className="font-alliance text-lg text-[#dbdbdb] text-left">Our students are future industry leaders and will end up working at top companies. Leverage their talent and work with them now.</p>
+          </div>
         </div>
-        <div className="flex flex-col gap-y-16 md:gap-y-20 lg:gap-y-40 md:flex-col md:gap-x-5 justify-center lg:px-20">
-          <div className="flex flex-col md:flex-row md:justify-center md:items-center md:gap-x-16 gap-y-8">
-            <div className="flex flex-col gap-y-2 md:px-20 lg:basis-1/2 items-start">
-              <p className="text-[#00A6B2] text-[20px] md:text-[25px] font-alliance">Create teams for your business</p>
-              <p className="text-[#29363D] font-sfprodisplay font-bold text-[30px] md:text-[40px]">Part-time student developers</p>
-              <p className="text-[#656B8A] text-[16px] md:text-[20px] font-alliance py-5 md:py-10">We provide talented student developers for your business that can work on a part-time basis with a fixed day rate.</p>
-              <div className="flex flex-col md:flex-row gap-y-4 md:gap-y-0 gap-x-0 md:gap-x-20 justify-between">
-                <div className="flex flex-col gap-y-1 basis-1/2 md:mb-0">
-                  <img src={code} width="50px" height="50px"/>
-                  <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">Build teams throughout universities in the United Kingdom</p>
-                </div>
-                <div className="flex flex-col gap-y-1 basis 1/2 md:mb-0">
-                  <img src={bulb} width="50px" height="50px"/>
-                  <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">Tap into campuses to work with tomorrow’s top engineers</p>
-                </div>
+        <div className="md:px-40">
+          <div className="flex flex-row gap-x-10 bg-[#506C53] justify-center items-center px-10 py-20">
+            <div className="flex flex-col gap-y-5 basis-1/2">
+              <p className="font-alliance text-3xl text-white font-semibold text-left">Build remote teams in a few clicks</p>
+              <p className="font-alliance text-lg text-[#dbdbdb] text-left">Our students are future industry leaders and will end up working at top companies. Leverage their talent and work with them now.</p>
+              <div className="flex flex-col justify-center items-center">
+                <button class="buttonWOW3">
+                  <a href="/book-a-call">
+                    <p className="font-alliance text-lg">
+                      Start building
+                    </p>
+                  </a>
+                </button>
               </div>
-              <button className="rounded-xl bg-[#39D3DE] drop-shadow-xl transform hover:scale-105 transition-transform duration-150 my-10 px-5 py-2 text-white">
-                <a href="https://open.substack.com/pub/karterdevelopment/p/coming-soon?utm_campaign=post&utm_medium=web">Learn more</a>
-              </button>
             </div>
-            <div className="basis-1/2 hidden lg:block max-w-[800px] max-h-[800px]">
-              <img src={team} className="rounded-2xl"/>
-            </div>
+            {/* <div className="flex flex-col justify-start items-start gap-y-5 basis-1/2">
+            </div> */}
           </div>
-
-          <div className="flex flex-col md:flex-row md:justify-center md:items-center md:gap-x-16 gap-y-8">
-            <div className="basis-1/2 hidden lg:block max-w-[800px] max-h-[800px]">
-              <img src={product} className="rounded-2xl"/>
-            </div>
-            <div className="flex flex-col gap-y-2 md:px-20 lg:basis-1/2 items-start">
-              <p className="text-[#00A6B2] text-[20px] md:text-[25px] font-alliance">Build your products with us</p>
-              <p className="text-[#29363D] font-sfprodisplay font-bold text-[30px] md:text-[40px]">Bespoke Product Development</p>
-              <p className="text-[#656B8A] text-[16px] md:text-[20px] font-alliance py-5 md:py-10">We build teams of developers, led by one of our project managers helping you outsource the development of your products.</p>
-              <div className="flex flex-col md:flex-row gap-y-4 md:gap-y-0 gap-x-0 md:gap-x-20 justify-between">
-                <div className="flex flex-col gap-y-1 basis-1/2 md:mb-0">
-                  <img src={code} width="50px" height="50px"/>
-                  <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">From Web & Mobile apps to internal software development</p>
-                </div>
-                <div className="flex flex-col gap-y-1 basis-1/2 md:mb-0">
-                  <img src={bulb} width="50px" height="50px"/>
-                  <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">Data Analytics and Database Engineering for business purposes  </p>
-                </div>
-              </div>
-              <button className="rounded-xl bg-[#39D3DE] drop-shadow-xl transform hover:scale-105 transition-transform duration-150 my-10 px-5 py-2 text-white">
-                <a href="https://open.substack.com/pub/karterdevelopment/p/coming-soon?utm_campaign=post&utm_medium=web">Learn more</a>
-              </button>
-            </div>
-          </div>
-
-          <div className="flex flex-col md:flex-row md:justify-center md:items-center md:gap-x-16 gap-y-8">
-            <div className="flex flex-col gap-y-2 md:px-20 lg:basis-1/2 items-start">
-              <p className="text-[#00A6B2] text-[20px] md:text-[25px] font-alliance">Hire top vetted junior engineers</p>
-              <p className="text-[#29363D] font-sfprodisplay font-bold text-[30px] md:text-[40px]">Elite Graduate Talent</p>
-              <p className="text-[#656B8A] text-[16px] md:text-[20px] font-alliance py-5 md:py-10">We identify the brightest students in universities and train them for months. Hire from us to secure the best talent for your business.</p>
-              <div className="flex flex-col md:flex-row gap-y-4 md:gap-y-0 gap-x-0 md:gap-x-20 justify-between">
-                <div className="flex flex-col gap-y-1 basis-1/2 md:mb-0">
-                  <img src={code} width="50px" height="50px" alt="Code Icon"/>
-                  <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">Advertise job opportunities throughout our network</p>
-                </div>
-                <div className="flex flex-col gap-y-1 basis-1/2 md:mb-0">
-                  <img src={bulb} width="50px" height="50px" alt="Bulb Icon"/>
-                  <p className="text-[#656B8A] text-[14px] md:text-[16px] px-2 font-alliance">Vetted and trained talent prepared for employment</p>
-                </div>
-              </div>
-              <button className="rounded-xl bg-[#39D3DE] drop-shadow-xl transform hover:scale-105 transition-transform duration-150 my-10 px-5 py-2 text-white">
-                <a href="https://open.substack.com/pub/karterdevelopment/p/coming-soon?utm_campaign=post&utm_medium=web">Learn more</a>
-              </button>
-            </div>
-            <div className="basis-1/2 hidden lg:block max-w-[800px] max-h-[800px]">
-              <img src={world} className="rounded-2xl" alt="Team Image"/>
-            </div>
-          </div>
-
-
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
   
   
 
@@ -363,7 +377,7 @@ function SolutionsSection({ solutionsRef }) {
   function QuoteSection() {
     return (
       <div className="flex flex-col">
-        <figure className="bg-[#F6F9FC] mx-auto text-center px-10 md:px-40 pb-10 md:pb-28">
+        {/* <figure className="bg-[#F6F9FC] mx-auto text-center px-10 md:px-40 pb-10 md:pb-28">
           <svg
             className="w-10 h-10 mx-auto mb-3 text-gray-400"
             aria-hidden="true"
@@ -392,7 +406,7 @@ function SolutionsSection({ solutionsRef }) {
               </cite>
             </div>
           </figcaption>
-        </figure>
+        </figure> */}
         <figure className="bg-[#F6F9FC] mx-auto text-center px-10 md:px-40 pb-20 md:pb-40">
           <svg
             className="w-10 h-10 mx-auto mb-3 text-gray-400"
