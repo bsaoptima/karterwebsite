@@ -328,19 +328,19 @@ function SolutionsSection({ solutionsRef }) {
   }, []);
 
   return (
-    <div ref={sectionRef} className="flex flex-col whitesections gap-y-20 justify-center items-center px-5 py-10 lg:pb-40 lg:pt-20">
-      <p className="hidden lg:block font-alliance text-3xl md:text-6xl font-semibold md:px-80 text-center">How we help your <span className="text-[#005CE6]">business</span></p>
+    <div ref={sectionRef} className="flex flex-col gap-y-20 justify-center items-center px-8 py-10 lg:pb-40 lg:pt-20">
+      <p className="font-alliance text-4xl md:text-6xl font-semibold md:px-80 text-center">How we help your <span className="text-[#005CE6]">business</span></p>
       <div className="flex flex-col gap-y-6">
         <div className="flex flex-col md:flex-row gap-y-3 md:gap-x-6 md:px-40">
-          <div className="flex flex-col gap-y-5 justify-center pt-10 pr-10 pl-10 basis-1/2 bg-[#2468FF]">
+          <div className="flex flex-col gap-y-5 justify-center p-10 md:pt-10 md:pr-10 md:pl-10 basis-1/2 bg-[#2468FF]">
             <p className="font-alliance text-3xl text-white font-semibold text-left">Launch and build your MVP with Karter</p>
             <p className="font-alliance text-lg text-[#dbdbdb] text-left">We assist start-ups by helping them design, develop and get their products to market in no time. 360° technical assistance.</p>
-            <div className="flex flex-col justify-center items-center pt-10">
+            <div className="hidden lg:block flex flex-col justify-center items-center pt-10">
               <LottieAnimation play={playAnimation} className="w-[400px] md:w-[500px]"/>
             </div>
           </div>
           <div className="flex flex-col gap-y-5 p-10 basis-1/2 bg-[#7B41ED]">
-            <div className="flex flex-col justify-center items-center">
+            <div className="hidden lg:block flex flex-col justify-center items-center">
               <PeopleAnimation play={playAnimation} className="w-[400px] md:w-[500px]"/>
             </div>
             <p className="font-alliance text-3xl text-white font-semibold text-left">Instant access to undervalued talent</p>
@@ -348,8 +348,8 @@ function SolutionsSection({ solutionsRef }) {
           </div>
         </div>
         <div className="md:px-40">
-          <div className="flex flex-row gap-x-10 bg-[#506C53] justify-center items-center px-10 py-20">
-            <div className="flex flex-col gap-y-5 basis-1/2">
+          <div className="flex flex-row gap-x-10 bg-[#506C53] justify-center items-center px-10 py-10 md:py-20">
+            <div className="flex flex-col gap-y-5">
               <p className="font-alliance text-3xl text-white font-semibold text-left">Build remote teams in a few clicks</p>
               <p className="font-alliance text-lg text-[#dbdbdb] text-left">Our students are future industry leaders and will end up working at top companies. Leverage their talent and work with them now.</p>
               <div className="flex flex-col justify-center items-center">
