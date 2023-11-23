@@ -249,7 +249,7 @@ mark {
   color: var(#FFFFFF);
   transform: translate(-0.25rem,-0.25rem);
   background: var(--bg);
-  box-shadow: 0.3rem 0.3rem #005CE6;
+  box-shadow: 0.3rem 0.3rem #2468FF;
 }
 
 .buttonWOW:active {
@@ -302,7 +302,7 @@ mark {
   color: var(#FFFFFF);
   transform: translate(-0.25rem,-0.25rem);
   background: var(--bg);
-  box-shadow: 0.3rem 0.3rem #005CE6;
+  box-shadow: 0.3rem 0.3rem #2468FF;
 }
 
 .buttonWOW2:active {

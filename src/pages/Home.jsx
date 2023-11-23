@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Link } from 'react-scroll';
 import './Home.css'
 import { useInView } from 'react-intersection-observer';
+import { useAnimate } from "framer-motion";
 
 import product from '../assets/product.png'
 import team from '../assets/team.png'
@@ -102,13 +103,6 @@ function LandingSection({ scrollToContact, scrollToSolutions }) {
   );
 }
 
-function UniversitySection(){
-  return (
-    <div>
-      
-    </div>
-  )
-}
   
 
 {/* COOL MAP SECTION */}
@@ -329,7 +323,7 @@ function SolutionsSection({ solutionsRef }) {
 
   return (
     <div ref={sectionRef} className="flex flex-col gap-y-20 justify-center items-center px-8 py-10 lg:pb-40 lg:pt-20">
-      <p className="font-alliance text-4xl md:text-6xl font-semibold md:px-80 text-center">How we help your <span className="text-[#005CE6]">business</span></p>
+      <p className="font-alliance text-4xl md:text-6xl font-semibold md:px-80 text-center">How we help your <span className="text-[#2468FF]">business</span></p>
       <div className="flex flex-col gap-y-6">
         <div className="flex flex-col md:flex-row gap-y-3 md:gap-x-6 md:px-40">
           <div className="flex flex-col gap-y-5 justify-center p-10 md:pt-10 md:pr-10 md:pl-10 basis-1/2 bg-[#2468FF]">

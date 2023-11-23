@@ -1,388 +1,517 @@
-// PeriodicTableScene.js
+import React, { useRef, useState, useEffect } from "react";
+import { Route, Routes } from 'react-router-dom';
+import { Link } from 'react-scroll';
+import './Home.css'
+import { useInView } from 'react-intersection-observer';
+import { useAnimate } from "framer-motion";
 
-import React, { useEffect, useRef } from 'react';
-import * as THREE from 'three';
-import TWEEN from '@tweenjs/tween.js';
-import { TrackballControls } from 'three/addons/controls/TrackballControls.js';
-import { CSS3DRenderer, CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
-import './Testing.css'
+import product from '../assets/product.png'
+import team from '../assets/team.png'
+import world from '../assets/world.png'
+
+import code from "../assets/code.png"
+import bulb from "../assets/bulb.png"
+
+import CountUp from "react-countup";
+import ScrollTrigger from "react-scroll-trigger";
+
+import { TypeAnimation } from 'react-type-animation';
+
+import Marquee from "react-fast-marquee";
+
+import lottie from 'lottie-web';
+import animationData from '../assets/lottie_phone.json';
+import animationData2 from '../assets/people.json';
+
+import uob_color from "../assets/universities/uob_color.png"
+import icl from "../assets/universities/icl.png"
+import ucl from "../assets/universities/ucl.png"
+import warwick from "../assets/universities/warwick.png"
+import bristol from "../assets/universities/bristol.png"
+import cam from "../assets/universities/cambridge.jpg"
+import bro from "../assets/bro.svg"
+
+import sat from "../assets/satellite.svg"
 
 
-const table = [
-    'H', 'Hydrogen', '1.00794', 1, 1,
-    'He', 'Helium', '4.002602', 18, 1,
-    'Li', 'Lithium', '6.941', 1, 2,
-    'Be', 'Beryllium', '9.012182', 2, 2,
-    'B', 'Boron', '10.811', 13, 2,
-    'C', 'Carbon', '12.0107', 14, 2,
-    'N', 'Nitrogen', '14.0067', 15, 2,
-    'O', 'Oxygen', '15.9994', 16, 2,
-    'F', 'Fluorine', '18.9984032', 17, 2,
-    'Ne', 'Neon', '20.1797', 18, 2,
-    'Na', 'Sodium', '22.98976...', 1, 3,
-    'Mg', 'Magnesium', '24.305', 2, 3,
-    'Al', 'Aluminium', '26.9815386', 13, 3,
-    'Si', 'Silicon', '28.0855', 14, 3,
-    'P', 'Phosphorus', '30.973762', 15, 3,
-    'S', 'Sulfur', '32.065', 16, 3,
-    'Cl', 'Chlorine', '35.453', 17, 3,
-    'Ar', 'Argon', '39.948', 18, 3,
-    'K', 'Potassium', '39.948', 1, 4,
-    'Ca', 'Calcium', '40.078', 2, 4,
-    'Sc', 'Scandium', '44.955912', 3, 4,
-    'Ti', 'Titanium', '47.867', 4, 4,
-    'V', 'Vanadium', '50.9415', 5, 4,
-    'Cr', 'Chromium', '51.9961', 6, 4,
-    'Mn', 'Manganese', '54.938045', 7, 4,
-    'Fe', 'Iron', '55.845', 8, 4,
-    'Co', 'Cobalt', '58.933195', 9, 4,
-    'Ni', 'Nickel', '58.6934', 10, 4,
-    'Cu', 'Copper', '63.546', 11, 4,
-    'Zn', 'Zinc', '65.38', 12, 4,
-    'Ga', 'Gallium', '69.723', 13, 4,
-    'Ge', 'Germanium', '72.63', 14, 4,
-    'As', 'Arsenic', '74.9216', 15, 4,
-    'Se', 'Selenium', '78.96', 16, 4,
-    'Br', 'Bromine', '79.904', 17, 4,
-    'Kr', 'Krypton', '83.798', 18, 4,
-    'Rb', 'Rubidium', '85.4678', 1, 5,
-    'Sr', 'Strontium', '87.62', 2, 5,
-    'Y', 'Yttrium', '88.90585', 3, 5,
-    'Zr', 'Zirconium', '91.224', 4, 5,
-    'Nb', 'Niobium', '92.90628', 5, 5,
-    'Mo', 'Molybdenum', '95.96', 6, 5,
-    'Tc', 'Technetium', '(98)', 7, 5,
-    'Ru', 'Ruthenium', '101.07', 8, 5,
-    'Rh', 'Rhodium', '102.9055', 9, 5,
-    'Pd', 'Palladium', '106.42', 10, 5,
-    'Ag', 'Silver', '107.8682', 11, 5,
-    'Cd', 'Cadmium', '112.411', 12, 5,
-    'In', 'Indium', '114.818', 13, 5,
-    'Sn', 'Tin', '118.71', 14, 5,
-    'Sb', 'Antimony', '121.76', 15, 5,
-    'Te', 'Tellurium', '127.6', 16, 5,
-    'I', 'Iodine', '126.90447', 17, 5,
-    'Xe', 'Xenon', '131.293', 18, 5,
-    'Cs', 'Caesium', '132.9054', 1, 6,
-    'Ba', 'Barium', '132.9054', 2, 6,
-    'La', 'Lanthanum', '138.90547', 4, 9,
-    'Ce', 'Cerium', '140.116', 5, 9,
-    'Pr', 'Praseodymium', '140.90765', 6, 9,
-    'Nd', 'Neodymium', '144.242', 7, 9,
-    'Pm', 'Promethium', '(145)', 8, 9,
-    'Sm', 'Samarium', '150.36', 9, 9,
-    'Eu', 'Europium', '151.964', 10, 9,
-    'Gd', 'Gadolinium', '157.25', 11, 9,
-    'Tb', 'Terbium', '158.92535', 12, 9,
-    'Dy', 'Dysprosium', '162.5', 13, 9,
-    'Ho', 'Holmium', '164.93032', 14, 9,
-    'Er', 'Erbium', '167.259', 15, 9,
-    'Tm', 'Thulium', '168.93421', 16, 9,
-    'Yb', 'Ytterbium', '173.054', 17, 9,
-    'Lu', 'Lutetium', '174.9668', 18, 9,
-    'Hf', 'Hafnium', '178.49', 4, 6,
-    'Ta', 'Tantalum', '180.94788', 5, 6,
-    'W', 'Tungsten', '183.84', 6, 6,
-    'Re', 'Rhenium', '186.207', 7, 6,
-    'Os', 'Osmium', '190.23', 8, 6,
-    'Ir', 'Iridium', '192.217', 9, 6,
-    'Pt', 'Platinum', '195.084', 10, 6,
-    'Au', 'Gold', '196.966569', 11, 6,
-    'Hg', 'Mercury', '200.59', 12, 6,
-    'Tl', 'Thallium', '204.3833', 13, 6,
-    'Pb', 'Lead', '207.2', 14, 6,
-    'Bi', 'Bismuth', '208.9804', 15, 6,
-    'Po', 'Polonium', '(209)', 16, 6,
-    'At', 'Astatine', '(210)', 17, 6,
-    'Rn', 'Radon', '(222)', 18, 6,
-    'Fr', 'Francium', '(223)', 1, 7,
-    'Ra', 'Radium', '(226)', 2, 7,
-    'Ac', 'Actinium', '(227)', 4, 10,
-    'Th', 'Thorium', '232.03806', 5, 10,
-    'Pa', 'Protactinium', '231.0588', 6, 10,
-    'U', 'Uranium', '238.02891', 7, 10,
-    'Np', 'Neptunium', '(237)', 8, 10,
-    'Pu', 'Plutonium', '(244)', 9, 10,
-    'Am', 'Americium', '(243)', 10, 10,
-    'Cm', 'Curium', '(247)', 11, 10,
-    'Bk', 'Berkelium', '(247)', 12, 10,
-    'Cf', 'Californium', '(251)', 13, 10,
-    'Es', 'Einstenium', '(252)', 14, 10,
-    'Fm', 'Fermium', '(257)', 15, 10,
-    'Md', 'Mendelevium', '(258)', 16, 10,
-    'No', 'Nobelium', '(259)', 17, 10,
-    'Lr', 'Lawrencium', '(262)', 18, 10,
-    'Rf', 'Rutherfordium', '(267)', 4, 7,
-    'Db', 'Dubnium', '(268)', 5, 7,
-    'Sg', 'Seaborgium', '(271)', 6, 7,
-    'Bh', 'Bohrium', '(272)', 7, 7,
-    'Hs', 'Hassium', '(270)', 8, 7,
-    'Mt', 'Meitnerium', '(276)', 9, 7,
-    'Ds', 'Darmstadium', '(281)', 10, 7,
-    'Rg', 'Roentgenium', '(280)', 11, 7,
-    'Cn', 'Copernicium', '(285)', 12, 7,
-    'Nh', 'Nihonium', '(286)', 13, 7,
-    'Fl', 'Flerovium', '(289)', 14, 7,
-    'Mc', 'Moscovium', '(290)', 15, 7,
-    'Lv', 'Livermorium', '(293)', 16, 7,
-    'Ts', 'Tennessine', '(294)', 17, 7,
-    'Og', 'Oganesson', '(294)', 18, 7
-];
+export default function HomePage() {
 
-export default function TestingPage() {
+    const contactRef = useRef();
+    const solutionsRef = useRef();
+
+    const scrollToContact = () => {
+        contactRef.current.scrollIntoView({ behavior: 'smooth' });
+    };
+    const scrollToSolutions = () => {
+        solutionsRef.current.scrollIntoView({ behavior: 'smooth' });
+    };
+
     return (
-        <div className='relative'>
-            <PeriodicTableScene />
-            <CodeComponent />
+        <div className="relative scroll-smooth">
+            {/* <LandingSection scrollToContact={scrollToContact} scrollToSolutions={scrollToSolutions}/> */}
+            <GridHoverHero />
+            <UniMarqueeSection />
+            <MapSection />
+            <SolutionsSection solutionsRef={solutionsRef}/>
+            <QuoteSection/>
+            <ContactSection contactRef={contactRef} />
         </div>
     )
 }
 
-function PeriodicTableScene()  {
-  const containerRef = useRef(null);
+
+export const GridHoverHero = () => {
+  const [scope, animate] = useAnimate();
+
+  const [size, setSize] = useState({ columns: 0, rows: 0 });
 
   useEffect(() => {
-    let camera, scene, renderer;
-    let controls;
-    const objects = [];
-	const targets = { table: [], sphere: [], helix: [], grid: [] };
-    
-    init();
-	animate();
+    generateGridCount();
+    window.addEventListener("resize", generateGridCount);
 
-    function animate() {
-      requestAnimationFrame(animate);
-      TWEEN.update();
-      controls.update();
-      renderer.render(scene, camera);
-    }
-
-    function init() {
-
-        camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 10000 );
-        camera.position.z = 3000;
-
-        scene = new THREE.Scene();
-
-        // table
-
-        for ( let i = 0; i < table.length; i += 5 ) {
-
-            const element = document.createElement( 'div' );
-            element.className = 'element';
-            element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
-
-            const number = document.createElement( 'div' );
-            number.className = 'number';
-            number.textContent = ( i / 5 ) + 1;
-            element.appendChild( number );
-
-            const symbol = document.createElement( 'div' );
-            symbol.className = 'symbol';
-            symbol.textContent = table[ i ];
-            element.appendChild( symbol );
-
-            const details = document.createElement( 'div' );
-            details.className = 'details';
-            details.innerHTML = table[ i + 1 ] + '<br>' + table[ i + 2 ];
-            element.appendChild( details );
-
-            const objectCSS = new CSS3DObject( element );
-            objectCSS.position.x = Math.random() * 4000 - 2000;
-            objectCSS.position.y = Math.random() * 4000 - 2000;
-            objectCSS.position.z = Math.random() * 4000 - 2000;
-            scene.add( objectCSS );
-
-            objects.push( objectCSS );
-
-            //
-
-            const object = new THREE.Object3D();
-            object.position.x = ( table[ i + 3 ] * 140 ) - 1330;
-            object.position.y = - ( table[ i + 4 ] * 180 ) + 990;
-
-            targets.table.push( object );
-
-        }
-
-        // sphere
-
-        const vector = new THREE.Vector3();
-
-        for ( let i = 0, l = objects.length; i < l; i ++ ) {
-
-            const phi = Math.acos( - 1 + ( 2 * i ) / l );
-            const theta = Math.sqrt( l * Math.PI ) * phi;
-
-            const object = new THREE.Object3D();
-
-            object.position.setFromSphericalCoords( 800, phi, theta );
-
-            vector.copy( object.position ).multiplyScalar( 2 );
-
-            object.lookAt( vector );
-
-            targets.sphere.push( object );
-
-        }
-
-        // helix
-
-        for ( let i = 0, l = objects.length; i < l; i ++ ) {
-
-            const theta = i * 0.175 + Math.PI;
-            const y = - ( i * 8 ) + 450;
-
-            const object = new THREE.Object3D();
-
-            object.position.setFromCylindricalCoords( 900, theta, y );
-
-            vector.x = object.position.x * 2;
-            vector.y = object.position.y;
-            vector.z = object.position.z * 2;
-
-            object.lookAt( vector );
-
-            targets.helix.push( object );
-
-        }
-
-        // grid
-
-        for ( let i = 0; i < objects.length; i ++ ) {
-
-            const object = new THREE.Object3D();
-
-            object.position.x = ( ( i % 5 ) * 400 ) - 800;
-            object.position.y = ( - ( Math.floor( i / 5 ) % 5 ) * 400 ) + 800;
-            object.position.z = ( Math.floor( i / 25 ) ) * 1000 - 2000;
-
-            targets.grid.push( object );
-
-        }
-
-        //
-
-        renderer = new CSS3DRenderer();
-        renderer.setSize( window.innerWidth, window.innerHeight );
-        document.getElementById( 'container' ).appendChild( renderer.domElement );
-
-        //
-
-        controls = new TrackballControls( camera, renderer.domElement );
-        controls.noZoom = true;
-        controls.minDistance = 500;
-        controls.maxDistance = 6000;
-        controls.addEventListener( 'change', render );
-
-        const buttonSphere = document.createElement('button');
-        buttonSphere.textContent = 'Sphere';
-        buttonSphere.addEventListener('click', function () {
-            transform(targets.sphere, 2000);
-        });
-        document.body.appendChild(buttonSphere);
-
-        const buttonHelix = document.createElement('button');
-        buttonHelix.textContent = 'Helix';
-        buttonHelix.addEventListener('click', function () {
-            transform(targets.helix, 2000);
-        });
-        document.body.appendChild(buttonHelix);
-
-        const buttonGrid = document.createElement('button');
-        buttonGrid.textContent = 'Grid';
-        buttonGrid.addEventListener('click', function () {
-            transform(targets.grid, 2000);
-        });
-        document.body.appendChild(buttonGrid);
-
-        transform( targets.table, 2000 );
-
-        //
-
-        window.addEventListener( 'resize', onWindowResize );
-
-    }
-
-    function transform( targets, duration ) {
-
-        TWEEN.removeAll();
-
-        for ( let i = 0; i < objects.length; i ++ ) {
-
-            const object = objects[ i ];
-            const target = targets[ i ];
-
-            new TWEEN.Tween( object.position )
-                .to( { x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration )
-                .easing( TWEEN.Easing.Exponential.InOut )
-                .start();
-
-            new TWEEN.Tween( object.rotation )
-                .to( { x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration )
-                .easing( TWEEN.Easing.Exponential.InOut )
-                .start();
-
-        }
-
-        new TWEEN.Tween( this )
-            .to( {}, duration * 2 )
-            .onUpdate( render )
-            .start();
-
-    }
-
-    function onWindowResize() {
-
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-
-        renderer.setSize( window.innerWidth, window.innerHeight );
-
-        render();
-
-    }
-
-    function render() {
-        renderer.render( scene, camera );
-    }
-
+    return () => window.removeEventListener("resize", generateGridCount);
   }, []);
 
-  return <div ref={containerRef} id="container" />;
+  const generateGridCount = () => {
+    const columns = Math.floor(document.body.clientWidth / 75);
+    const rows = Math.floor(document.body.clientHeight / 75);
+
+    setSize({
+      columns,
+      rows,
+    });
+  };
+
+  const handleMouseLeave = (e) => {
+    // @ts-ignore
+    const id = `#${e.target.id}`;
+    animate(id, { background: "rgba(129, 140, 248, 0)" }, { duration: 1.5 });
+  };
+
+  const handleMouseEnter = (e) => {
+    // @ts-ignore
+    const id = `#${e.target.id}`;
+    animate(id, { background: "rgba(207, 222, 255, 1)" }, { duration: 0.15 });
+  };
+
+  return (
+    <div className="relative flex justify-center items-center">
+      <div
+        ref={scope}
+        className="grid h-screen w-full grid-cols-[repeat(auto-fit,_minmax(75px,_1fr))] grid-rows-[repeat(auto-fit,_minmax(75px,_1fr))]"
+      >
+        {[...Array(size.rows * size.columns)].map((_, i) => (
+          <div
+            key={i}
+            id={`square-${i}`}
+            onMouseLeave={handleMouseLeave}
+            onMouseEnter={handleMouseEnter}
+            className="h-full w-full border-[1px] border-gray"
+          />
+        ))}
+      </div>
+      <div className="absolute top-0 left-0 right-0 bottom-0 z-10 flex justify-center items-center" style={{ pointerEvents: 'none' }}>
+        <LandingSection />
+      </div>
+    </div>
+  );
 };
 
 
-function CodeComponent() {
-    return (
-        <div className="code-editor">
-            <div className="header">
-                <span className="title">success.py</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="icon"><g stroke-width="0" id="SVGRepo_bgCarrier"></g><g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g><g id="SVGRepo_iconCarrier"> <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M6 6L18 18"></path> <path stroke-linecap="round" stroke-width="2" stroke="#4C4F5A" d="M18 6L6 18"></path> </g></svg>
-            </div>
-            <div className="editor-content">
-                <code className="code">
-                <p className=''><span className="text-[#c26eb5]">import</span> <span className='text-[#00A6B2]'>Karter</span></p>
-                <p className='mb-5'><span className="text-[#c26eb5]">import</span> <span className='text-[#00A6B2]'>Founder</span></p>
-                <p><span className="color-0">def MakeStartupSuccessful</span><span>():</span></p>
+{/* LANDING SECTION */}
+function LandingSection({ scrollToContact, scrollToSolutions }) {
+  return (
+    <div className="flex flex-col justify-center items-center py-10 md:py-20 md:py-28">
+      <div className="flex flex-col justify-center items-center md:px-20 gap-y-8 md:gap-y-12">
+        <TypeAnimation
+          preRenderFirstString={true}
+          sequence={[
+          'Bridging the gap between University & Industry.',
+          5000,
+          ]}
+          speed={50}
+          repeat={Infinity}
+          className="text-3xl md:text-6xl lg:text-[80px] font-alliance font-semibold text-center px-5"
+        />
+        <p className="text-lg md:text-2xl font-alliance text-center text-[#5E5E5E] px-5">
+          Get access to the best UK student developers for hire in just a few clicks!
+        </p>
 
-                <p className="property">
-                    <span className="color-2">idea = Founder.brain.generate()</span>
+        <div className="flex flex-col md:flex-row md:items-center gap-x-5 md:gap-x-8 phone-flex-col">
+          <div className="py-4 md:py-6">
+            <button class="buttonWOW" style={{ pointerEvents: 'auto' }}>
+              <a href="/book-a-call">
+                <p className="font-alliance text-lg">
+                  Start building
                 </p>
-                <p className="property">
-                    <span className="color-2">project_manager = Karter.addProjectManager(number="1")</span>
-                </p>
-                <p className="property">
-                    <span className="color-2">backend_dev = Karter.addProjectManager(number="2")</span>
-                </p>
-                <p className="property">
-                    <span className="color-2">frontend_dev = Karter.addProjectManager(number="2")</span>
-                </p>
-                <p className="property mt-5">
-                    <span className="color-2">return "Great Success!"</span>
-                </p>
-                </code>
-            </div>
-            </div>
-    )
+              </a>  
+            </button>
+          </div>
+          <div className="flex flex-row items-center gap-x-2 md:gap-x-4 phone-hidden">
+            <button class="buttonWOW2" style={{ pointerEvents: 'auto' }}>
+                <a href="/solutions">
+                  <p className="font-alliance text-lg">
+                    How it works
+                  </p>
+                </a>  
+              </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
+
+  
+
+{/* COOL MAP SECTION */}
+
+function MapSection() {
+  const [playAnimation, setPlayAnimation] = useState(false);
+  const sectionRef = useRef(null);
+
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setPlayAnimation(true);
+          // Optional: Unobserve after playing once
+          observer.unobserve(sectionRef.current);
+        }
+      },
+      { threshold: 0.5 } // Trigger when 50% of the element is in view
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  const [counterOn, setCounterOn] = useState(false);
+
+  return (
+    <div ref={sectionRef} className="relative">
+        <div className="mapItem flex p-10 flex-col items-center h-auto md:h-[600px] md:gap-x-3 md:py-20 md:px-60">
+          <ScrollTrigger onEnter={() => setCounterOn(true)} onExit={() => setCounterOn(false)}>
+            <div className="flex flex-col gap-y-5 md:gap-y-10 p-5 md:p-14 justify-center items-center border-2 border-gray w-auto md:w-[800px] rounded-lg bg-white/30 backdrop-blur-md">
+              {/* <LottieAnimation play={playAnimation} className="w-[500px]"/> */}
+              <p className="font-alliance text-2xl md:text-4xl mx:px-8 font-semibold">Build your websites, MVP, internal tools, ... with top remote talent</p>
+              
+              <div className="flex flex-row gap-x-5 md:gap-x-12 justify-start items-start">
+                <div className="flex flex-col gap-y-2 justify-center">
+                  <p className="font-alliance font-semibold text-xl md:text-4xl text-[#00A6B2]">
+                    {counterOn && <CountUp start={0} end={15} duration={5}/>}
+                    k+
+                  </p>
+                  <p className="font-alliance text-xs md:text-lg">Student developers <br/> accessible</p>
+                </div>
+                <div className="flex flex-col gap-y-2 justify-center">
+                  <p className="font-alliance font-semibold  text-xl md:text-4xl text-[#00A6B2]">
+                    {counterOn && <CountUp start={0} end={10} duration={5} delay={0.2}/>}
+                    +
+                  </p>
+                  <p className="font-alliance text-xs md:text-lg">Projects completed in <br/> under one year</p>
+                </div>
+                <div className="flex flex-col gap-y-2 justify-center">
+                  <p className="font-alliance font-semibold  text-xl md:text-4xl text-[#00A6B2]">
+                    {counterOn && <CountUp start={0} end={3} duration={5} delay={0.2}/>}
+                    
+                  </p>
+                  <p className="font-alliance text-xs md:text-lg">Months on average<br/>to build  an MVP</p>
+                </div>
+              </div>
+
+              <button class="buttonWOW2">
+                <a href="/services">
+                  <p className="font-alliance text-lg">
+                    Check our Services
+                  </p>
+                </a>  
+              </button>
+
+
+            </div>
+          </ScrollTrigger>
+        </div>
+    </div>
+  );
+}
+
+{/* HIRE TOP TALENT AND UNI MARQUEE */}
+
+function UniMarqueeSection(){
+  return (
+    <div className="flex flex-col justify-center items-center py-10 md:py-20 gap-y-10">
+      <p className="hidden lg:block font-alliance text-3xl md:text-5xl p-8 font-semibold md:px-80 text-center">Hire top students directly from campus</p>
+      <Marquee autoFill="true" speed={30} className="hidden md:flex flex-row justify-center items-center">
+        <div className="px-10 w-[200px]">
+          <img src={uob_color} alt="Default" className="default-image"/>
+        </div>
+        <div className="px-10 w-[200px]">
+          <img src={icl} alt="Default" className="default-image"/>
+        </div>
+        <div className="px-10 w-[200px]">
+          <img src={ucl} alt="Default" className="default-image"/>
+        </div>
+        <div className="px-10 w-[150px]">
+          <img src={warwick} alt="Default" className="default-image"/>
+        </div>
+        <div className="px-10 w-[200px]">
+          <img src={bristol} alt="Default" className="default-image"/>
+        </div>
+        <div className="px-10 w-[200px]">
+          <img src={cam} alt="Default" className="default-image"/>
+        </div>
+      </Marquee>
+
+      <div className="flex flex-col md:flex-row justify-center items-center gap-y-5 md:gap-x-10 px-8">
+        <div className="flex flex-col justify-start items-start gap-y-5 basis-1/2 md:px-10">
+          <p className="text-left font-alliance text-3xl text-[#00A6B2]">Discover talent remotely and easily</p>
+          <p className="text-left font-alliance text-lg">Get exclusive access to the best and most brilliant student developers in the country thanks to our vetting process.</p>
+          <p className="text-left font-alliance text-lg">Walk us through your project in order to get a team ready in just a few clicks. Leverage our wide network to build your start-up.</p>
+          
+          <div className="flex flex-row gap-x-5 justify-center items-center">
+
+          </div>
+          
+          <button class="buttonWOW2">
+            <a href="/book-a-call">
+              <p className="font-alliance text-lg">
+                Hire talent
+              </p>
+            </a> 
+          </button> 
+        </div>
+
+        <div className="hidden lg:block">
+          <img src={sat} />
+        </div>
+
+      </div>
+
+    </div>
+  )
+}
+
+{/* WHAT WE CAN BRING SECTION */}
+
+const LottieAnimation = ({ play, className }) => {
+  const animationContainer = useRef(null);
+  const animationInstance = useRef(null);
+
+  useEffect(() => {
+    animationInstance.current = lottie.loadAnimation({
+      container: animationContainer.current,
+      renderer: 'svg',
+      loop: false,
+      autoplay: false,
+      animationData: animationData,
+    });
+
+    return () => animationInstance.current?.destroy();
+  }, []);
+
+  useEffect(() => {
+    if (play) {
+      animationInstance.current?.play();
+    }
+  }, [play]);
+
+  return <div ref={animationContainer} className={className} />;
+};
+
+const PeopleAnimation = ({ play, className }) => {
+  const animationContainer = useRef(null);
+  const animationInstance = useRef(null);
+
+  useEffect(() => {
+    animationInstance.current = lottie.loadAnimation({
+      container: animationContainer.current,
+      renderer: 'svg',
+      loop: false,
+      autoplay: false,
+      animationData: animationData2,
+    });
+
+    return () => animationInstance.current?.destroy();
+  }, []);
+
+  useEffect(() => {
+    if (play) {
+      animationInstance.current?.play();
+    }
+  }, [play]);
+
+  return <div ref={animationContainer} className={className} />;
+};
+
+function SolutionsSection({ solutionsRef }) {
+
+  const [playAnimation, setPlayAnimation] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setPlayAnimation(true);
+          // Optional: Unobserve after playing once
+          observer.unobserve(sectionRef.current);
+        }
+      },
+      { threshold: 0.4 } // Trigger when 50% of the element is in view
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div ref={sectionRef} className="flex flex-col gap-y-20 justify-center items-center px-8 py-10 lg:pb-40 lg:pt-20">
+      <p className="font-alliance text-4xl md:text-6xl font-semibold md:px-80 text-center">How we help your <span className="text-[#2468FF]">business</span></p>
+      <div className="flex flex-col gap-y-6">
+        <div className="flex flex-col md:flex-row gap-y-3 md:gap-x-6 md:px-40">
+          <div className="flex flex-col gap-y-5 justify-center p-10 md:pt-10 md:pr-10 md:pl-10 basis-1/2 bg-[#2468FF]">
+            <p className="font-alliance text-3xl text-white font-semibold text-left">Launch and build your MVP with Karter</p>
+            <p className="font-alliance text-lg text-[#dbdbdb] text-left">We assist start-ups by helping them design, develop and get their products to market in no time. 360° technical assistance.</p>
+            <div className="hidden lg:block flex flex-col justify-center items-center pt-10">
+              <LottieAnimation play={playAnimation} className="w-[400px] md:w-[500px]"/>
+            </div>
+          </div>
+          <div className="flex flex-col gap-y-5 p-10 basis-1/2 bg-[#7B41ED]">
+            <div className="hidden lg:block flex flex-col justify-center items-center">
+              <PeopleAnimation play={playAnimation} className="w-[400px] md:w-[500px]"/>
+            </div>
+            <p className="font-alliance text-3xl text-white font-semibold text-left">Instant access to undervalued talent</p>
+            <p className="font-alliance text-lg text-[#dbdbdb] text-left">Our students are future industry leaders and will end up working at top companies. Leverage their talent and work with them now.</p>
+          </div>
+        </div>
+        <div className="md:px-40">
+          <div className="flex flex-row gap-x-10 bg-[#1B998B] justify-center items-center px-10 py-10 md:p-20">
+            <div className="flex flex-col gap-y-5">
+              <p className="font-alliance text-3xl text-white font-semibold text-left">Build remote teams in a few clicks</p>
+              <p className="font-alliance text-lg text-[#dbdbdb] text-left">Our students are future industry leaders and will end up working at top companies. Leverage their talent and work with them now.</p>
+              <div className="flex flex-col justify-center items-center">
+                <button class="buttonWOW3">
+                  <a href="/book-a-call">
+                    <p className="font-alliance text-lg">
+                      Start building
+                    </p>
+                  </a>
+                </button>
+              </div>
+            </div>
+            {/* <div className="flex flex-col justify-start items-start gap-y-5 basis-1/2">
+            </div> */}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+  
+  
+
+
+  function QuoteSection() {
+    return (
+      <div className="flex flex-col">
+        {/* <figure className="bg-[#F6F9FC] mx-auto text-center px-10 md:px-40 pb-10 md:pb-28">
+          <svg
+            className="w-10 h-10 mx-auto mb-3 text-gray-400"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="#16B6DF"
+            viewBox="0 0 18 14"
+          >
+            <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
+          </svg>
+          <blockquote>
+            <p className="text-md md:text-2xl font-alliance text-gray-900">
+              "I joined Karter to utilize the data analytical skills I have
+              developed over my current internship and apply these skills to have
+              a rewarding impact on clients. Working with Karter has enabled me to
+              gain client exposure and subsequently improve my client management
+              skills."
+            </p>
+          </blockquote>
+          <figcaption className="flex items-center justify-center mt-6 space-x-3">
+            <div className="flex items-center divide-x-2 divide-gray-500">
+              <cite className="pr-3 font-medium text-gray-900 ">
+                Abhirup
+              </cite>
+              <cite className="pl-3 text-sm text-gray-500">
+                Student at the University of Birmingham
+              </cite>
+            </div>
+          </figcaption>
+        </figure> */}
+        <figure className="bg-[#F6F9FC] mx-auto text-center px-10 md:px-40 pb-20 md:pb-40">
+          <svg
+            className="w-10 h-10 mx-auto mb-3 text-gray-400"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="#16B6DF"
+            viewBox="0 0 18 14"
+          >
+            <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
+          </svg>
+          <blockquote>
+            <p className="text-md md:text-2xl font-alliance text-gray-900">
+            "It has been a pleasure working with Karter. They really helped bring my idea to life and construct something that is going to help connect more mountain bikers together. I came to them with some initial designs and ideas. They were able to integrate all these features into a great web application and I am looking forward to future plans we have together."
+            </p>
+          </blockquote>
+          <figcaption className="flex items-center justify-center mt-6 space-x-3">
+            <div className="flex items-center divide-x-2 divide-gray-500">
+              <cite className="pr-3 font-medium text-gray-900">
+                Alex Watkins
+              </cite>
+              <cite className="pl-3 text-sm text-gray-500">
+                CEO, NuZones
+              </cite>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    );
+  }
+  
+
+
+  function ContactSection({ contactRef }) {
+    return (
+      <div
+        ref={contactRef}
+        id="contact"
+        className="contactItem flex flex-col justify-center items-center p-10 md:p-40 gap-y-10"
+      >
+        <p className="text-white text-3xl md:text-4xl font-sfprodisplay font-semibold">
+          Interested in working with / joining us?
+        </p>
+        <p className="text-white text-md md:text-xl font-alliance">
+          Click the <strong>button</strong> below, fill the <strong>short form</strong>{" "}
+          and we will <strong>get back to you shortly</strong>:
+        </p>
+        <div className="bg-[#DE4321] py-3 px-6 rounded md:py-5 md:px-10 text-white font-alliance">
+          <button>
+            <a href="/contact">Contact us</a>
+          </button>
+        </div>
+      </div>
+    );
+  }
+  
