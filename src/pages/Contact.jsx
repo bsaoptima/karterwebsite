@@ -1,7 +1,8 @@
-import React, { useState, useRef } from "react";
-import './Contact.css'
+import React, { Fragment, useRef, useState, useEffect } from "react";import './Contact.css'
 import emailjs from 'emailjs-com'
 import ok from "../assets/ok.svg"
+import { motion } from "framer-motion";
+import { FiCheckCircle } from "react-icons/fi"
 
 export default function ContactPage() {
 
@@ -133,5 +134,3 @@ export default function ContactPage() {
 
     );
   }
-
-  

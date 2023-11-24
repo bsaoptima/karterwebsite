@@ -17,6 +17,7 @@ import BookACallPage from "./components/BookACall";
 import TermsOfServices from "./pages/TermsOfServices";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import KarterLandingPage from "./pages/Karter/Landing";
+import AddYourProfile from "./pages/Karter/AddYourProfile";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path='/terms-of-services' element={<TermsOfServices />} />
           <Route path='/privacy-policy' element={<PrivacyPolicy />} />
           <Route path='/karter' element={<KarterLandingPage />} />
+          <Route path='/karter/add-profile' element={<AddYourProfile />}/>
         </Routes>
         <Footer />
       </div>

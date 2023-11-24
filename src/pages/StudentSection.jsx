@@ -1,6 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./StudentSection.css"
 import { ArrowDownCircle, Clock, Map, DollarSign, Users, Award, MapPin } from 'feather-icons-react';
+import TerminalContact from "../components/TerminalContact";
+import { AnimatePresence, motion } from "framer-motion";
+import { FiAlertCircle } from "react-icons/fi";
 
 export default function StudentSection(){
 
@@ -11,10 +14,9 @@ export default function StudentSection(){
 
     return (
         <div className="relative scroll-smooth">
-            <MainSection scrollToProcess={scrollToProcess}/>
+            <MainSection scrollToProcess={scrollToProcess} />
             <BenefitSection />
-            <VettingProcess processRef={processRef}/>
-            
+            <VettingProcess processRef={processRef} />            
         </div>
     )
 }
@@ -76,9 +78,10 @@ function BenefitSection() {
     )
 }
 
-function VettingProcess({ processRef }){
+function VettingProcess({ processRef, openModal }){
 
     const [isEmailCopied, setIsEmailCopied] = useState("")
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div ref={processRef} className="relative scroll-smooth bg-[#F6F9FC]">
@@ -86,9 +89,9 @@ function VettingProcess({ processRef }){
                 <div className="flex flex-col items-center gap-y-10 w-full md:max-w-[600px]">
                     <p className="text-3xl md:text-4xl text-center font-sfprodisplay font-semibold text-[#29363D]">How to join our Network</p>
                     <p className="text-[#656B8A] text-center text-lg md:text-xl font-alliance">Every student in our network is thoroughly vetted through interviews and assessments.</p>
-                    <button className="">
+                    <button onClick={() => setIsOpen(true)} className="text-xl font-alliance">
                         <div className="bg-white flex flex-col justify-start rounded-lg p-4 hover:drop-shadow-xl ring-2 ring-[#4B8BFC] text-[#4B8BFC] hover:text-white hover:bg-[#4B8BFC] transform hover:scale-105 transition-transform duration-300">
-                            <a href="/contact" className="text-xl font-alliance">Join us</a>
+                            Join us
                         </div>
                     </button>
                 </div>
@@ -122,14 +125,43 @@ function VettingProcess({ processRef }){
 
                 <div className="flex flex-col items-center gap-y-10 w-full md:max-w-[600px]">
                     <p className="text-[#656B8A] text-center text-lg md:text-xl font-alliance">After passing our vetting process, your profile will be added to our talent pool. You will then be presented with projects and other opportunities!</p>
-                    <button className="">
+                    <button onClick={() => setIsOpen(true)} className="text-xl font-alliance">
                         <div className="bg-white flex flex-col justify-start rounded-lg p-4 hover:drop-shadow-xl ring-2 ring-[#4B8BFC] text-[#4B8BFC] hover:text-white hover:bg-[#4B8BFC] transform hover:scale-105 transition-transform duration-300">
-                            <a href="/contact" className="text-xl font-alliance">Start your application</a>
+                            Start your application
                         </div>
                     </button>
                 </div>
-
             </div>
+            <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
     )
 }
+
+
+const SpringModal = ({ isOpen, setIsOpen }) => {
+    return (
+        <AnimatePresence>
+            {isOpen && (
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    onClick={() => setIsOpen(false)}
+                    className="bg-slate-900/20 backdrop-blur p-8 fixed inset-0 z-50 grid place-items-center overflow-y-scroll cursor-pointer"
+                >
+                    <motion.div
+                    initial={{ scale: 0, rotate: "12.5deg" }}
+                    animate={{ scale: 1, rotate: "0deg" }}
+                    exit={{ scale: 0, rotate: "0deg" }}
+                    onClick={(e) => e.stopPropagation()}
+                    className="p-6 cursor-default relative overflow-hidden"
+                    >
+                        <div className="relative z-10">
+                            <TerminalContact />
+                        </div>
+                    </motion.div>
+                </motion.div>
+            )}
+        </AnimatePresence>
+    );
+  };
