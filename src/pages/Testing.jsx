@@ -50,8 +50,11 @@ export default function HomePage() {
         <div className="relative scroll-smooth">
             {/* <LandingSection scrollToContact={scrollToContact} scrollToSolutions={scrollToSolutions}/> */}
             <GridHoverHero />
-            <UniMarqueeSection />
+            <div className="h-[50px]">
+
+            </div>
             <MapSection />
+            <UniMarqueeSection />
             <SolutionsSection solutionsRef={solutionsRef}/>
             <QuoteSection/>
             <ContactSection contactRef={contactRef} />
@@ -110,7 +113,7 @@ export const GridHoverHero = () => {
           />
         ))}
       </div>
-      <div className="absolute top-0 left-0 right-0 bottom-0 z-10 flex justify-center items-center" style={{ pointerEvents: 'none' }}>
+      <div className="absolute top-0 left-0 right-0 bottom-0 z-10 flex justify-center items-center bg-white/20 backdrop-blur-sm" style={{ pointerEvents: 'none' }}>
         <LandingSection />
       </div>
     </div>

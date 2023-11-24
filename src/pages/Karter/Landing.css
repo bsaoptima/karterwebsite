@@ -1,0 +1,13 @@
+@keyframes flashBorder {
+    0%, 100% {
+        border-color: #02A7B3;
+    }
+    50% {
+        border-color: transparent;
+    }
+}
+
+.animated-border {
+    border: 2px solid #02A7B3; /* Specify a default border style */
+    animation: flashBorder 2s infinite; /* Apply the animation */
+}
