@@ -2,15 +2,13 @@ import React, { Fragment, useRef, useState, useEffect } from "react";
 import axios from 'axios';
 import emailjs from 'emailjs-com'
 import '../Home.css'
-import { motion } from "framer-motion";
-import { FiCheckCircle } from "react-icons/fi"
-
+import { AnimatePresence, motion } from "framer-motion";
+import { Datepicker } from 'flowbite-react';
 
 export default function AddYourProfile(){
     return(
         <div className="relative scroll-smooth">
-            <FormSection />
-            <TerminalContact />
+            <SteppedProgress />
         </div>
     )
 }
@@ -23,291 +21,278 @@ function FormSection(){
     )
 }
 
-
-
-
-const TerminalContact = () => {
-  const containerRef = useRef(null);
-  const inputRef = useRef(null);
-
-  return (
-    <section
-      style={{
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-      className="px-4 py-12"
-    >
-      <div
-        ref={containerRef}
-        onClick={() => {
-          inputRef.current?.focus();
-        }}
-        className="h-96 bg-slate-950/70 backdrop-blur rounded-lg w-full max-w-3xl mx-auto overflow-y-scroll shadow-xl cursor-text font-mono"
-      >
-        <TerminalHeader />
-        <TerminalBody inputRef={inputRef} containerRef={containerRef} />
-      </div>
-    </section>
-  );
-};
-
-const TerminalHeader = () => {
-  return (
-    <div className="w-full p-3 bg-slate-900 flex items-center gap-1 sticky top-0">
-      <div className="w-3 h-3 rounded-full bg-red-500" />
-      <div className="w-3 h-3 rounded-full bg-yellow-500" />
-      <div className="w-3 h-3 rounded-full bg-green-500" />
-      <span className="text-sm text-slate-200 font-semibold absolute left-[50%] -translate-x-[50%]">
-        contact@hover.dev
-      </span>
-    </div>
-  );
-};
-
-const TerminalBody = ({ containerRef, inputRef }) => {
-  const [focused, setFocused] = useState(false);
-  const [text, setText] = useState("");
-
-  const [questions, setQuestions] = useState(QUESTIONS);
-
-  const curQuestion = questions.find((q) => !q.complete);
-
-  const handleSubmitLine = (value) => {
-    if (curQuestion) {
-      setQuestions((pv) =>
-        pv.map((q) => {
-          if (q.key === curQuestion.key) {
-            return {
-              ...q,
-              complete: true,
-              value,
-            };
-          }
-          return q;
-        })
-      );
-    }
-  };
-
-  return (
-    <div className="p-2 text-slate-100 text-lg">
-      <InitialText />
-      <PreviousQuestions questions={questions} />
-      <CurrentQuestion curQuestion={curQuestion} />
-      {curQuestion ? (
-        <CurLine
-          text={text}
-          focused={focused}
-          setText={setText}
-          setFocused={setFocused}
-          inputRef={inputRef}
-          command={curQuestion?.key || ""}
-          handleSubmitLine={handleSubmitLine}
-          containerRef={containerRef}
-        />
-      ) : (
-        <Summary questions={questions} setQuestions={setQuestions} />
-      )}
-    </div>
-  );
-};
-
-const InitialText = () => {
-  return (
-    <>
-      <p>Hey there! We're excited to link 🔗</p>
-      <p className="whitespace-nowrap overflow-hidden font-light">
-        ------------------------------------------------------------------------
-      </p>
-    </>
-  );
-};
-
-const PreviousQuestions = ({ questions }) => {
-  return (
-    <>
-      {questions.map((q, i) => {
-        if (q.complete) {
-          return (
-            <Fragment key={i}>
-              <p>
-                {q.text || ""}
-                {q.postfix && (
-                  <span className="text-violet-300">{q.postfix}</span>
-                )}
-              </p>
-              <p className="text-emerald-300">
-                <FiCheckCircle className="inline-block mr-2" />
-                <span>{q.value}</span>
-              </p>
-            </Fragment>
-          );
+function SteppedProgress(){
+    const [stepsComplete, setStepsComplete] = useState(0);
+    const numSteps = 4;
+    const stepsContents = [
+        <BasicDetails />,
+        <Education />,
+    ]
+    const handleSetStep = (num) => {
+        if (
+        (stepsComplete === 0 && num === -1) ||
+        (stepsComplete === numSteps && num === 1)
+        ) {
+        return;
         }
-        return <Fragment key={i}></Fragment>;
-      })}
-    </>
-  );
-};
 
-const CurrentQuestion = ({ curQuestion }) => {
-  if (!curQuestion) return <></>;
+        setStepsComplete((pv) => pv + num);
+    };
 
-  return (
-    <p>
-      {curQuestion.text || ""}
-      {curQuestion.postfix && (
-        <span className="text-violet-300">{curQuestion.postfix}</span>
-      )}
-    </p>
-  );
-};
-
-const Summary = ({ questions, setQuestions }) => {
-  const [complete, setComplete] = useState(false);
-
-  const handleReset = () => {
-    setQuestions((pv) => pv.map((q) => ({ ...q, value: "", complete: false })));
-  };
-
-  const handleSend = () => {
-    const formData = questions.reduce((acc, val) => {
-      return { ...acc, [val.key]: val.value };
-    }, {});
-
-    // Send this data to your server or whatever :)
-    console.log(formData);
-
-    setComplete(true);
-    console.log(questions)
-  };
-
-  return (
-    <>
-      <p>Beautiful! Here's what we've got:</p>
-      {questions.map((q) => {
-        return (
-          <p key={q.key}>
-            <span className="text-blue-300">{q.key}:</span> {q.value}
-          </p>
-        );
-      })}
-      <p>Look good?</p>
-      {complete ? (
-        <p className="text-emerald-300">
-          <FiCheckCircle className="inline-block mr-2" />
-          <span>Sent! We'll get back to you ASAP 😎</span>
-        </p>
-      ) : (
-        <div className="flex gap-2 mt-2">
-          <button
-            onClick={handleReset}
-            className="px-3 py-1 text-base hover:opacity-90 transition-opacity rounded bg-slate-100 text-black"
-          >
-            Restart
-          </button>
-          <button
-            onClick={handleSend}
-            className="px-3 py-1 text-base hover:opacity-90 transition-opacity rounded bg-indigo-500 text-white"
-          >
-            Send it!
-          </button>
+    return (
+        <div className="px-4 py-14">
+            <div className="p-8 bg-white/30 backdrop-blur-md border-2 shadow-lg rounded-md w-full max-w-2xl mx-auto">
+                <Steps numSteps={numSteps} stepsComplete={stepsComplete} />
+                <div className="p-2 my-6 bg-gray-100 border-2 border-dashed border-gray-200 rounded-lg">
+                    {stepsContents[stepsComplete]}
+                </div>
+                <div className="flex items-center justify-end gap-2">
+                    <button
+                        className="px-4 py-1 rounded hover:bg-gray-100 text-black"
+                        onClick={() => handleSetStep(-1)}
+                    >
+                        Prev
+                    </button>
+                    <button
+                        className="px-4 py-1 rounded bg-black text-white"
+                        onClick={() => handleSetStep(1)}
+                    >
+                        Next
+                    </button>
+                </div>
+            </div>
         </div>
-      )}
-    </>
-  );
+    );
+    };
+  
+const Steps = ({ numSteps, stepsComplete }) => {
+    const stepArray = Array.from(Array(numSteps).keys());
+
+    return (
+        <div className="flex items-center justify-between gap-3">
+        {stepArray.map((num) => {
+            const stepNum = num + 1;
+            const isActive = stepNum <= stepsComplete;
+            return (
+            <React.Fragment key={stepNum}>
+                <Step num={stepNum} isActive={isActive} />
+                {stepNum !== stepArray.length && (
+                <div className="w-full h-1 rounded-full bg-gray-200 relative">
+                    <motion.div
+                    className="absolute top-0 bottom-0 left-0 bg-indigo-600 rounded-full"
+                    animate={{ width: isActive ? "100%" : 0 }}
+                    transition={{ ease: "easeIn", duration: 0.3 }}
+                    />
+                </div>
+                )}
+            </React.Fragment>
+            );
+        })}
+        </div>
+    );
 };
-
-const CurLine = ({
-  text,
-  focused,
-  setText,
-  setFocused,
-  inputRef,
-  command,
-  handleSubmitLine,
-  containerRef,
-}) => {
-  const scrollToBottom = () => {
-    if (containerRef.current) {
-      containerRef.current.scrollTop = containerRef.current.scrollHeight;
-    }
-  };
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    handleSubmitLine(text);
-    setText("");
-    setTimeout(() => {
-      scrollToBottom();
-    }, 0);
-  };
-
-  const onChange = (e) => {
-    setText(e.target.value);
-    scrollToBottom();
-  };
-
-  useEffect(() => {
-    return () => setFocused(false);
-  }, []);
-
-  return (
-    <>
-      <form onSubmit={onSubmit}>
-        <input
-          ref={inputRef}
-          onChange={onChange}
-          value={text}
-          type="text"
-          className="sr-only"
-          autoComplete="off"
-          onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
-        />
-      </form>
-      <p>
-        <span className="text-emerald-400">➜</span>{" "}
-        <span className="text-cyan-300">~</span>{" "}
-        {command && <span className="opacity-50">Enter {command}: </span>}
-        {text}
-        {focused && (
-          <motion.span
-            animate={{ opacity: [1, 1, 0, 0] }}
-            transition={{
-              repeat: Infinity,
-              duration: 1,
-              ease: "linear",
-              times: [0, 0.5, 0.5, 1],
-            }}
-            className="inline-block w-2 h-5 bg-slate-400 translate-y-1 ml-0.5"
-          />
+  
+const Step = ({ num, isActive }) => {
+    return (
+        <div className="relative">
+            <div
+                className={`w-10 h-10 flex items-center justify-center shrink-0 border-2 rounded-full font-semibold text-sm relative z-10 transition-colors duration-300 ${
+                isActive
+                    ? "border-indigo-600 bg-indigo-600 text-white"
+                    : "border-gray-300 text-gray-300"
+                }`}
+            >
+            <AnimatePresence mode="wait">
+            {isActive ? (
+                <motion.svg
+                key="icon-marker-check"
+                stroke="currentColor"
+                fill="currentColor"
+                strokeWidth="0"
+                viewBox="0 0 16 16"
+                height="1.6em"
+                width="1.6em"
+                xmlns="http://www.w3.org/2000/svg"
+                initial={{ rotate: 180, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: -180, opacity: 0 }}
+                transition={{ duration: 0.125 }}
+                >
+                <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"></path>
+                </motion.svg>
+            ) : (
+                <motion.span
+                key="icon-marker-num"
+                initial={{ rotate: 180, opacity: 0 }}
+                animate={{ rotate: 0, opacity: 1 }}
+                exit={{ rotate: -180, opacity: 0 }}
+                transition={{ duration: 0.125 }}
+                >
+                {num}
+                </motion.span>
+            )}
+            </AnimatePresence>
+        </div>
+        {isActive && (
+            <div className="absolute z-0 -inset-1.5 bg-indigo-100 rounded-full animate-pulse" />
         )}
-      </p>
-    </>
-  );
+        </div>
+    );
 };
 
-const QUESTIONS = [
-  {
-    key: "email",
-    text: "To start, could you give us ",
-    postfix: "your email?",
-    complete: false,
-    value: "",
-  },
-  {
-    key: "name",
-    text: "Awesome! And what's ",
-    postfix: "your name?",
-    complete: false,
-    value: "",
-  },
-  {
-    key: "description",
-    text: "Perfect, and ",
-    postfix: "how can we help you?",
-    complete: false,
-    value: "",
-  },
-];
+
+function BasicDetails(){
+    return(
+        <div className="flex flex-col justify-center items-start p-10 gap-y-5">
+            <p className="font-alliance text-xl md:text-2xl font-semibold">Let's start with some personal details:</p>
+            <div className="flex flex-col gap-y-5 gap-x-5 md:flex-row justify-center items-center">
+                <div className="">
+                    <label
+                      htmlFor="password-input"
+                      className="mb-1 inline-block text-sm font-alliance"
+                    >
+                      First Name<span className="text-red-600">*</span>
+                    </label>
+                    <input
+                      id="password-input"
+                      type=""
+                      placeholder="Enter your first name..."
+                      className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+                      required
+                    />
+                </div>
+                <div className="">
+                    <label
+                      htmlFor="password-input"
+                      className="mb-1 inline-block text-sm font-alliance"
+                    >
+                      Last Name<span className="text-red-600">*</span>
+                    </label>
+                    <input
+                      id="password-input"
+                      type=""
+                      placeholder="Enter your last name..."
+                      className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+                      required
+                    />
+                </div>
+            </div>
+            <div className="w-full">
+                <label
+                    htmlFor="password-input"
+                    className="mb-1 inline-block text-sm font-alliance"
+                >
+                    LinkedIn<span className="text-red-600">*</span>
+                </label>
+                <input
+                    id="password-input"
+                    type=""
+                    placeholder="linkedin.com/in/{your_account}/"
+                    className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+                    required
+                />
+            </div>
+            <div className="w-full">
+                <label
+                    htmlFor="password-input"
+                    className="mb-1 inline-block text-sm font-alliance"
+                >
+                    Github
+                </label>
+                <input
+                    id="password-input"
+                    type=""
+                    placeholder="github.com/{your_account}/"
+                    className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+                    required
+                />
+            </div>
+            <div className="w-full">
+                <label
+                    htmlFor="password-input"
+                    className="mb-1 inline-block text-sm font-alliance"
+                >
+                    Website
+                </label>
+                <input
+                    id="password-input"
+                    type=""
+                    placeholder="..."
+                    className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+                    required
+                />
+            </div>
+        </div>
+    )
+}
+
+function Education(){
+    const [educations, setEducations] = useState([]);
+    const addEducation = () => {
+        setEducations([...educations, {}]);
+    };
+    const deleteEducation = (index) => {
+        const newEducations = educations.filter((_, idx) => idx !== index);
+        setEducations(newEducations);
+    };
+
+    return(
+        <div className="flex flex-col justify-center items-start p-10 gap-y-5">
+            <p className="font-alliance text-xl md:text-2xl font-semibold">Tell us about your education:</p>
+            
+            {educations.map((education, index) => (
+                <div key={index} className="w-full flex flex-col justify-start items-start gap-y-5">
+                    <div className="w-full">
+                        <label
+                            htmlFor="password-input"
+                            className="mb-1 inline-block text-sm font-alliance"
+                        >
+                            University
+                        </label>
+                        <input
+                            id="password-input"
+                            type=""
+                            placeholder="Enter your university..."
+                            className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+                            required
+                        />
+                        
+                    </div>
+                    <div className="w-full">
+                        <label
+                            htmlFor="password-input"
+                            className="mb-1 inline-block text-sm font-alliance"
+                        >
+                            Degree (Level + Topic)
+                        </label>
+                        <input
+                            id="password-input"
+                            type=""
+                            placeholder="BSc Keeping it lemon..."
+                            className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+                            required
+                        />
+                    </div>
+                    <div className="flex flex-row justify-center items-center gap-x-5">
+                        
+                    <Datepicker />
+
+                    </div>
+                    <button 
+                        onClick={() => deleteEducation(index)}
+                        className="mt-2 mb-4 bg-red-500 text-white px-4 py-2 rounded"
+                    >
+                        Delete
+                    </button>
+                </div>
+            ))}
+
+            <button 
+                onClick={addEducation} 
+                className="cursor-pointer w-full transition-all bg-blue-500 text-white px-6 py-2 rounded-lg border-blue-600 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]"
+            >
+                Add Education
+            </button>
+        </div>
+    )
+}
