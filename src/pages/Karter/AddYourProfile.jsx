@@ -3,7 +3,9 @@ import axios from 'axios';
 import emailjs from 'emailjs-com'
 import '../Home.css'
 import { AnimatePresence, motion } from "framer-motion";
-import { Datepicker } from 'flowbite-react';
+import { Datepicker, Dropdown, Label, Textarea } from 'flowbite-react';
+import loadingAnimation from "../../assets/complete.json"
+import Lottie from 'lottie-react';
 
 export default function AddYourProfile(){
     return(
@@ -27,6 +29,7 @@ function SteppedProgress(){
     const stepsContents = [
         <BasicDetails />,
         <Education />,
+        <Experience />
     ]
     const handleSetStep = (num) => {
         if (
@@ -275,7 +278,17 @@ function Education(){
                     </div>
                     <div className="flex flex-row justify-center items-center gap-x-5">
                         
-                    <Datepicker />
+                    <div className="flex flex-row gap-x-5 justify-center items-center">
+                        <div className="flex flex-col justify-start items-start gap-y-2">
+                            <p className="inline-block text-sm font-alliance">Start Date</p>
+                            <Datepicker />
+                        </div>
+                        <p className="mt-6 inline-block text-sm font-alliance">to</p>
+                        <div className="flex flex-col justify-start items-start gap-y-2">
+                            <p className="inline-block text-sm font-alliance">End Date</p>
+                            <Datepicker />
+                        </div>
+                    </div>
 
                     </div>
                     <button 
@@ -292,6 +305,125 @@ function Education(){
                 className="cursor-pointer w-full transition-all bg-blue-500 text-white px-6 py-2 rounded-lg border-blue-600 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]"
             >
                 Add Education
+            </button>
+        </div>
+    )
+}
+
+function Experience(){
+    const [experiences, setExperiences] = useState([]);
+    const addExperience = () => {
+        setExperiences([...experiences, {}]);
+    };
+    const deleteExperience = (index) => {
+        const newExperiences = experiences.filter((_, idx) => idx !== index);
+        setExperiences(newExperiences);
+    };
+
+    return(
+        <div className="flex flex-col justify-center items-start p-10 gap-y-5">
+            <p className="font-alliance text-xl md:text-2xl font-semibold">Now your professional experiences:</p>
+            
+            {experiences.map((experience, index) => (
+                <div key={index} className="w-full flex flex-col justify-start items-start gap-y-5">
+                    <div className="flex flex-row justify-center items-center gap-x-5">
+                        <div className="w-full">
+                            <label
+                                htmlFor="password-input"
+                                className="mb-1 inline-block text-sm font-alliance"
+                            >
+                                Employer
+                            </label>
+                            <input
+                                id="password-input"
+                                type=""
+                                placeholder="Employer's name..."
+                                className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+                                required
+                            />
+                        </div>
+                        <div className="w-full">
+                            <label
+                                htmlFor="password-input"
+                                className="mb-1 inline-block text-sm font-alliance"
+                            >
+                                Location
+                            </label>
+                            <input
+                                id="password-input"
+                                type=""
+                                placeholder="Ex: London, UK..."
+                                className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div className="flex flex-row justify-center items-center gap-x-5">
+                        <div className="w-full basis-1/2">
+                            <label
+                                htmlFor="password-input"
+                                className="mb-1 inline-block text-sm font-alliance"
+                            >
+                                Role
+                            </label>
+                            <input
+                                id="password-input"
+                                type=""
+                                placeholder="What was your title..."
+                                className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
+                                required
+                            />
+                        </div>
+                        <div className="w-full basis-1/2">
+                            <label
+                                htmlFor="password-input"
+                                className="mb-1 inline-block text-sm font-alliance"
+                            >
+                                Employment Type
+                            </label>
+                            <select id="types" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5">
+                                <option selected>Choose an option</option>
+                                <option value="FT">Full-time</option>
+                                <option value="PT">Part-time</option>
+                                <option value="IN">Internship</option>
+                                <option value="CO">Contract</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    {/* <div className="flex flex-row justify-center items-center gap-x-5">
+                        <div className="flex flex-row gap-x-5 justify-center items-center">
+                            <div className="flex flex-col justify-start items-start gap-y-2">
+                                <p className="inline-block text-sm font-alliance">Start Date</p>
+                                <Datepicker />
+                            </div>
+                            <p className="mt-6 inline-block text-sm font-alliance">to</p>
+                            <div className="flex flex-col justify-start items-start gap-y-2">
+                                <p className="inline-block text-sm font-alliance">End Date</p>
+                                <Datepicker />
+                            </div>
+                        </div>
+                    </div> */}
+
+                    <div className="w-full flex flex-col gap-y-2">
+                        <p className="inline-block text-sm font-alliance">Description</p>
+                        <Textarea id="comment" placeholder="Talk about your role. Avoid using bullet point characters..." required rows={4} />
+                    </div>
+
+                    <button 
+                        onClick={() => deleteExperience(index)}
+                        className="mt-2 mb-4 bg-red-500 text-white px-4 py-2 rounded"
+                    >
+                        Delete
+                    </button>
+                </div>
+            ))}
+
+            <button 
+                onClick={addExperience} 
+                className="cursor-pointer w-full transition-all bg-blue-500 text-white px-6 py-2 rounded-lg border-blue-600 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]"
+            >
+                Add Experience
             </button>
         </div>
     )
