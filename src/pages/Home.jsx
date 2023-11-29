@@ -5,13 +5,6 @@ import './Home.css'
 import { useInView } from 'react-intersection-observer';
 import { useAnimate } from "framer-motion";
 
-import product from '../assets/product.png'
-import team from '../assets/team.png'
-import world from '../assets/world.png'
-
-import code from "../assets/code.png"
-import bulb from "../assets/bulb.png"
-
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
 
@@ -29,9 +22,8 @@ import ucl from "../assets/universities/ucl.png"
 import warwick from "../assets/universities/warwick.png"
 import bristol from "../assets/universities/bristol.png"
 import cam from "../assets/universities/cambridge.jpg"
-import bro from "../assets/bro.svg"
-
 import sat from "../assets/satellite.svg"
+import { TabsFAQ } from "../components/FAQ";
 
 
 export default function HomePage() {
@@ -52,6 +44,7 @@ export default function HomePage() {
             <MapSection />
             <UniMarqueeSection />
             <SolutionsSection solutionsRef={solutionsRef}/>
+            <TabsFAQ />
             <QuoteSection/>
             <ContactSection contactRef={contactRef} />
         </div>
@@ -370,7 +363,7 @@ function SolutionsSection({ solutionsRef }) {
 
   function QuoteSection() {
     return (
-      <div className="flex flex-col">
+      <div className="flex flex-col py-10">
         {/* <figure className="bg-[#F6F9FC] mx-auto text-center px-10 md:px-40 pb-10 md:pb-28">
           <svg
             className="w-10 h-10 mx-auto mb-3 text-gray-400"
@@ -401,7 +394,7 @@ function SolutionsSection({ solutionsRef }) {
             </div>
           </figcaption>
         </figure> */}
-        <figure className="bg-[#F6F9FC] mx-auto text-center px-10 md:px-40 pb-20 md:pb-40">
+        <figure className="bg-[#F6F9FC] mx-auto text-center px-10 md:px-40 py-20 md:py-40">
           <svg
             className="w-10 h-10 mx-auto mb-3 text-gray-400"
             aria-hidden="true"

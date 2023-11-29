@@ -4,8 +4,9 @@ import emailjs from 'emailjs-com'
 import '../Home.css'
 import { AnimatePresence, motion } from "framer-motion";
 import { Datepicker, Dropdown, Label, Textarea } from 'flowbite-react';
-import loadingAnimation from "../../assets/complete.json"
-import Lottie from 'lottie-react';
+import CoolButton from "../../components/CoolButton";
+import { TypeAnimation } from 'react-type-animation';
+
 
 export default function AddYourProfile(){
     return(
@@ -29,7 +30,8 @@ function SteppedProgress(){
     const stepsContents = [
         <BasicDetails />,
         <Education />,
-        <Experience />
+        <Experience />,
+        <CompleteProfile />,
     ]
     const handleSetStep = (num) => {
         if (
@@ -40,6 +42,10 @@ function SteppedProgress(){
         }
 
         setStepsComplete((pv) => pv + num);
+    };
+
+    const handleRegisterProfile = () => {
+        // Add your logic for registering the profile here
     };
 
     return (
@@ -56,12 +62,16 @@ function SteppedProgress(){
                     >
                         Prev
                     </button>
-                    <button
-                        className="px-4 py-1 rounded bg-black text-white"
-                        onClick={() => handleSetStep(1)}
-                    >
-                        Next
-                    </button>
+                    {stepsComplete === numSteps - 1 ? (
+                        <CoolButton />
+                    ) : (
+                        <button
+                            className="px-4 py-1 rounded bg-black text-white"
+                            onClick={() => handleSetStep(1)}
+                        >
+                            Next
+                        </button>
+                    )}
                 </div>
             </div>
         </div>
@@ -425,6 +435,23 @@ function Experience(){
             >
                 Add Experience
             </button>
+        </div>
+    )
+}
+
+function CompleteProfile(){
+    return(
+        <div className="flex flex-col w-full justify-center items-center gap-y-10 p-10">
+            <TypeAnimation
+                preRenderFirstString={true}
+                sequence={[
+                'Thank you for your details.',
+                5000,
+                ]}
+                speed={50}
+                className="text-3xl font-alliance font-semibold text-center"
+            />
+            <p className="font-alliance text-center">Your Karter profile is now under review by our team. We will let you know when you can start earning!</p>
         </div>
     )
 }
