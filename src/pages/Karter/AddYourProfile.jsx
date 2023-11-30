@@ -16,21 +16,27 @@ export default function AddYourProfile(){
     )
 }
 
-function FormSection(){
-    return (
-        <div>
-
-        </div>
-    )
-}
 
 function SteppedProgress(){
+    //Track at which step we are at
     const [stepsComplete, setStepsComplete] = useState(0);
+
+    //This will log the profile data to be sent out to the backend
+    const [profileData, setProfileData] = useState({
+        basicDetails: {},
+        education: [],
+        experience: [],
+    })
+
+    const updateProfileData = (section, data) => {
+        setProfileData(prev => ({ ...prev, [section]: data}));
+    }
+    
     const numSteps = 4;
     const stepsContents = [
-        <BasicDetails />,
-        <Education />,
-        <Experience />,
+        <BasicDetails profileData={profileData} updateProfileData={updateProfileData}/>,
+        <Education profileData={profileData} updateProfileData={updateProfileData}/>,
+        <Experience profileData={profileData} updateProfileData={updateProfileData}/>,
         <CompleteProfile />,
     ]
     const handleSetStep = (num) => {
@@ -45,7 +51,7 @@ function SteppedProgress(){
     };
 
     const handleRegisterProfile = () => {
-        // Add your logic for registering the profile here
+       console.log(profileData)
     };
 
     return (
@@ -63,7 +69,7 @@ function SteppedProgress(){
                         Prev
                     </button>
                     {stepsComplete === numSteps - 1 ? (
-                        <CoolButton />
+                        <CoolButton onClick={handleRegisterProfile}/>
                     ) : (
                         <button
                             className="px-4 py-1 rounded bg-black text-white"
@@ -76,7 +82,7 @@ function SteppedProgress(){
             </div>
         </div>
     );
-    };
+};
   
 const Steps = ({ numSteps, stepsComplete }) => {
     const stepArray = Array.from(Array(numSteps).keys());
@@ -154,7 +160,11 @@ const Step = ({ num, isActive }) => {
 };
 
 
-function BasicDetails(){
+function BasicDetails({ profileData, updateProfileData }){
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        updateProfileData('basicDetails', { ...profileData.basicDetails, [name]: value})
+    }
     return(
         <div className="flex flex-col justify-center items-start p-10 gap-y-5">
             <p className="font-alliance text-xl md:text-2xl font-semibold">Let's start with some personal details:</p>
@@ -167,8 +177,9 @@ function BasicDetails(){
                       First Name<span className="text-red-600">*</span>
                     </label>
                     <input
-                      id="password-input"
-                      type=""
+                      name="firstName" 
+                      onChange={handleInputChange} 
+                      value={profileData.basicDetails.firstName || ''}
                       placeholder="Enter your first name..."
                       className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
                       required
@@ -182,11 +193,11 @@ function BasicDetails(){
                       Last Name<span className="text-red-600">*</span>
                     </label>
                     <input
-                      id="password-input"
-                      type=""
+                      name="lastName" 
+                      onChange={handleInputChange} 
+                      value={profileData.basicDetails.lastName || ''}
                       placeholder="Enter your last name..."
                       className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
-                      required
                     />
                 </div>
             </div>
@@ -198,11 +209,11 @@ function BasicDetails(){
                     LinkedIn<span className="text-red-600">*</span>
                 </label>
                 <input
-                    id="password-input"
-                    type=""
+                    name="linkedin" 
+                    onChange={handleInputChange} 
+                    value={profileData.basicDetails.linkedin || ''}
                     placeholder="linkedin.com/in/{your_account}/"
                     className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
-                    required
                 />
             </div>
             <div className="w-full">
@@ -213,11 +224,11 @@ function BasicDetails(){
                     Github
                 </label>
                 <input
-                    id="password-input"
-                    type=""
+                    name="github" 
+                    onChange={handleInputChange} 
+                    value={profileData.basicDetails.github || ''}
                     placeholder="github.com/{your_account}/"
                     className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
-                    required
                 />
             </div>
             <div className="w-full">
@@ -228,32 +239,48 @@ function BasicDetails(){
                     Website
                 </label>
                 <input
-                    id="password-input"
-                    type=""
+                    name="website" 
+                    onChange={handleInputChange} 
+                    value={profileData.basicDetails.website || ''}
                     placeholder="..."
                     className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
-                    required
                 />
             </div>
         </div>
     )
 }
 
-function Education(){
-    const [educations, setEducations] = useState([]);
+function Education({ profileData, updateProfileData }){
+    // const [educations, setEducations] = useState([]);
+    // const addEducation = () => {
+    //     setEducations([...educations, {}]);
+    // };
+
     const addEducation = () => {
-        setEducations([...educations, {}]);
-    };
+        const newEducations = [ ...profileData.education, {}];
+        updateProfileData('education', newEducations);
+    }
+
+    const updateEducation = (index, newEducation) => {
+        const newEducations = profileData.education.map((edu, i) => i === index ? newEducation: edu);
+        updateProfileData('education', newEducations);
+    }
+
     const deleteEducation = (index) => {
-        const newEducations = educations.filter((_, idx) => idx !== index);
-        setEducations(newEducations);
+        const newEducations = profileData.education.filter((_, i) => i !== index);
+        updateProfileData('education', newEducations);
+    };
+
+    const handleInputChange = (index, fieldName, value) => {
+        const updatedItem = { ...profileData.education[index], [fieldName]: value };
+        updateEducation(index, updatedItem);
     };
 
     return(
         <div className="flex flex-col justify-center items-start p-10 gap-y-5">
             <p className="font-alliance text-xl md:text-2xl font-semibold">Tell us about your education:</p>
             
-            {educations.map((education, index) => (
+            {profileData.education.map((education, index) => (
                 <div key={index} className="w-full flex flex-col justify-start items-start gap-y-5">
                     <div className="w-full">
                         <label
@@ -263,8 +290,9 @@ function Education(){
                             University
                         </label>
                         <input
-                            id="password-input"
-                            type=""
+                            type="text"
+                            value={education.university || ''}
+                            onChange={(e) => handleInputChange(index, 'university', e.target.value)}
                             placeholder="Enter your university..."
                             className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
                             required
@@ -279,8 +307,9 @@ function Education(){
                             Degree (Level + Topic)
                         </label>
                         <input
-                            id="password-input"
-                            type=""
+                            type="text"
+                            value={education.degree || ''}
+                            onChange={(e) => handleInputChange(index, 'degree', e.target.value)}
                             placeholder="BSc Keeping it lemon..."
                             className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
                             required
@@ -288,7 +317,7 @@ function Education(){
                     </div>
                     <div className="flex flex-row justify-center items-center gap-x-5">
                         
-                    <div className="flex flex-row gap-x-5 justify-center items-center">
+                    {/* <div className="flex flex-row gap-x-5 justify-center items-center">
                         <div className="flex flex-col justify-start items-start gap-y-2">
                             <p className="inline-block text-sm font-alliance">Start Date</p>
                             <Datepicker />
@@ -298,7 +327,7 @@ function Education(){
                             <p className="inline-block text-sm font-alliance">End Date</p>
                             <Datepicker />
                         </div>
-                    </div>
+                    </div> */}
 
                     </div>
                     <button 
@@ -320,21 +349,52 @@ function Education(){
     )
 }
 
-function Experience(){
-    const [experiences, setExperiences] = useState([]);
+function Experience({ profileData, updateProfileData }){
+    // const [experiences, setExperiences] = useState([]);
+    // const addExperience = () => {
+    //     setExperiences([...experiences, {}]);
+    // };
+    // const deleteExperience = (index) => {
+    //     const newExperiences = experiences.filter((_, idx) => idx !== index);
+    //     setExperiences(newExperiences);
+    // };
+
+
     const addExperience = () => {
-        setExperiences([...experiences, {}]);
-    };
+        const newExperiences = [ ...profileData.experience, {}];
+        updateProfileData('experience', newExperiences);
+    }
+
+    const updateExperience = (index, newExperience) => {
+        const newExperiences = profileData.experience.map((edu, i) => i === index ? newExperience: edu);
+        updateProfileData('experience', newExperiences);
+    }
+
     const deleteExperience = (index) => {
-        const newExperiences = experiences.filter((_, idx) => idx !== index);
-        setExperiences(newExperiences);
+        const newExperiences = profileData.experience.filter((_, i) => i !== index);
+        updateProfileData('experience', newExperiences);
+    };
+
+    const handleInputChange = (index, fieldName, value) => {
+        const updatedItem = { ...profileData.experience[index], [fieldName]: value };
+        updateExperience(index, updatedItem);
+    };
+
+    const handleSelectChange = (index, value) => {
+        const updatedItem = { ...profileData.experience[index], employmentType: value };
+        updateExperience(index, updatedItem);
+    };
+
+    const handleTextareaChange = (index, value) => {
+        const updatedItem = { ...profileData.experience[index], description: value };
+        updateExperience(index, updatedItem);
     };
 
     return(
         <div className="flex flex-col justify-center items-start p-10 gap-y-5">
             <p className="font-alliance text-xl md:text-2xl font-semibold">Now your professional experiences:</p>
             
-            {experiences.map((experience, index) => (
+            {profileData.experience.map((experience, index) => (
                 <div key={index} className="w-full flex flex-col justify-start items-start gap-y-5">
                     <div className="flex flex-row justify-center items-center gap-x-5">
                         <div className="w-full">
@@ -345,8 +405,9 @@ function Experience(){
                                 Employer
                             </label>
                             <input
-                                id="password-input"
-                                type=""
+                                type="text"
+                                value={experience.employer || ''}
+                                onChange={(e) => handleInputChange(index, 'employer', e.target.value)}
                                 placeholder="Employer's name..."
                                 className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
                                 required
@@ -360,8 +421,9 @@ function Experience(){
                                 Location
                             </label>
                             <input
-                                id="password-input"
-                                type=""
+                                type="text"
+                                value={experience.location || ''}
+                                onChange={(e) => handleInputChange(index, 'location', e.target.value)}
                                 placeholder="Ex: London, UK..."
                                 className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
                                 required
@@ -377,8 +439,9 @@ function Experience(){
                                 Role
                             </label>
                             <input
-                                id="password-input"
-                                type=""
+                                type="text"
+                                value={experience.role || ''}
+                                onChange={(e) => handleInputChange(index, 'role', e.target.value)}
                                 placeholder="What was your title..."
                                 className="w-full rounded border-[1px] border-slate-300 px-2.5 py-1.5 focus:outline-indigo-600"
                                 required
@@ -391,7 +454,7 @@ function Experience(){
                             >
                                 Employment Type
                             </label>
-                            <select id="types" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5">
+                            <select id="types" value={experience.employmentType || ''} onChange={(e) => handleSelectChange(index, e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5">
                                 <option selected>Choose an option</option>
                                 <option value="FT">Full-time</option>
                                 <option value="PT">Part-time</option>
@@ -400,24 +463,10 @@ function Experience(){
                             </select>
                         </div>
                     </div>
-                    
-                    {/* <div className="flex flex-row justify-center items-center gap-x-5">
-                        <div className="flex flex-row gap-x-5 justify-center items-center">
-                            <div className="flex flex-col justify-start items-start gap-y-2">
-                                <p className="inline-block text-sm font-alliance">Start Date</p>
-                                <Datepicker />
-                            </div>
-                            <p className="mt-6 inline-block text-sm font-alliance">to</p>
-                            <div className="flex flex-col justify-start items-start gap-y-2">
-                                <p className="inline-block text-sm font-alliance">End Date</p>
-                                <Datepicker />
-                            </div>
-                        </div>
-                    </div> */}
 
                     <div className="w-full flex flex-col gap-y-2">
                         <p className="inline-block text-sm font-alliance">Description</p>
-                        <Textarea id="comment" placeholder="Talk about your role. Avoid using bullet point characters..." required rows={4} />
+                        <Textarea id="comment" value={experience.description || ''} onChange={(e) => handleTextareaChange(index, e.target.value)} placeholder="Talk about your role. Avoid using bullet point characters..." required rows={4} />
                     </div>
 
                     <button 

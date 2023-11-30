@@ -2,10 +2,10 @@ import { useRef, useState } from "react";
 import { FiLock } from "react-icons/fi";
 import { motion } from "framer-motion";
 
-const CoolButton = () => {
+const CoolButton = ({ onClick }) => {
   return (
     <div className="grid place-content-center">
-      <EncryptButton />
+      <EncryptButton  onClick={onClick}/>
     </div>
   );
 };
@@ -16,7 +16,7 @@ const SHUFFLE_TIME = 50;
 
 const CHARS = "!@#$%^&*():{};|,.<>/?";
 
-const EncryptButton = () => {
+const EncryptButton = ({ onClick }) => {
   const intervalRef = useRef(null);
 
   const [text, setText] = useState(TARGET_TEXT);
@@ -61,6 +61,7 @@ const EncryptButton = () => {
       whileTap={{
         scale: 0.975,
       }}
+      onClick={onClick}
       onMouseEnter={scramble}
       onMouseLeave={stopScramble}
       className="group relative overflow-hidden rounded-lg border-[1px] border-slate-500 bg-slate-700 px-4 py-2 font-mono font-medium uppercase text-slate-300 transition-colors hover:text-indigo-300"
